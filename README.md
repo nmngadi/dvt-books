@@ -1,27 +1,24 @@
 # DvtBooks
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+[![CircleCI](https://circleci.com/gh/nmngadi/dvt-books.svg?style=svg)](https://circleci.com/gh/nmngadi/dvt-books)
 
-## Development server
+## Project description
+DVT is in the process of building a central repository for its developers to find software development books. The application has been named DVTBooks. A group of backend developers have created the APIs and databases to create, read, update and delete books. This is a frontend application which consumes the APIs and provides the frontend functionality.  
+## Outcome of project
+ 1.Practiced building components and services 
+ 2. Practiced authentication using OAuth & OpenID Connect (OIDC) 
+ 3. Practiced consuming REST APIs 
+ 4. Used server-side filtering
+ 5. Practiced formatting field values
+ 6. Practiced input validation 
+ 7. Implemented unit tests using Karma & Jasmine 
+ 8. Used Internationalization (i18n)
+ 9. Practiced Reactive Programming using Rx and Observables 
+ 10. Used server-side pagination
+ 11. Loaded data & assets from cache when offline (PWA) 
+ 12. Practiced using Docker in an Angular web application 
+ 13. Built a modern app using a web framework that calls a secure back-end service. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Screenshots of working application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
