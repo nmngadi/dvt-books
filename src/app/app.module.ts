@@ -8,9 +8,9 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorListComponent } from './author/author-list/author-list.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorCreateComponent } from './author/author-create/author-create.component';
-
+import { AuthorEditComponent } from './author/author-edit/author-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { AuthorCreateComponent } from './author/author-create/author-create.comp
     NavBarComponent,
     AuthorListComponent,
     AuthorCreateComponent,
+    AuthorEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,11 @@ import { AuthorCreateComponent } from './author/author-create/author-create.comp
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'authors', component: AuthorListComponent },
+      {
+        path: 'author/:id/edit',
+
+        component: AuthorEditComponent,
+      },
     ]),
   ],
 
