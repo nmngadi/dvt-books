@@ -9,7 +9,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorListComponent } from './author/author-list/author-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AuthorCreateComponent } from './author/author-create/author-create/author-create.component';
+import { AuthorCreateComponent } from './author/author-create/author-create.component';
+
 
 @NgModule({
   declarations: [
