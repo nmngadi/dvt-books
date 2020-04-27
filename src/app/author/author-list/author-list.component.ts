@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getQueryPredicate } from '@angular/compiler/src/render3/view/util';
-import { IAuthor } from 'src/app/interfaces/Author';
 import { AuthorService } from 'src/app/services/authors.service';
+import { IAuthor } from 'src/app/interfaces/author';
 
 @Component({
   selector: 'app-author-list',
