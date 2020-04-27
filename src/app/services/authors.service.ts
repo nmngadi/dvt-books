@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
-import { environment } from "src/environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { IAuthor } from '../interfaces/Author';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 
 export class AuthorService {
@@ -29,9 +29,9 @@ export class AuthorService {
 
 
     return this.http
-      .put<IAuthor>("environment.authorUrl", author)
+      .put<IAuthor>('environment.authorUrl', author)
       .pipe(
-        tap((data) => console.log("createAuthor: " + JSON.stringify(data)))
+        tap((data) => console.log('createAuthor: ' + JSON.stringify(data)))
       );
   }
 
@@ -39,7 +39,7 @@ export class AuthorService {
     return this.http
       .put<IAuthor>(`${environment.authorUrl}/${author.id}`, author)
       .pipe(
-        tap(() => console.log("updateAuthor: " + author.id)),
+        tap(() => console.log('updateAuthor: ' + author.id)),
 
         map(() => author)
       );
