@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IAuthor } from '../interfaces/Author';
+import { IAuthor } from '../interfaces/author';
+
+
 
 @Injectable({
   providedIn: 'root',
