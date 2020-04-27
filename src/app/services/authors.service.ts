@@ -28,10 +28,10 @@ export class AuthorService {
   }
 
   createAuthor(author: IAuthor): Observable<IAuthor> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
 
     return this.http
-      .put<IAuthor>(environment.authorUrl, author, { headers })
+      .put<IAuthor>(environment.authorUrl, author)
       .pipe(
         tap((data) => console.log('createAuthor: ' + JSON.stringify(data)))
       );
