@@ -7,22 +7,28 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthorListComponent } from './author/author-list/author-list.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    AuthorListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent }])
-      ],
+      { path: 'home', component: HomeComponent },
+      { path: 'authors', component: AuthorListComponent },
+    ]),
+  ],
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
