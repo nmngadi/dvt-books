@@ -3,6 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  authorUrl :'http://localhost:4201/Authors',
+  booksUrl:'http://localhost:4201/Books',
+  tagsUrl:'http://localhost:4201/Tags',
   production: false
 };
 
