@@ -30,6 +30,7 @@ import { AuthorEditComponent } from './author/author-edit/author-edit.component'
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'authors', component: AuthorListComponent },
+      { path: 'addAuthor', component: AuthorCreateComponent },
       {
         path: 'author/:id/edit',
 
