@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorListComponent } from './author/author-list/author-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthorCreateComponent } from './author/author-create/author-create/author-create.component';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { AuthorCreateComponent } from './author/author-create/author-create/auth
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'authors', component: AuthorListComponent },
