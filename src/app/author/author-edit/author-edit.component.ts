@@ -27,12 +27,11 @@ export class AuthorEditComponent implements OnInit {
     private router: Router
   ) {
     this.editAuthorForm = this.fb.group({
-      first_name: ['', [Validators.required, Validators.minLength(2)]],
+      first_name: ['', [Validators.required]],
       middle_names: [''],
       last_name: ['', Validators.required],
-      name: [''],
       about: [''],
-      id: ['']
+      id: [''],
     });
   }
 
@@ -54,9 +53,7 @@ export class AuthorEditComponent implements OnInit {
   get middle_names(): AbstractControl {
     return this.editAuthorForm.get('middle_names');
   }
-  get name(): AbstractControl {
-    return this.editAuthorForm.get('name');
-  }
+
   get about(): AbstractControl {
     return this.editAuthorForm.get('about');
   }
@@ -76,18 +73,18 @@ export class AuthorEditComponent implements OnInit {
     this.author = author;
 
     this.editAuthorForm.patchValue({
-    first_name: this.author.first_name,
+      first_name: this.author.first_name,
       last_name: this.author.last_name,
       middle_names: this.author.middle_names,
       name: this.author.name,
       about: this.author.about,
-      id: this.author.id
+      id: this.author.id,
     });
   }
   save() {
     this.author = this.editAuthorForm.value;
-
     this.authorservice.updateAuthor(this.author).subscribe();
-    alert(JSON.stringify(this.editAuthorForm.value));
+    this.editAuthorForm.reset();
+    this.router.navigate(['/authors']);
   }
 }
