@@ -1,8 +1,8 @@
 <div class="container">
-  <div style="margin-top: 50px; margin-left: 20%; margin-right: 20%;">
+  <div class="form">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 style="text-align: center;">Author Create form</h3>
+        <h3 style="text-align: center;">New Author</h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -10,19 +10,24 @@
             <form novalidate (ngSubmit)="save()" [formGroup]="createAuthorForm">
 
               <div class="form-group">
-                <label for="first_name">First Name</label>
+                <label for="firstName">First Name</label>
                 <div>
-                  <input class="form-control" id="firstNameId" type="text" placeholder="First Name (required)"
-                    formControlName="first_name" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="firstName"
+                    type="text"
+                    placeholder="First Name (required)"
+                    formControlName="first_name"
+                    [ngClass]="{
                       'is-invalid':
                         (first_name.touched || first_name.dirty) &&
                         !first_name.valid
-                    }" />
+                    }"
+                  />
                   <span class="invalid-feedback">
                     <span *ngIf="first_name.errors?.required">
                       First name is required.
                     </span>
-
                   </span>
                 </div>
               </div>
@@ -30,65 +35,72 @@
               <div class="form-group">
                 <label for="lastName">Last Name</label>
                 <div>
-                  <input class="form-control" id="lastNameId" type="text" placeholder="Last Name (required)"
-                    formControlName="last_name" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="lastName"
+                    type="text"
+                    placeholder="Last Name (required)"
+                    formControlName="last_name"
+                    [ngClass]="{
                       'is-invalid':
-                        (last_name.touched || last_name.dirty) && !last_name.valid
-                    }" />
+                        (last_name.touched || last_name.dirty) &&
+                        !last_name.valid
+                    }"
+                  />
                   <span class="invalid-feedback">
                     <span *ngIf="last_name.errors?.required">
                       Last name is required.
                     </span>
-
                   </span>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="middle_names">middle_names</label>
+                <label for="middleNames">Middle Names</label>
                 <div>
-                  <input class="form-control" id="middle_names" type="text" placeholder="middle_names(required)"
-                    formControlName="middle_names" [ngClass]="{
-                      'is-invalid': (middle_names.touched || middle_names.dirty) && !middle_names.valid
-                    }" />
-
-                </div>
-              </div>
-
-
-              <div class="form-group">
-                <label for="name"> Name</label>
-                <div>
-                  <input class="form-control" id="name" type="text" placeholder="name"
-                    formControlName="name" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="middleNames"
+                    type="text"
+                    placeholder="middle Names"
+                    formControlName="middle_names"
+                    [ngClass]="{
                       'is-invalid':
-                        (name.touched || name.dirty) &&
-                        !name.valid
-                    }" />
-
+                        (middle_names.touched || middle_names.dirty) &&
+                        !middle_names.valid
+                    }"
+                  />
                 </div>
               </div>
+
+
+
               <div class="form-group">
                 <label for="about">about</label>
                 <div>
-                  <input class="form-control" id="about" type="text" placeholder="about"
-                    formControlName="about" [ngClass]="{
+                  <textarea
+                    class="form-control"
+                    id="about"
+                    type="textarea"
+                    placeholder="about"
+                    rows="3"
+                    formControlName="about"
+                    [ngClass]="{
                       'is-invalid':
-                        (about.touched || about.dirty) &&
-                        !about.valid
-                    }" />
-  
+                        (about.touched || about.dirty) && !about.valid
+                    }"
+                  ></textarea>
                 </div>
               </div>
 
-
               <div class="form-group">
                 <div>
-                  <button class="btn btn-primary mr-3" type="submit" [title]="
-                      createAuthorForm.valid
-                        ? 'Save your entered data'
-                        : 'Disabled until the form data is valid'
-                    " [disabled]="!createAuthorForm.valid">
+                  <button
+                    class="btn btn-primary mr-3"
+                    type="submit"
+                    [title]=""
+                    [disabled]="!createAuthorForm.valid"
+                  >
                     Save
                   </button>
                 </div>
