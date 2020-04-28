@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthorService } from 'src/app/services/authors.service';
 import { IAuthor } from 'src/app/interfaces/author';
+import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
+import { startWith, tap, map, switchAll } from 'rxjs/operators';
 
 @Component({
   selector: 'app-author-list',
@@ -10,34 +12,27 @@ import { IAuthor } from 'src/app/interfaces/author';
 })
 export class AuthorListComponent implements OnInit {
   authors: IAuthor[];
+  searchForm: FormGroup;
 
-  filteredAuthors: IAuthor[] = [];
-  listfilter = '';
-  get listFilter(): string {
-    return this.listfilter;
+  constructor(private authorservice: AuthorService, private fb: FormBuilder) {
+    this.searchForm = this.fb.group({
+      searchStr: [''],
+    });
   }
-  set listFilter(value: string) {
-    this.listfilter = value;
-    this.filteredAuthors = this.listFilter
-      ? this.performFilter(this.listFilter)
-      : this.authors;
-  }
-  constructor(private authorservice: AuthorService) {}
 
-  performFilter(filterBy: string): IAuthor[] {
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.authors.filter(
-      (author: IAuthor) =>
-        author.first_name.toLocaleLowerCase().indexOf(filterBy) !== -1
-    );
+  get searchstr(): AbstractControl {
+    return this.searchForm.get('searchStr');
   }
 
   ngOnInit() {
-    this.authorservice.getAuthors().subscribe({
-      next: (authors) => {
+    this.searchstr.valueChanges
+      .pipe(
+        startWith(''),
+        map((searchstr) => this.authorservice.getAuthors(searchstr)),
+        switchAll()
+      )
+      .subscribe((authors) => {
         this.authors = authors;
-        this.filteredAuthors = this.authors;
-      },
-    });
+      });
   }
 }
