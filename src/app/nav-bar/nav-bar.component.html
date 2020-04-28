@@ -1,0 +1,99 @@
+
+
+<nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
+  <div class="navbar-header d-flex col">
+    <a href="#" class="navbar-brand">
+      <a href="http://localhost:4200/profile" target="_blank" class="logo">
+        <img
+          src="https://avatars3.githubusercontent.com/u/3303186?s=280&v=4"
+          alt="logo"
+        />
+      </a>
+    </a>
+    <button
+      type="button"
+      data-target="#navbarCollapse"
+      data-toggle="collapse"
+      class="navbar-toggle navbar-toggler ml-auto"
+    >
+      <span class="navbar-toggler-icon"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div
+    id="navbarCollapse"
+    class="collapse navbar-collapse justify-content-start"
+  >
+    <form class="navbar-form form-inline">
+      <div class="input-group search-box">
+        <input
+          type="text"
+          id="search"
+          class="form-control"
+          placeholder="Search here..."
+        />
+        <span class="input-group-addon"
+          ><i class="material-icons">&#xE8B6;</i></span
+        >
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+      <li class="nav-item active">
+        <a href="#" class="nav-link"
+          ><i class="fa fa-home"></i><span>Home</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" routerLink="/books" class="nav-link"
+          ><i class="fa fa-book"></i><span>Books</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" routerLink="/addBook" class="nav-link"
+          ><i class="fa fa-plus"></i><span>Add Books</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" routerLink="/authors" class="nav-link"
+          ><i class="fa fa-users"></i><span>Authors</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" routerLink="/addAuthor" class="nav-link"
+          ><i class="fa fa-plus"></i><span>Add Authors</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"
+          ><i class="fa fa-tag"></i><span>Tags</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"
+          ><i class="fa fa-tag"></i><span>Book Tags</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          href="#"
+          (click)="auth.login()"
+          *ngIf="!auth.loggedIn"
+          class="nav-link"
+          ><i class="fa fa-sign-in"></i><span>Login</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          href="#"
+          (click)="auth.logout()"
+          *ngIf="auth.loggedIn"
+          class="nav-link"
+          ><i class="fa fa-sign-out"></i><span>Logout </span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
