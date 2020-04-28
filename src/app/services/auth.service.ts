@@ -14,8 +14,8 @@ export class AuthService {
   auth0Client$ = (from(
     createAuth0Client({
       domain: environment.domain,
-      client_id: environment.client_id,
-      redirect_uri: environment.redirect_uri
+      client_id: environment.clientId,
+      redirect_uri: environment.redirectUri
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1),
@@ -70,7 +70,7 @@ export class AuthService {
     this.auth0Client$.subscribe((client: Auth0Client) => {
 
       client.loginWithRedirect({
-        redirect_uri: environment.redirect_uri,
+        redirect_uri: environment.redirectUri,
         appState: { target: redirectPath }
       });
     });
@@ -107,8 +107,8 @@ export class AuthService {
 
     this.auth0Client$.subscribe((client: Auth0Client) => {
       client.logout({
-        client_id: environment.client_id,
-        returnTo: environment.redirect_uri
+        client_id: environment.clientId,
+        returnTo: environment.redirectUri
       });
     });
   }
