@@ -172,3 +172,12 @@ body{
     width: 100%;
   }
 }
+.logo {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
