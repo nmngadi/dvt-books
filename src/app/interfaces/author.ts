@@ -1,4 +1,4 @@
-import { IBook } from "./books";
+import { IBook } from './books';
 export interface IAuthor {
   href: string;
   id: string;
