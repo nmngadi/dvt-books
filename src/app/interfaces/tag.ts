@@ -1,5 +1,5 @@
-export class Tag {
-id: string;
-href: string;
-description: string;
+export interface ITag {
+  id: string;
+  href: string;
+  description: string;
 }
