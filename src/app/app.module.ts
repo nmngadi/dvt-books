@@ -11,6 +11,7 @@ import { AuthorListComponent } from './author/author-list/author-list.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorCreateComponent } from './author/author-create/author-create.component';
 import { AuthorEditComponent } from './author/author-edit/author-edit.component';
+import { LoaderComponent } from './loader/loader.component';\
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { AuthorEditComponent } from './author/author-edit/author-edit.component'
     AuthorListComponent,
     AuthorCreateComponent,
     AuthorEditComponent,
+    LoaderComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,6 @@ import { AuthorEditComponent } from './author/author-edit/author-edit.component'
       },
     ]),
   ],
-
   providers: [],
   bootstrap: [AppComponent],
 })
