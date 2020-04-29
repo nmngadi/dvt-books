@@ -32,17 +32,17 @@ describe('AuthorEditComponent', () => {
   }));
 
   it(`form should be invalid`, async(() => {
-    comp.editAuthorForm.controls.first_name.setValue('');
-    comp.editAuthorForm.controls.last_name.setValue('');
-    comp.editAuthorForm.controls.middle_names.setValue('');
+    comp.editAuthorForm.controls.firstName.setValue('');
+    comp.editAuthorForm.controls.lastName.setValue('');
+    comp.editAuthorForm.controls.middleNames.setValue('');
     comp.editAuthorForm.controls.about.setValue('');
     expect(comp.editAuthorForm.valid).toBeFalsy();
   }));
 
   it(`form should be valid`, async(() => {
-    comp.editAuthorForm.controls.first_name.setValue('Jane');
-    comp.editAuthorForm.controls.last_name.setValue('Doe');
-    comp.editAuthorForm.controls.middle_names.setValue('Jill');
+    comp.editAuthorForm.controls.firstName.setValue('Jane');
+    comp.editAuthorForm.controls.lastName.setValue('Doe');
+    comp.editAuthorForm.controls.middleNames.setValue('Jill');
     comp.editAuthorForm.controls.about.setValue('writes about C#');
     expect(comp.editAuthorForm.valid).toBeTruthy();
   }));

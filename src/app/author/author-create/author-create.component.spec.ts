@@ -31,17 +31,17 @@ describe('AuthorCreateComponent', () => {
   }));
 
   it(`form should be invalid`, async(() => {
-    comp.createAuthorForm.controls.first_name.setValue('');
-    comp.createAuthorForm.controls.last_name.setValue('');
-    comp.createAuthorForm.controls.middle_names.setValue('');
+    comp.createAuthorForm.controls.firstName.setValue('');
+    comp.createAuthorForm.controls.lastName.setValue('');
+    comp.createAuthorForm.controls.middleNames.setValue('');
     comp.createAuthorForm.controls.about.setValue('');
     expect(comp.createAuthorForm.valid).toBeFalsy();
   }));
 
   it(`form should be valid`, async(() => {
-    comp.createAuthorForm.controls.first_name.setValue('Jane');
-    comp.createAuthorForm.controls.last_name.setValue('Doe');
-    comp.createAuthorForm.controls.middle_names.setValue('Jill');
+    comp.createAuthorForm.controls.firstName.setValue('Jane');
+    comp.createAuthorForm.controls.lastName.setValue('Doe');
+    comp.createAuthorForm.controls.middleNames.setValue('Jill');
     comp.createAuthorForm.controls.about.setValue('writes about C#');
     expect(comp.createAuthorForm.valid).toBeTruthy();
   }));
