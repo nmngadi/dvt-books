@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorCreateComponent } from './author/author-create/author-create.component';
 import { AuthorEditComponent } from './author/author-edit/author-edit.component';
 import { LoaderComponent } from './loader/loader.component';
+import { BookCreateComponent } from './book/book-create/book-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import { LoaderComponent } from './loader/loader.component';
     AuthorCreateComponent,
     AuthorEditComponent,
     LoaderComponent,
-
+    BookCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +39,7 @@ import { LoaderComponent } from './loader/loader.component';
 
         component: AuthorEditComponent,
       },
+      { path: 'addBook', component: BookCreateComponent }
     ]),
   ],
   providers: [],
