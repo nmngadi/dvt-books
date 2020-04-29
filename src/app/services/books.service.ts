@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class booksService {
+export class BooksService {
 
   constructor(private http: HttpClient) {}
 
@@ -15,6 +15,6 @@ export class booksService {
   }
 
   createBook(book: IBook): Observable<IBook> {
-    return this.http.post<IBook>(environment.booksUrl, book)
+    return this.http.post<IBook>(environment.booksUrl, book);
   }
 }
