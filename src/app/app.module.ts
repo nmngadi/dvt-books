@@ -13,6 +13,7 @@ import { AuthorCreateComponent } from './author/author-create/author-create.comp
 import { AuthorEditComponent } from './author/author-edit/author-edit.component';
 import { LoaderComponent } from './loader/loader.component';
 import { BookCreateComponent } from './book/book-create/book-create.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +34,13 @@ import { BookCreateComponent } from './book/book-create/book-create.component';
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'authors', component: AuthorListComponent },
-      { path: 'addAuthor', component: AuthorCreateComponent },
+      { path: 'authors/new', component: AuthorCreateComponent },
       {
         path: 'author/:id/edit',
 
         component: AuthorEditComponent,
       },
-      { path: 'addBook', component: BookCreateComponent }
+      { path: 'books/new', component: BookCreateComponent }
     ]),
   ],
   providers: [],
