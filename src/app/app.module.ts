@@ -11,8 +11,7 @@ import { AuthorListComponent } from './author/author-list/author-list.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorCreateComponent } from './author/author-create/author-create.component';
 import { AuthorEditComponent } from './author/author-edit/author-edit.component';
-import { LoaderComponent } from './loader/loader.component';\
-
+import { LoaderComponent } from './loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
