@@ -19,39 +19,52 @@ export class AuthorCreateComponent implements OnInit {
   createAuthorForm: FormGroup;
   author: IAuthor;
 
-  constructor(
-    private fb: FormBuilder,
-    private authorservice: AuthorService,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router) {
     this.createAuthorForm = this.fb.group({
-      first_name: ['', [Validators.required]],
-      middle_names: [''],
-      last_name: ['', Validators.required],
+      firstName: ['', [Validators.required]],
+      lastName: [''],
+      middleNames: ['', Validators.required],
       about: [''],
     });
+
+    this.author = {
+      first_name: '',
+      last_name: '',
+      middle_names: '',
+      about: ''
+    } as IAuthor;
   }
 
-  ngOnInit() {}
-
-  get first_name(): AbstractControl {
-    return this.createAuthorForm.get('first_name');
+  get firstName(): AbstractControl {
+    return this.createAuthorForm.get('firstName');
   }
-  get last_name(): AbstractControl {
-    return this.createAuthorForm.get('last_name');
+  get lastName(): AbstractControl {
+    return this.createAuthorForm.get('lastName');
   }
-  get middle_names(): AbstractControl {
-    return this.createAuthorForm.get('middle_names');
+  get middleNames(): AbstractControl {
+    return this.createAuthorForm.get('middleNames');
   }
 
   get about(): AbstractControl {
     return this.createAuthorForm.get('about');
   }
 
+  ngOnInit() {
+    this.firstName.valueChanges
+      .subscribe(x => this.author.first_name = x);
+    this.lastName.valueChanges
+      .subscribe(x => this.author.last_name = x);
+    this.middleNames.valueChanges
+      .subscribe(x => this.author.middle_names = x);
+    this.about.valueChanges
+      .subscribe(x => this.author.about = x);
+}
+
   save() {
-    this.author = this.createAuthorForm.value;
+
     this.authorservice.createAuthor(this.author).subscribe();
     this.createAuthorForm.reset();
     this.router.navigate(['/authors']);
   }
+
 }

@@ -12,20 +12,14 @@
               <div class="form-group">
                 <label for="firstName">First Name</label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="firstName"
-                    type="text"
-                    placeholder="First Name (required)"
-                    formControlName="first_name"
-                    [ngClass]="{
+                  <input class="form-control" id="firstName" type="text" placeholder="First Name (required)"
+                    formControlName="firstName" [ngClass]="{
                       'is-invalid':
-                        (first_name.touched || first_name.dirty) &&
-                        !first_name.valid
-                    }"
-                  />
+                        (firstName.touched || firstName.dirty) &&
+                        !firstName.valid
+                    }" />
                   <span class="invalid-feedback">
-                    <span *ngIf="first_name.errors?.required">
+                    <span *ngIf="firstName.errors?.required">
                       First name is required.
                     </span>
                   </span>
@@ -35,20 +29,14 @@
               <div class="form-group">
                 <label for="lastName">Last Name</label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="lastName"
-                    type="text"
-                    placeholder="Last Name (required)"
-                    formControlName="last_name"
-                    [ngClass]="{
+                  <input class="form-control" id="lastName" type="text" placeholder="Last Name (required)"
+                    formControlName="lastName" [ngClass]="{
                       'is-invalid':
-                        (last_name.touched || last_name.dirty) &&
-                        !last_name.valid
-                    }"
-                  />
+                        (lastName.touched || lastName.dirty) &&
+                        !lastName.valid
+                    }" />
                   <span class="invalid-feedback">
-                    <span *ngIf="last_name.errors?.required">
+                    <span *ngIf="lastName.errors?.required">
                       Last name is required.
                     </span>
                   </span>
@@ -58,18 +46,12 @@
               <div class="form-group">
                 <label for="middleNames">Middle Names</label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="middleNames"
-                    type="text"
-                    placeholder="middle Names"
-                    formControlName="middle_names"
-                    [ngClass]="{
+                  <input class="form-control" id="middleNames" type="text" placeholder="middle Names"
+                    formControlName="middleNames" [ngClass]="{
                       'is-invalid':
-                        (middle_names.touched || middle_names.dirty) &&
-                        !middle_names.valid
-                    }"
-                  />
+                        (middleNames.touched || middleNames.dirty) &&
+                        !middleNames.valid
+                    }" />
                 </div>
               </div>
 
@@ -78,29 +60,17 @@
               <div class="form-group">
                 <label for="about">about</label>
                 <div>
-                  <textarea
-                    class="form-control"
-                    id="about"
-                    type="textarea"
-                    placeholder="about"
-                    rows="3"
-                    formControlName="about"
-                    [ngClass]="{
+                  <textarea class="form-control" id="about" type="textarea" placeholder="about" rows="3"
+                    formControlName="about" [ngClass]="{
                       'is-invalid':
                         (about.touched || about.dirty) && !about.valid
-                    }"
-                  ></textarea>
+                    }"></textarea>
                 </div>
               </div>
 
               <div class="form-group">
                 <div>
-                  <button
-                    class="btn btn-primary mr-3"
-                    type="submit"
-                    [title]=""
-                    [disabled]="!editAuthorForm.valid"
-                  >
+                  <button class="btn btn-primary mr-3" type="submit" [title]="" [disabled]="!editAuthorForm.valid">
                     Save
                   </button>
                 </div>
