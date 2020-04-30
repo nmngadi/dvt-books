@@ -11,13 +11,9 @@ services:
       - mssql
   booksapi:
     container_name: booksapi
-    image: str1zzwald/dvt-books-api
+    image: str1zzwald/dvt-books-api:1.0.0
     depends_on:
       - mssql
   mssql:
     container_name: mssql
     image: mcr.microsoft.com/mssql/server:2017-latest
-
-   
-
-
