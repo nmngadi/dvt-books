@@ -14,6 +14,7 @@ import { TagService } from 'src/app/services/tags.service';
 import { AuthorService } from 'src/app/services/authors.service';
 import { Router } from '@angular/router';
 import { dateFormat } from 'src/app/validations/date.validation';
+import { isbn13Validation } from 'src/app/validations/isbn13.validation';
 
 @Component({
   selector: 'app-book-create',
@@ -42,7 +43,7 @@ export class BookCreateComponent implements OnInit {
   ) {
     this.createBookForm = this.fb.group({
       isbn10: [''],
-      isbn13: ['', [Validators.required]],
+      isbn13: ['', [Validators.required, isbn13Validation()]],
       title: ['', [Validators.required]],
       about: [''],
       author: [''],
