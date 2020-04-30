@@ -9,6 +9,17 @@
           <div class="col-md-8 offset-md-2">
             <form novalidate (ngSubmit)="save()" [formGroup]="createBookForm">
               <div class="form-group">
+                <label for="isbn10">isbn10</label>
+                <div>
+                  <input class="form-control" id="isbn10" type="text" placeholder="isbn10" formControlName="isbn10"
+                    [ngClass]="{
+                      'is-invalid':
+                        (isbn10.touched || isbn10.dirty) && !isbn10.valid
+                    }" />
+
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="isbn13">isbn13</label>
                 <div>
                   <input class="form-control" id="isbn13" type="text" placeholder="isbn13" formControlName="isbn13"
@@ -34,6 +45,31 @@
                     }" />
                 </div>
               </div>
+              <div class="form-group">
+                <label for="publisher">publisher</label>
+                <div>
+                  <input class="form-control" id="publisher" type="text" placeholder="publisher"
+                    formControlName="publisher" [ngClass]="{
+                      'is-invalid':
+                        (publisher.touched || publisher.dirty) && !publisher.valid
+                    }" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="datePublished">datePublished</label>
+                <div>
+                  <input class="form-control" id="datePublished" type="text" placeholder="datePublished"
+                    formControlName="datePublished" [ngClass]="{
+                      'is-invalid':
+                        (datePublished.touched || datePublished.dirty) && !datePublished.valid
+                    }" />
+                </div>
+                <span class="invalid-feedback">
+                  <span *ngIf="datePublished.errors?.dateFormat">
+                  Date format is YYYY-MM-DD
+                  </span>
+                </span>
+              </div>
 
               <div class="form-group">
                 <label for="author">Author</label>
@@ -54,11 +90,11 @@
               <div class="form-group">
                 <label for="about">about</label>
                 <div>
-                  <textarea class="form-control" id="about" type="text" placeholder="about" rows="3" formControlName="about"
-                    [ngClass]="{
+                  <textarea class="form-control" id="about" type="text" placeholder="about" rows="3"
+                    formControlName="about" [ngClass]="{
                       'is-invalid':
                         (about.touched || about.dirty) && !about.valid
-                    }" ></textarea>
+                    }"></textarea>
                 </div>
               </div>
 
