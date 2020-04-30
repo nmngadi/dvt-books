@@ -9,6 +9,7 @@ import {
 import { AuthorService } from 'src/app/services/authors.service';
 import { IAuthor } from 'src/app/interfaces/author';
 import { Router } from '@angular/router';
+import { textonlyValidation } from 'src/app/validations/text-only.validation';
 
 @Component({
   selector: 'app-author-create',
@@ -21,9 +22,9 @@ export class AuthorCreateComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router) {
     this.createAuthorForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: [''],
-      middleNames: ['', Validators.required],
+      firstName: ['', [Validators.required, textonlyValidation()]],
+      lastName: ['', [textonlyValidation()]],
+      middleNames: ['', [Validators.required, textonlyValidation()]],
       about: [''],
     });
 
