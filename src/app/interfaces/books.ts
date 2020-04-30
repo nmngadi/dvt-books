@@ -1,7 +1,7 @@
 import { ITag } from './tag';
 
 export interface IBook {
-
+  isbn10: string;
   isbn13: string;
   title: string;
   about: string;
