@@ -14,7 +14,7 @@ import { textonlyValidation } from 'src/app/validations/text-only.validation';
 @Component({
   selector: 'app-author-create',
   templateUrl: './author-create.component.html',
-  styleUrls: ['./author-create.component.css'],
+  styleUrls: ['./author-create.component.scss'],
 })
 export class AuthorCreateComponent implements OnInit {
   createAuthorForm: FormGroup;

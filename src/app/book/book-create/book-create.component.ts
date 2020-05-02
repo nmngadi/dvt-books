@@ -4,6 +4,7 @@ import {
   FormBuilder,
   Validators,
   AbstractControl,
+  FormControl,
 } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { forkJoin } from 'rxjs';
@@ -19,21 +20,22 @@ import { isbn13Validation } from 'src/app/validations/isbn13.validation';
 @Component({
   selector: 'app-book-create',
   templateUrl: './book-create.component.html',
-  styleUrls: ['./book-create.component.css'],
+  styleUrls: ['./book-create.component.scss'],
 })
 
 export class BookCreateComponent implements OnInit {
   createBookForm: FormGroup;
   book: IBook;
   tagList: ITag[];
-  selectedTag: { id: string; href: string; description: string }[];
+ // selectedTag: ITag[]=[];
   authorList: IAuthor[];
+
   selectedAuthors: {
     href: string;
     id: string;
     name: string;
   };
-
+  selectedTag: { id: string; href: string; description: string }[] = [];
   constructor(
     private fb: FormBuilder,
     private booksservice: BooksService,
@@ -65,6 +67,7 @@ export class BookCreateComponent implements OnInit {
       image: '',
       tags: {}
     } as IBook;
+
   }
 
   ngOnInit() {
@@ -96,7 +99,8 @@ export class BookCreateComponent implements OnInit {
     this.image.valueChanges
       .subscribe(x => this.book.image = x);
     this.tags.valueChanges
-      .subscribe(x => this.book.tags = x);
+      .subscribe(x => this.book.tags = x
+      );
   }
 
   get isbn10(): AbstractControl {
@@ -128,13 +132,19 @@ export class BookCreateComponent implements OnInit {
   }
 
   save() {
-    this.selectedTag = [this.tagList.find((x) => x.id === this.tags.value)];
+
+    for (const row of this.tags.value) {
+      const selected = this.tagList.find((x) => x.id === this.tags.value[row]);
+      console.log(selected);
+      this.selectedTag.push(selected);
+      console.log(this.selectedTag);
+    }
+
     this.book.tags = this.selectedTag;
     this.selectedAuthors = this.authorList.find(x => x.id === this.author.value);
     this.book.author = this.selectedAuthors;
     this.booksservice.createBook(this.book).subscribe();
     this.createBookForm.reset();
-    this.router.navigate(['/authors']);
+    this.router.navigate(['/books']);
   }
-
 }

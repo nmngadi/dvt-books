@@ -11,7 +11,7 @@ import { IAuthor } from 'src/app/interfaces/author';
 @Component({
   selector: 'app-author-edit',
   templateUrl: './author-edit.component.html',
-  styleUrls: ['./author-edit.component.css'],
+  styleUrls: ['./author-edit.component.scss'],
 })
 export class AuthorEditComponent implements OnInit, AfterViewInit {
   editAuthorForm: FormGroup;
