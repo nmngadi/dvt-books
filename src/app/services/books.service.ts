@@ -10,8 +10,8 @@ export class BooksService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<IBook[]> {
-    return this.http.get<IBook[]>(environment.booksUrl);
+  getBooks(query?: string): Observable<IBook[]> {
+    return this.http.get<IBook[]>(`${environment.booksUrl}${query ? `?query=${query}` : ''}`);
   }
 
   createBook(book: IBook): Observable<IBook> {
