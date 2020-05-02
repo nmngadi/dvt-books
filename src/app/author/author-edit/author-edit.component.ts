@@ -1,25 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   Validators,
   AbstractControl,
 } from '@angular/forms';
-
 import { AuthorService } from 'src/app/services/authors.service';
-import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAuthor } from 'src/app/interfaces/author';
-
 @Component({
   selector: 'app-author-edit',
   templateUrl: './author-edit.component.html',
-  styleUrls: ['./author-edit.component.css'],
+  styleUrls: ['./author-edit.component.scss'],
 })
-export class AuthorEditComponent implements OnInit {
+export class AuthorEditComponent implements OnInit, AfterViewInit {
   editAuthorForm: FormGroup;
   author: IAuthor;
-  private currentArtistdetails: Subscription;
+
   constructor(
     private fb: FormBuilder,
     private authorservice: AuthorService,
@@ -27,12 +24,12 @@ export class AuthorEditComponent implements OnInit {
     private router: Router
   ) {
     this.editAuthorForm = this.fb.group({
-      first_name: ['', [Validators.required]],
-      middle_names: [''],
-      last_name: ['', Validators.required],
+      firstName: ['', [Validators.required]],
+      lastName: [''],
+      middleNames: ['', Validators.required],
       about: [''],
-      id: [''],
     });
+
   }
 
   ngOnInit() {
@@ -42,16 +39,29 @@ export class AuthorEditComponent implements OnInit {
       this.getAuthor(id);
       this.author.id = id;
     }
+
+
   }
 
-  get first_name(): AbstractControl {
-    return this.editAuthorForm.get('first_name');
+  ngAfterViewInit(): void {
+    this.firstName.valueChanges
+      .subscribe(x => this.author.first_name = x);
+    this.lastName.valueChanges
+      .subscribe(x => this.author.last_name = x);
+    this.middleNames.valueChanges
+      .subscribe(x => this.author.middle_names = x);
+    this.about.valueChanges
+      .subscribe(x => this.author.about = x);
   }
-  get last_name(): AbstractControl {
-    return this.editAuthorForm.get('last_name');
+
+  get firstName(): AbstractControl {
+    return this.editAuthorForm.get('firstName');
   }
-  get middle_names(): AbstractControl {
-    return this.editAuthorForm.get('middle_names');
+  get lastName(): AbstractControl {
+    return this.editAuthorForm.get('lastName');
+  }
+  get middleNames(): AbstractControl {
+    return this.editAuthorForm.get('middleNames');
   }
 
   get about(): AbstractControl {
@@ -66,25 +76,22 @@ export class AuthorEditComponent implements OnInit {
       },
     });
   }
-  displayAuthor(author: IAuthor) {
-    if (this.editAuthorForm) {
-      this.editAuthorForm.reset();
-    }
-    this.author = author;
 
+  displayAuthor(author: IAuthor) {
+    this.author = author;
     this.editAuthorForm.patchValue({
-      first_name: this.author.first_name,
-      last_name: this.author.last_name,
-      middle_names: this.author.middle_names,
-      name: this.author.name,
+      firstName: this.author.first_name,
+      lastName: this.author.last_name,
+      middleNames: this.author.middle_names,
       about: this.author.about,
       id: this.author.id,
     });
   }
+
   save() {
-    this.author = this.editAuthorForm.value;
     this.authorservice.updateAuthor(this.author).subscribe();
-    this.editAuthorForm.reset();
     this.router.navigate(['/authors']);
   }
+
+
 }

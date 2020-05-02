@@ -1,15 +1,21 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <div class="container">
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
         <div class="col-sm-4">
-          <h2 class="text-center"> <b>Authors</b></h2>
+
+        </div>
+        <div class="col-sm-4">
+          <h2 class="text-center"><b>Books </b></h2>
         </div>
         <div class="col-sm-4">
           <div class="search-box">
-            <i class="material-icons">&#xE8B6;</i>
             <div class="input-group">
-
+              <span class="input-group-addon"
+                ><i class="material-icons">&#xE8B6;</i></span
+              >
               <form [formGroup]="searchForm">
               <input
                 type="text"
@@ -26,22 +32,24 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Middle Name</th>
-          <th>Last Name</th>
-          <th>Name</th>
+          <th>ISBN 10</th>
+          <th>ISBN 13</th>
+          <th>Title</th>
+          <th>Author Name</th>
           <th>About</th>
-
+          <th>Abstract</th>
+          <th>PublishDate</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let author of authors">
-          <td>{{ author.first_name }}</td>
-          <td>{{ author.middle_names }}</td>
-          <td>{{ author.last_name }}</td>
-          <td>{{ author.name |titlecase}}</td>
-          <td>{{ author.about }}</td>
-
+        <tr *ngFor="let book of books">
+          <td>{{ book.isbn10 |isbn:true }}</td>
+          <td>{{ book.isbn13 |isbn:true}}</td>
+          <td>{{ book.title |titlecase}}</td>
+          <td>{{ book.author.name }}</td>
+          <td>{{ book.about }}</td>
+          <td>{{ book.abstract }}</td>
+          <td>{{ book.date_published|date }}</td>
           <td>
             <a href="#" class="view" title="View" data-toggle="tooltip"
               ><i class="material-icons">&#xE417;</i></a
@@ -51,8 +59,9 @@
               class="edit"
               title="Edit"
               data-toggle="tooltip"
-              [routerLink]="['/author', author.id, 'edit']"
-              ><i class="material-icons">&#xE254;</i></a>
+              [routerLink]="['/book', book.isbn13, 'edit']"
+              ><i class="material-icons">&#xE254;</i></a
+            >
           </td>
         </tr>
       </tbody>

@@ -8,7 +8,7 @@ import { startWith, tap, map, switchAll } from 'rxjs/operators';
 @Component({
   selector: 'app-author-list',
   templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.css'],
+  styleUrls: ['./author-list.component.scss'],
 })
 export class AuthorListComponent implements OnInit {
   authors: IAuthor[];

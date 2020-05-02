@@ -7,5 +7,9 @@ export interface IAuthor {
   last_name: string;
   name: string;
   about: string;
-  books: IBook[];
+  books: {
+    href: string;
+    id: string;
+    isbn13: string;
+  }[];
 }

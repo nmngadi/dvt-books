@@ -17,9 +17,6 @@ export class AuthorService {
 
   getAuthors(query?: string): Observable<IAuthor[]> {
     return this.http.get<IAuthor[]>(`${environment.authorUrl}${query ? `?query=${query}` : ''}`);
-
-
-
   }
 
   getAuthor(id: string): Observable<IAuthor> {
@@ -36,7 +33,5 @@ export class AuthorService {
   updateAuthor(author: IAuthor): Observable<IAuthor> {
     return this.http
       .put<IAuthor>(`${environment.authorUrl}/${author.id}`, author);
-
-
   }
 }

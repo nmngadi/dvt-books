@@ -14,5 +14,5 @@ export interface IBook {
   publisher: string;
   date_published: string;
   image: string;
-  tags: ITag;
+  tags: ITag[];
 }
