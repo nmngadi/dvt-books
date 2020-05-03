@@ -45,4 +45,9 @@ describe('AuthorCreateComponent', () => {
     comp.createAuthorForm.controls.about.setValue('writes about C#');
     expect(comp.createAuthorForm.valid).toBeTruthy();
   }));
+  it(`control should be invalid if it contains numbers`, async(() => {
+    comp.createAuthorForm.controls.firstName.setValue('nhlelo123');
+    expect(comp.firstName.valid).toBeFalsy();
+  }));
+
 });
