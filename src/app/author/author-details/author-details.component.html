@@ -27,10 +27,10 @@
           </div>
           <div class="tab-pane" id="tab_default_2">
             <div class="card" style="width: 18rem;" *ngFor="let authorbook of author.books">
-             
+
               <div class="card-body">
-                <h5 class="card-title">ISBN10: {{authorbook.isbn10}}</h5>
-                <h5 class="card-title">ISBN13:{{authorbook.isbn13}}</h5>
+                <h5 class="card-title">ISBN10: {{authorbook.isbn10 |isbn:true}}</h5>
+                <h5 class="card-title">ISBN13:{{authorbook.isbn13|isbn:true}}</h5>
 
                 <p class="card-text">Title: {{authorbook.title}}</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
