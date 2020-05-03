@@ -19,6 +19,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {IsbnPipe} from './pipes/isbn.pipe';
 import { BookEditComponent } from './book/book-edit/book-edit.component';
 import { AuthorDetailsComponent } from './author/author-details/author-details.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import { AuthorDetailsComponent } from './author/author-details/author-details.c
     ]),
     BrowserAnimationsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [],
