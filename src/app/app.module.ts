@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {IsbnPipe} from './pipes/isbn.pipe';
+import { BookEditComponent } from './book/book-edit/book-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import {IsbnPipe} from './pipes/isbn.pipe';
     LoaderComponent,
     BookCreateComponent,
     BooksListComponent,
-    IsbnPipe
+    IsbnPipe,
+    BookEditComponent
   ],
   imports: [
     BrowserModule,
