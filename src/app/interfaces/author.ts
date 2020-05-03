@@ -1,4 +1,4 @@
-import { IBook } from './books';
+import { booksRef } from './bookRef';
 export interface IAuthor {
   href: string;
   id: string;
@@ -7,9 +7,5 @@ export interface IAuthor {
   last_name: string;
   name: string;
   about: string;
-  books: {
-    href: string;
-    id: string;
-    isbn13: string;
-  }[];
+  books: typeof booksRef;
 }
