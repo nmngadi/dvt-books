@@ -78,7 +78,7 @@
               <div class="form-group">
                 <label for="author">Author</label>
                 <select class="form-control" formControlName="author">
-                  <option class="form-control" [value]="author.id" *ngFor="let author of authorList">
+                  <option class="form-control" [value]="author.id" *ngFor="let author of authors">
                     {{ author.name }}</option>
                 </select>
               </div>
@@ -99,11 +99,11 @@
               <mat-form-field>
                 <mat-label>Tags</mat-label>
                 <mat-select [formControl]="tags" multiple>
-                  <mat-option *ngFor="let tag of tagList" [value]="tag.id">{{tag.description}}</mat-option>
+                  <mat-option *ngFor="let tag of tags" [value]="tag.id">{{tag.description}}</mat-option>
                 </mat-select>
               </mat-form-field>
               <div>
-                {{tags.value}}
+                {{tag.value}}
               </div>
               <div class="form-group">
                 <div>

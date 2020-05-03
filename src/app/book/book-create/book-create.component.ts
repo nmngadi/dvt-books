@@ -4,7 +4,6 @@ import {
   FormBuilder,
   Validators,
   AbstractControl,
-  FormControl,
 } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { forkJoin } from 'rxjs';
@@ -16,6 +15,7 @@ import { AuthorService } from 'src/app/services/authors.service';
 import { Router } from '@angular/router';
 import { dateFormat } from 'src/app/validations/date.validation';
 import { isbn13Validation } from 'src/app/validations/isbn13.validation';
+import { authorRef } from 'src/app/interfaces/authorRef';
 
 @Component({
   selector: 'app-book-create',
@@ -26,16 +26,11 @@ import { isbn13Validation } from 'src/app/validations/isbn13.validation';
 export class BookCreateComponent implements OnInit {
   createBookForm: FormGroup;
   book: IBook;
-  tagList: ITag[];
- // selectedTag: ITag[]=[];
-  authorList: IAuthor[];
+  tags: ITag[];
+  authors: IAuthor[];
+  selectedAuthor: typeof authorRef;
+  selectedTags: { id: string; href: string; description: string }[] = [];
 
-  selectedAuthors: {
-    href: string;
-    id: string;
-    name: string;
-  };
-  selectedTag: { id: string; href: string; description: string }[] = [];
   constructor(
     private fb: FormBuilder,
     private booksservice: BooksService,
@@ -76,9 +71,8 @@ export class BookCreateComponent implements OnInit {
       this.authorservice.getAuthors()
     ]).subscribe({
       next: Results => {
-        (this.tagList = Results[0]),
-          (this.authorList = Results[1]);
-
+        (this.tags = Results[0]),
+          (this.authors = Results[1]);
       }
     });
 
@@ -98,7 +92,7 @@ export class BookCreateComponent implements OnInit {
       .subscribe(x => this.book.date_published = x);
     this.image.valueChanges
       .subscribe(x => this.book.image = x);
-    this.tags.valueChanges
+    this.tag.valueChanges
       .subscribe(x => this.book.tags = x
       );
   }
@@ -127,22 +121,22 @@ export class BookCreateComponent implements OnInit {
   get image(): AbstractControl {
     return this.createBookForm.get('image');
   }
-  get tags(): AbstractControl {
-    return this.createBookForm.get('tags');
+  get tag(): AbstractControl {
+    return this.createBookForm.get('tag');
   }
 
   save() {
 
-    for (const row of this.tags.value) {
-      const selected = this.tagList.find((x) => x.id === this.tags.value[row]);
+    for (const row of this.tag.value) {
+      const selected = this.tags.find((x) => x.id === this.tag.value[row]);
       console.log(selected);
-      this.selectedTag.push(selected);
-      console.log(this.selectedTag);
+      this.selectedTags.push(selected);
+      console.log(this.selectedTags);
     }
 
-    this.book.tags = this.selectedTag;
-    this.selectedAuthors = this.authorList.find(x => x.id === this.author.value);
-    this.book.author = this.selectedAuthors;
+    this.book.tags = this.selectedTags;
+    this.selectedAuthor = this.authors.find(x => x.id === this.author.value);
+    this.book.author = this.selectedAuthor;
     this.booksservice.createBook(this.book).subscribe();
     this.createBookForm.reset();
     this.router.navigate(['/books']);
