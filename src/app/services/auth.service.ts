@@ -5,6 +5,7 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,8 @@ export class AuthService {
   userProfile$ = this.userProfileSubject$.asObservable();
 
   loggedIn: boolean = null;
-
+  userProfileData: User = null;
+  userRole = '';
   constructor(private router: Router) {
 
     this.localAuthSetup();
@@ -46,7 +48,16 @@ export class AuthService {
   getUser$(options?): Observable<any> {
     return this.auth0Client$.pipe(
       concatMap((client: Auth0Client) => from(client.getUser(options))),
-      tap(user => this.userProfileSubject$.next(user))
+      tap((user) => {
+        this.userProfileSubject$.next(user), (this.userProfileData = user);
+        if (this.userProfileData[environment.nameSpace].includes('admin')) {
+
+          this.userRole = 'Admin';
+        } else {
+
+          this.userRole = 'User';
+        }
+      })
     );
   }
 

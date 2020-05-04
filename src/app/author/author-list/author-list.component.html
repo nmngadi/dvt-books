@@ -11,12 +11,7 @@
             <div class="input-group">
 
               <form [formGroup]="searchForm">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search&hellip;"
-               formControlName="searchStr"
-              />
+                <input type="text" class="form-control" placeholder="Search&hellip;" formControlName="searchStr" />
               </form>
             </div>
           </div>
@@ -44,15 +39,9 @@
 
           <td>
             <a href="#" class="view" title="View" data-toggle="tooltip"
-              ><i class="material-icons">&#xE417;</i></a
-            >
-            <a
-              href="#"
-              class="edit"
-              title="Edit"
-              data-toggle="tooltip"
-              [routerLink]="['/author', author.id, 'edit']"
-              ><i class="material-icons">&#xE254;</i></a>
+              [routerLink]="['/author', author.id, 'details']"><i class="material-icons">&#xE417;</i></a>
+            <a href="#" class="edit" title="Edit" data-toggle="tooltip" [routerLink]="['/author', author.id, 'edit']"><i
+                class="material-icons">&#xE254;</i></a>
           </td>
         </tr>
       </tbody>

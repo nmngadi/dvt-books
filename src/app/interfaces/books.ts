@@ -1,4 +1,5 @@
 import { ITag } from './tag';
+import { authorRef } from './authorRef';
 
 export interface IBook {
   isbn10: string;
@@ -6,11 +7,7 @@ export interface IBook {
   title: string;
   about: string;
   abstract: string;
-  author: {
-    href: string;
-    id: string;
-    name: string;
-  };
+  author: typeof authorRef;
   publisher: string;
   date_published: string;
   image: string;

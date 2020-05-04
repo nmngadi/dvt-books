@@ -17,6 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {IsbnPipe} from './pipes/isbn.pipe';
+import { BookEditComponent } from './book/book-edit/book-edit.component';
+import { AuthorDetailsComponent } from './author/author-details/author-details.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,9 @@ import {IsbnPipe} from './pipes/isbn.pipe';
     LoaderComponent,
     BookCreateComponent,
     BooksListComponent,
-    IsbnPipe
+    IsbnPipe,
+    BookEditComponent,
+    AuthorDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,16 +50,21 @@ import {IsbnPipe} from './pipes/isbn.pipe';
         path: 'author/:id/edit',
         component: AuthorEditComponent,
       },
+      {
+        path: 'author/:id/details',
+        component: AuthorDetailsComponent,
+      },
       { path: 'books/new', component: BookCreateComponent },
       { path: 'books', component: BooksListComponent },
       {
-        path: 'books/:isbn13/edit',
-        component: BooksListComponent
+        path: 'book/:isbn13/edit',
+        component: BookEditComponent
       }
     ]),
     BrowserAnimationsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [],

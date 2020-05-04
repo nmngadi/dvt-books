@@ -5,6 +5,7 @@ export const environment = {
   domain: 'nmngadi.auth0.com',
   clientId: 'Sc2Dcm0PRHxbzF9oA5WIcl2zynUn76es',
   redirectUri: 'http://localhost:4200',
+  nameSpace: 'http://localhost:4200/claims/role',
   production: false
 };
 

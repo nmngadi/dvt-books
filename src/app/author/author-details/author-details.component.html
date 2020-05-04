@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    <h3>Author Profile</h3>
+
+    <div class="tabbable-panel">
+      <div class="tabbable-line">
+        <ul class="nav nav-tabs ">
+          <li class="active">
+            <a href="#tab_default_1" data-toggle="tab">
+           Profile</a>
+          </li>
+          <li>
+            <a href="#tab_default_2" data-toggle="tab">
+           Books </a>
+          </li>
+
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_default_1">
+            <ul>
+              <li>First Name : {{author.first_name}}</li>
+              <li>Last Name : {{author.last_name}}</li>
+              <li>Full Name : {{author.name}}</li>
+              <li>About Name : {{author.about}}</li>
+          </ul>
+          </div>
+          <div class="tab-pane" id="tab_default_2">
+            <div class="card" style="width: 18rem;" *ngFor="let authorbook of author.books">
+
+              <div class="card-body">
+                <h5 class="card-title">ISBN10: {{authorbook.isbn10 |isbn:true}}</h5>
+                <h5 class="card-title">ISBN13:{{authorbook.isbn13|isbn:true}}</h5>
+
+                <p class="card-text">Title: {{authorbook.title}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<br>
+

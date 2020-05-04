@@ -61,6 +61,7 @@ describe('AuthorsService', () => {
       req.flush(authors);
       httpTestingController.verify();
     });
+
     it('should get one author', () => {
       authorService
         .getAuthor('70088445-6ee2-4745-81d1-8faa4f491658')
@@ -73,7 +74,7 @@ describe('AuthorsService', () => {
       expect().nothing();
     });
 
-    it('should add an employee and return it', () => {
+    it('should add an author and return it', () => {
       const newAuthor: IAuthor = {
         middle_names: 'Jill',
         last_name: 'Doe',
