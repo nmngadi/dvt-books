@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IBook } from '../interfaces/books';
 import { environment } from 'src/environments/environment';
+
+import { DomSanitizer } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,13 +28,11 @@ export class BooksService {
   }
 
   postPicture(isbn13: string, image: File) {
-    const formData = new FormData();
-    const httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'multipart/form-data'})
-  };
-    formData.append('image', image);
-
-    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image, httpOptions);
+    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image);
   }
 
+  getbookpicture(isbn13: string) {
+    return this.http.get(`${environment.booksUrl}/${isbn13}/picture`, { responseType: 'blob' });
+  }
 }
+
