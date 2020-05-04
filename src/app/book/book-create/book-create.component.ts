@@ -22,15 +22,13 @@ import { authorRef } from 'src/app/interfaces/authorRef';
   templateUrl: './book-create.component.html',
   styleUrls: ['./book-create.component.scss'],
 })
-
 export class BookCreateComponent implements OnInit {
   createBookForm: FormGroup;
   book: IBook;
   tags: ITag[];
   authors: IAuthor[];
   selectedAuthor: typeof authorRef;
-  selectedTags: { id: string; href: string; description: string }[] = [];
-
+  selectedFile: File;
   constructor(
     private fb: FormBuilder,
     private booksservice: BooksService,
@@ -47,7 +45,7 @@ export class BookCreateComponent implements OnInit {
       publisher: [''],
       datePublished: ['', [dateFormat()]],
       image: [''],
-      tags: [''],
+      tag: [''],
     });
 
     this.book = {
@@ -60,41 +58,31 @@ export class BookCreateComponent implements OnInit {
       publisher: '',
       date_published: '',
       image: '',
-      tags: {}
+      tags: {},
     } as IBook;
-
   }
 
   ngOnInit() {
     forkJoin([
       this.tagservice.getTags(),
-      this.authorservice.getAuthors()
+      this.authorservice.getAuthors(),
     ]).subscribe({
-      next: Results => {
-        (this.tags = Results[0]),
-          (this.authors = Results[1]);
-      }
+      next: (results) => {
+        (this.tags = results[0]), (this.authors = results[1]);
+      },
     });
 
-    this.isbn10.valueChanges
-      .subscribe(x => this.book.isbn10 = x);
-    this.isbn13.valueChanges
-      .subscribe(x => this.book.isbn13 = x);
-    this.title.valueChanges
-      .subscribe(x => this.book.title = x);
-    this.about.valueChanges
-      .subscribe(x => this.book.about = x);
-    this.author.valueChanges
-      .subscribe(x => this.book.author = x);
-    this.publisher.valueChanges
-      .subscribe(x => this.book.publisher = x);
-    this.datePublished.valueChanges
-      .subscribe(x => this.book.date_published = x);
-    this.image.valueChanges
-      .subscribe(x => this.book.image = x);
-    this.tag.valueChanges
-      .subscribe(x => this.book.tags = x
-      );
+    this.isbn10.valueChanges.subscribe((x) => (this.book.isbn10 = x));
+    this.isbn13.valueChanges.subscribe((x) => (this.book.isbn13 = x));
+    this.title.valueChanges.subscribe((x) => (this.book.title = x));
+    this.about.valueChanges.subscribe((x) => (this.book.about = x));
+    this.author.valueChanges.subscribe((x) => (this.book.author = x));
+    this.publisher.valueChanges.subscribe((x) => (this.book.publisher = x));
+    this.datePublished.valueChanges.subscribe(
+      (x) => (this.book.date_published = x)
+    );
+    this.image.valueChanges.subscribe((x) => (this.book.image = x));
+    this.tag.valueChanges.subscribe((x) => (this.book.tags = x));
   }
 
   get isbn10(): AbstractControl {
@@ -124,20 +112,25 @@ export class BookCreateComponent implements OnInit {
   get tag(): AbstractControl {
     return this.createBookForm.get('tag');
   }
-
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+  postpicture() {
+    this.booksservice
+      .postPicture(this.isbn13.value, this.selectedFile)
+      .subscribe();
+  }
   save() {
-
-    for (const row of this.tag.value) {
-      const selected = this.tags.find((x) => x.id === this.tag.value[row]);
-      console.log(selected);
-      this.selectedTags.push(selected);
-      console.log(this.selectedTags);
-    }
-
-    this.book.tags = this.selectedTags;
-    this.selectedAuthor = this.authors.find(x => x.id === this.author.value);
-    this.book.author = this.selectedAuthor;
-    this.booksservice.createBook(this.book).subscribe();
+    this.book.tags = [this.tags.find((x) => x.id === this.tag.value)];
+    this.book.author = this.authors.find((x) => x.id === this.author.value);
+    this.booksservice
+      .createBook(this.book)
+      .subscribe()
+      .add(
+        this.booksservice
+          .postPicture(this.isbn13.value, this.selectedFile)
+          .subscribe()
+      );
     this.createBookForm.reset();
     this.router.navigate(['/books']);
   }
