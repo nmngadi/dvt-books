@@ -21,6 +21,7 @@ import { BookEditComponent } from './book/book-edit/book-edit.component';
 import { AuthorDetailsComponent } from './author/author-details/author-details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AuthGuard } from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +44,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
-      { path: 'authors', component: AuthorListComponent },
+      { path: 'home', component: HomeComponent , canActivate: [AuthGuard]},
+      { path: 'authors', component: AuthorListComponent},
       { path: 'authors/new', component: AuthorCreateComponent },
       {
         path: 'author/:id/edit',
