@@ -9,7 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('AuthorCreateComponent', () => {
   let comp: AuthorCreateComponent;
   let fixture: ComponentFixture<AuthorCreateComponent>;
-
+  let spy: any;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AuthorCreateComponent],
@@ -50,4 +50,13 @@ describe('AuthorCreateComponent', () => {
     expect(comp.firstName.valid).toBeFalsy();
   }));
 
+  it('should call ngOnInit', () => {
+    spy = spyOn(comp, 'ngOnInit').and.callThrough();
+    comp.ngOnInit();
+    comp.createAuthorForm.controls.firstName.setValue('Jane');
+    comp.createAuthorForm.controls.lastName.setValue('Doe');
+    comp.createAuthorForm.controls.middleNames.setValue('Jill');
+    comp.createAuthorForm.controls.about.setValue('writes about C#');
+    expect(spy).toHaveBeenCalled();
+  });
 });
