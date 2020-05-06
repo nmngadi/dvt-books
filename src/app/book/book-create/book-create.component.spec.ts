@@ -1,10 +1,10 @@
 import { BookCreateComponent } from './book-create.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorService } from 'src/app/services/authors.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { CommonModule } from '@angular/common';
 
 describe('BookCreateComponent', () => {
   let comp: BookCreateComponent;
@@ -14,8 +14,8 @@ describe('BookCreateComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BookCreateComponent],
       imports: [
-        BrowserModule,
         FormsModule,
+        CommonModule,
         ReactiveFormsModule,
         HttpClientModule,
         RouterTestingModule,
@@ -36,8 +36,8 @@ describe('BookCreateComponent', () => {
   }));
 
   it(`control should be invalid if its not a valid date format`, async(() => {
-    comp.createBookForm.controls.datePublished.setValue('2020/05/05');
-    expect(comp.isbn13.valid).toBeFalse();
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    expect(comp.datePublished.valid).toBeTrue();
   }));
 
 });
