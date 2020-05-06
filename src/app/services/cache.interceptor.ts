@@ -17,8 +17,6 @@ export class CacheInterceptor implements HttpInterceptor {
     }
 
     const cachedResponse: HttpResponse<any> = this.cacheService.get(req.url);
-
-
     if (cachedResponse) {
       console.log(`etuning a cached response: ${cachedResponse.url}`);
       console.log(cachedResponse);
