@@ -6,21 +6,31 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-8 offset-md-4">
             <form novalidate (ngSubmit)="save()" [formGroup]="createAuthorForm">
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName"
+                  >First Name <span class="required">*</span></label
+                >
                 <div>
-                  <input class="form-control" id="firstName" type="text" placeholder="First Name (required)"
-                    formControlName="firstName" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="firstName"
+                    type="text"
+                    placeholder="First Name (required)"
+                    formControlName="firstName"
+                    [ngClass]="{
                       'is-invalid':
                         (firstName.touched || firstName.dirty) &&
                         !firstName.valid
-                    }" />
+                    }"
+                  />
                   <span class="invalid-feedback">
                     <span *ngIf="firstName.errors?.required">
                       First name is required.
                     </span>
+                  </span>
+                  <span class="invalid-feedback">
                     <span *ngIf="firstName.errors?.textonlyValidation">
                       First name can consist of alphabetical characters only
                     </span>
@@ -29,13 +39,21 @@
               </div>
 
               <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName"
+                  >Last Name <span class="required">*</span></label
+                >
                 <div>
-                  <input class="form-control" id="lastName" type="text" placeholder="Last Name (required)"
-                    formControlName="lastName" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="lastName"
+                    type="text"
+                    placeholder="Last Name (required)"
+                    formControlName="lastName"
+                    [ngClass]="{
                       'is-invalid':
                         (lastName.touched || lastName.dirty) && !lastName.valid
-                    }" />
+                    }"
+                  />
                   <span class="invalid-feedback">
                     <span *ngIf="lastName.errors?.required">
                       Last name is required.
@@ -52,12 +70,18 @@
               <div class="form-group">
                 <label for="middleNames">Middle Names</label>
                 <div>
-                  <input class="form-control" id="middleNames" type="text" placeholder="middle Names"
-                    formControlName="middleNames" [ngClass]="{
+                  <input
+                    class="form-control"
+                    id="middleNames"
+                    type="text"
+                    placeholder="middle Names"
+                    formControlName="middleNames"
+                    [ngClass]="{
                       'is-invalid':
                         (middleNames.touched || middleNames.dirty) &&
                         !middleNames.valid
-                    }" />
+                    }"
+                  />
                 </div>
                 <span class="invalid-feedback">
                   <span *ngIf="middleNames.errors?.textonlyValidation">
@@ -69,18 +93,30 @@
               <div class="form-group">
                 <label for="about">about</label>
                 <div>
-                  <textarea class="form-control" id="about" type="textarea" placeholder="about" rows="3"
-                    formControlName="about" [ngClass]="{
+                  <textarea
+                    class="form-control"
+                    id="about"
+                    type="textarea"
+                    placeholder="about"
+                    rows="3"
+                    formControlName="about"
+                    [ngClass]="{
                       'is-invalid':
                         (about.touched || about.dirty) && !about.valid
-                    }"></textarea>
+                    }"
+                  ></textarea>
                 </div>
               </div>
 
               <div class="form-group">
                 <div>
-                  <button class="btn btn-primary mr-3" type="submit" [title]="" [disabled]="!createAuthorForm.valid">
-                    Save
+                  <button
+                    class="btn btn-primary btn-lg btn-block"
+                    type="submit"
+                    [title]=""
+                    [disabled]="!createAuthorForm.valid"
+                  >
+                    Save <i class="far fa-save"></i>
                   </button>
                 </div>
               </div>
