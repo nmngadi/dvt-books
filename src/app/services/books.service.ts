@@ -23,7 +23,7 @@ export class BooksService {
     return this.http
       .get<IBook>(`${environment.booksUrl}/${isbn13}`);
   }
-  updateBook(isbn13: string,book: IBook): Observable<IBook> {
+  updateBook(isbn13: string, book: IBook): Observable<IBook> {
     return this.http.put<IBook>(`${environment.booksUrl}/${isbn13}`, book);
   }
 

@@ -57,7 +57,7 @@ isAdmin: boolean;
             this.userRole = userRoles.admin;
         } else {
           this.isAdmin = false;
-          this.userRole =userRoles.admin;
+          this.userRole = userRoles.admin;
         }
       })
     );
