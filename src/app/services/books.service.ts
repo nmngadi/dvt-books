@@ -23,16 +23,16 @@ export class BooksService {
     return this.http
       .get<IBook>(`${environment.booksUrl}/${isbn13}`);
   }
-  updateBook(book: IBook): Observable<IBook> {
-    return this.http.post<IBook>(environment.booksUrl, book);
+  updateBook(isbn13: string,book: IBook): Observable<IBook> {
+    return this.http.put<IBook>(`${environment.booksUrl}/${isbn13}`, book);
   }
 
   postPicture(isbn13: string, image: File) {
-    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image);
+    return this.http.post(`${environment.booksUrl}/${isbn13}/picture`, image);
   }
 
-  getbookpicture(isbn13: string) {
-    return this.http.get(`${environment.booksUrl}/${isbn13}/picture`, { responseType: 'blob' });
+  updatePicture(isbn13: string, image: File) {
+    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image);
   }
 }
 
