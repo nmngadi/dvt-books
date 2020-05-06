@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Words DVT BOOKS Header" datatype="html">
+        <source>DVT BOOKS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Words DVT BOOKS Header</note>
+        <note priority="1" from="meaning">DVT BOOKS Header</note>
+      </trans-unit>
+      <trans-unit id="Words Description Header" datatype="html">
+        <source>
+    This a dvt books application which hosts a repository for books and authors .It allows for users view various software development related books ,search for books and view
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Words This a dvt books application which hosts a repository for books and authors .It allows for users view various software development related books ,search for books and view Header</note>
+        <note priority="1" from="meaning">Description Header</note>
+      </trans-unit>
+      <trans-unit id="Words Home Header" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Words Home Header</note>
+        <note priority="1" from="meaning">Home Header</note>
+      </trans-unit>
+      <trans-unit id="Words Books Header" datatype="html">
+        <source>Books</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-details/author-details.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Words Books Header</note>
+        <note priority="1" from="meaning">Books Header</note>
+      </trans-unit>
+      <trans-unit id="Words Add Books Header" datatype="html">
+        <source>Add Books</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Words Add Books Header</note>
+        <note priority="1" from="meaning">Add Books Header</note>
+      </trans-unit>
+      <trans-unit id="Words Authors Header" datatype="html">
+        <source>Authors</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-list/author-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Words Authors Header</note>
+        <note priority="1" from="meaning">Authors Header</note>
+      </trans-unit>
+      <trans-unit id="Words Add Authors Header" datatype="html">
+        <source>Add Authors</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Words Add Authors Header</note>
+        <note priority="1" from="meaning">Add Authors Header</note>
+      </trans-unit>
+      <trans-unit id="Words Tags Header" datatype="html">
+        <source>Tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+        <note priority="1" from="description">Words Tags Header</note>
+        <note priority="1" from="meaning">Tags Header</note>
+      </trans-unit>
+      <trans-unit id="Words Book Tags Header" datatype="html">
+        <source>Book Tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description">Words Book Tags Header</note>
+        <note priority="1" from="meaning">Book Tags Header</note>
+      </trans-unit>
+      <trans-unit id="Words Login Header" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">Words Login Header</note>
+        <note priority="1" from="meaning">Login Header</note>
+      </trans-unit>
+      <trans-unit id="Words Logout Header" datatype="html">
+        <source>Logout </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+        <note priority="1" from="description">Words Logout Header</note>
+        <note priority="1" from="meaning">Logout Header</note>
+      </trans-unit>
+      <trans-unit id="Words About Header" datatype="html">
+        <source>About : </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-list/author-list.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+        <note priority="1" from="description">Words About Header</note>
+        <note priority="1" from="meaning">About Header</note>
+      </trans-unit>
+      <trans-unit id="Words  View Author Details Header" datatype="html">
+        <source>
+              View Author Details
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-list/author-list.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Words  View Author Details Header</note>
+        <note priority="1" from="meaning"> View Author Details Header</note>
+      </trans-unit>
+      <trans-unit id="Words New Author Header" datatype="html">
+        <source>New Author</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Words New Author Header</note>
+        <note priority="1" from="meaning">New Author Header</note>
+      </trans-unit>
+      <trans-unit id="Words First Name Header" datatype="html">
+        <source>First Name <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>*<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Words First Name Header</note>
+        <note priority="1" from="meaning">First Name Header</note>
+      </trans-unit>
+      <trans-unit id="Words FFirst_NameVal Header" datatype="html">
+        <source>
+                      First name is required.
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Words   First name is required. Header</note>
+        <note priority="1" from="meaning">First_NameVal Header</note>
+      </trans-unit>
+      <trans-unit id="Words Last Name Header" datatype="html">
+        <source>Last Name <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>*<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <note priority="1" from="description">Words Last Name Header</note>
+        <note priority="1" from="meaning">Last Name Header</note>
+      </trans-unit>
+      <trans-unit id="Words LastNameVal Header" datatype="html">
+        <source>
+                      Last name is required.
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Words  Last name is required. Header</note>
+        <note priority="1" from="meaning">LastNameVal Header</note>
+      </trans-unit>
+      <trans-unit id="Words Middle Names Header" datatype="html">
+        <source>Middle Names</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">Words Middle Names Header</note>
+        <note priority="1" from="meaning">Middle Names Header</note>
+      </trans-unit>
+      <trans-unit id="Words Middle_NamesVal Header" datatype="html">
+        <source>
+                    Middle names can consist of alphabetical characters only
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-create/author-create.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">Words  Middle names can consist of alphabetical characters only Header</note>
+        <note priority="1" from="meaning">Middle_NamesVal Header</note>
+      </trans-unit>
+      <trans-unit id="Words Edit Author Header" datatype="html">
+        <source>Edit Author</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-edit/author-edit.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Words Edit Author Header</note>
+        <note priority="1" from="meaning">Edit Author Header</note>
+      </trans-unit>
+      <trans-unit id="Words New Book Header" datatype="html">
+        <source>New Book</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Words New Book Header</note>
+        <note priority="1" from="meaning">New Book Header</note>
+      </trans-unit>
+      <trans-unit id="Words ISBN13 Header" datatype="html">
+        <source>
+                      isbn13 is required.
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Words isbn13 is required. Header</note>
+        <note priority="1" from="meaning">ISBN13 Header</note>
+      </trans-unit>
+      <trans-unit id="Words Title Header" datatype="html">
+        <source>Title <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>*<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">Words Title Header</note>
+        <note priority="1" from="meaning">Title Header</note>
+      </trans-unit>
+      <trans-unit id="Words Publisher Header" datatype="html">
+        <source>Publisher</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <note priority="1" from="description">Words Publisher Header</note>
+        <note priority="1" from="meaning">Publisher Header</note>
+      </trans-unit>
+      <trans-unit id="Words Date Published Header" datatype="html">
+        <source>Date Published</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Words Date Published Header</note>
+        <note priority="1" from="meaning">Date Published Header</note>
+      </trans-unit>
+      <trans-unit id="Words  Date format is YYYY-MM-DD Header" datatype="html">
+        <source>
+                    Date format is YYYY-MM-DD
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+        <note priority="1" from="description">Words  Date format is YYYY-MM-DD Header</note>
+        <note priority="1" from="meaning"> Date format is YYYY-MM-DDHeader</note>
+      </trans-unit>
+      <trans-unit id="Words Author Header" datatype="html">
+        <source>Author</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description">Words Author Header</note>
+        <note priority="1" from="meaning">Author Header</note>
+      </trans-unit>
+      <trans-unit id="Words Abstract Header" datatype="html">
+        <source>Abstract</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <note priority="1" from="description">Words Abstract Header</note>
+        <note priority="1" from="meaning">Abstract Header</note>
+      </trans-unit>
+      <trans-unit id="Words Upload Picture Header" datatype="html">
+        <source>Upload Picture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+        <note priority="1" from="description">Words Upload Picture Header</note>
+        <note priority="1" from="meaning">Upload Picture Header</note>
+      </trans-unit>
+      <trans-unit id="Words Save Header" datatype="html">
+        <source>
+                    Save  <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-create/book-create.component.html</context>
+          <context context-type="linenumber">201</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">201</context>
+        </context-group>
+        <note priority="1" from="description">Words SaveHeader</note>
+        <note priority="1" from="meaning">Save Header</note>
+      </trans-unit>
+      <trans-unit id="Words Books  Header" datatype="html">
+        <source>Books</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/books-list/books-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Words Books  Header</note>
+        <note priority="1" from="meaning">Books Header</note>
+      </trans-unit>
+      <trans-unit id="Words Tags  Header" datatype="html">
+        <source>Tags :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/books-list/books-list.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Words Tags  Header</note>
+        <note priority="1" from="meaning">Tags Header</note>
+      </trans-unit>
+      <trans-unit id="Words  View book Details  Header" datatype="html">
+        <source>
+            View book Details
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/books-list/books-list.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Words  View book Details  Header</note>
+        <note priority="1" from="meaning"> View book Details Header</note>
+      </trans-unit>
+      <trans-unit id="Words Edit BookHeader" datatype="html">
+        <source>Edit Book</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-edit/book-edit.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Words Edit Book Header</note>
+        <note priority="1" from="meaning">Edit Book Header</note>
+      </trans-unit>
+      <trans-unit id="Words Author Profile Header" datatype="html">
+        <source>Author Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-details/author-details.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Words Author Profile Header</note>
+        <note priority="1" from="meaning">Author Profile Header</note>
+      </trans-unit>
+      <trans-unit id="Words BIO Header" datatype="html">
+        <source> BIO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-details/author-details.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Words BIO Header</note>
+        <note priority="1" from="meaning">BIO Header</note>
+      </trans-unit>
+      <trans-unit id="Words BooksDetails Header" datatype="html">
+        <source>
+                          View book Details
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/author/author-details/author-details.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">Words  View book Details Header</note>
+        <note priority="1" from="meaning">BooksDetails Header</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
