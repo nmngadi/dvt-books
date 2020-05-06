@@ -25,10 +25,9 @@
     id="navbarCollapse"
     class="collapse navbar-collapse justify-content-start"
   >
-
     <ul class="nav navbar-nav navbar-right ml-auto">
       <li class="nav-item active">
-        <a href="#" class="nav-link"
+        <a href="#" routerLink="/home" class="nav-link"
           ><i class="fa fa-home"></i><span>Home</span></a
         >
       </li>
@@ -37,7 +36,7 @@
           ><i class="fa fa-book"></i><span>Books</span></a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAdmin">
         <a href="#" routerLink="/books/new" class="nav-link"
           ><i class="fa fa-plus"></i><span>Add Books</span></a
         >
@@ -47,7 +46,7 @@
           ><i class="fa fa-users"></i><span>Authors</span></a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAdmin">
         <a href="#" routerLink="/authors/new" class="nav-link"
           ><i class="fa fa-plus"></i><span>Add Authors</span></a
         >
@@ -68,7 +67,7 @@
           (click)="auth.login()"
           *ngIf="!auth.loggedIn"
           class="nav-link"
-          ><i class="fa fa-sign-in"></i><span>Login</span></a
+          ><i class="fas fa-sign-in-alt"></i><span>Login</span></a
         >
       </li>
       <li class="nav-item">
@@ -77,7 +76,7 @@
           (click)="auth.logout()"
           *ngIf="auth.loggedIn"
           class="nav-link"
-          ><i class="fa fa-sign-out"></i><span>Logout </span></a
+          ><i class="fas fa-sign-out-alt"></i><span>Logout </span></a
         >
       </li>
     </ul>
