@@ -3,7 +3,7 @@
     <div class="table-title">
       <div class="row">
         <div class="col-sm-4">
-          <h2 class="text-center"> <b>Authors</b></h2>
+          <h2 class="text-center"> <b i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</b></h2>
         </div>
         <div class="col-sm-4">
           <div class="search-box">
@@ -18,34 +18,25 @@
         </div>
       </div>
     </div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Middle Name</th>
-          <th>Last Name</th>
-          <th>Name</th>
-          <th>About</th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let author of authors">
-          <td>{{ author.first_name }}</td>
-          <td>{{ author.middle_names }}</td>
-          <td>{{ author.last_name }}</td>
-          <td>{{ author.name |titlecase}}</td>
-          <td>{{ author.about }}</td>
+  </div>
+</div>
+<div class="card-body">
+  <div class="row">
+    <div class="column" *ngFor="let author of authors">
+      <div class="card">
+        <img src="https://www.pngkey.com/png/detail/349-3499617_person-placeholder-person-placeholder.png" />
+        <p>{{ author.name }}</p>
+        <p class="title" i18n="About Header|Words About Header@@Words About Header">About : </p>
+        <p>{{ author.about}}</p>
 
-          <td>
-            <a href="#" class="view" title="View" data-toggle="tooltip"
-              [routerLink]="['/author', author.id, 'details']"><i class="material-icons">&#xE417;</i></a>
-            <a href="#" class="edit" title="Edit" data-toggle="tooltip" [routerLink]="['/author', author.id, 'edit']"><i
-                class="material-icons">&#xE254;</i></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+        <p>
+          <button [routerLink]="['/author', author.id, 'details']"
+            i18n=" View Author Details Header|Words  View Author Details Header@@Words  View Author Details Header">
+            View Author Details
+          </button>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

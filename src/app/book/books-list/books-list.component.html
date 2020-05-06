@@ -3,7 +3,7 @@
     <div class="table-title">
       <div class="row">
         <div class="col-sm-4">
-          <h2 class="text-center"><b>books</b></h2>
+          <h2 class="text-center"><b i18n="Books Header|Words Books  Header@@Words Books  Header">Books</b></h2>
         </div>
         <div class="col-sm-4">
           <div class="search-box">
@@ -26,13 +26,14 @@
         <img [src]="book.image" [title]="book.title" />
         <p>{{ book.title }}</p>
         <p>{{ book.isbn13 | isbn: true }}</p>
-        <p>Tags :</p>
+        <p i18n="Tags Header|Words Tags  Header@@Words Tags  Header">Tags :</p>
         <p class="title" *ngFor="let tag of book.tags">
 
           <span class="label label-primary"> {{ tag.description }}</span>
         </p>
         <p>
-          <button [routerLink]="['/book', book.isbn13, 'details']">
+          <button [routerLink]="['/book', book.isbn13, 'details']"
+            i18n=" View book Details Header|Words  View book Details  Header@@Words  View book Details  Header">
             View book Details
           </button>
           <button [routerLink]="['/book', book.isbn13, 'edit']">
