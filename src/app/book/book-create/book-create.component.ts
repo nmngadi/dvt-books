@@ -29,6 +29,12 @@ export class BookCreateComponent implements OnInit {
   authors: IAuthor[];
   selectedAuthor: typeof authorRef;
   selectedFile: File;
+  tagslist: {
+    id: string;
+    href: string;
+    description: string;
+  }[] = [];
+
   constructor(
     private fb: FormBuilder,
     private booksservice: BooksService,
@@ -115,23 +121,23 @@ export class BookCreateComponent implements OnInit {
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
-  postpicture() {
-    this.booksservice
-      .postPicture(this.isbn13.value, this.selectedFile)
-      .subscribe();
-  }
+
+
+
+
+
   save() {
-    this.book.tags = [this.tags.find((x) => x.id === this.tag.value)];
+    for (let index = 0; index <= (this.tag.value).length - 1; index++) {
+      const selected = this.tags.find((x) => x.id === this.tag.value[index]);
+      this.tagslist.push(selected);
+      this.book.tags = this.tagslist;
+      console.log(selected);
+    }
     this.book.author = this.authors.find((x) => x.id === this.author.value);
-    this.booksservice
-      .createBook(this.book)
-      .subscribe()
-      .add(
-        this.booksservice
-          .postPicture(this.isbn13.value, this.selectedFile)
-          .subscribe()
-      );
-    this.createBookForm.reset();
-    this.router.navigate(['/books']);
+    console.log(this.isbn13.value);
+    this.booksservice.createBook(this.book).subscribe(() => {
+      this.booksservice.postPicture(this.isbn13.value, this.selectedFile).subscribe();
+    });
+
   }
 }
