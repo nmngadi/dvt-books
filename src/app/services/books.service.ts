@@ -5,6 +5,7 @@ import { IBook } from '../interfaces/books';
 import { environment } from 'src/environments/environment';
 
 import { DomSanitizer } from '@angular/platform-browser';
+import { delay } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,8 +28,8 @@ export class BooksService {
     return this.http.put<IBook>(`${environment.booksUrl}/${isbn13}`, book);
   }
 
-  postPicture(isbn13: string, image: File) {
-    return this.http.post(`${environment.booksUrl}/${isbn13}/picture`, image);
+  postPicture(isbn13: string, image: File, delayDuration: number) {
+    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image).pipe( delay(delayDuration));
   }
 
   updatePicture(isbn13: string, image: File) {
