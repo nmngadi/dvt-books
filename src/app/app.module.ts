@@ -21,7 +21,7 @@ import { BookEditComponent } from './book/book-edit/book-edit.component';
 import { AuthorDetailsComponent } from './author/author-details/author-details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { AuthGuard } from './auth.guard';
+import { BookDetailsComponent } from './book/book-details/book-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,8 @@ import { AuthGuard } from './auth.guard';
     BooksListComponent,
     IsbnPipe,
     BookEditComponent,
-    AuthorDetailsComponent
+    AuthorDetailsComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +45,8 @@ import { AuthGuard } from './auth.guard';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent , canActivate: [AuthGuard]},
-      { path: 'authors', component: AuthorListComponent},
+      { path: 'home', component: HomeComponent },
+      { path: 'authors', component: AuthorListComponent },
       { path: 'authors/new', component: AuthorCreateComponent },
       {
         path: 'author/:id/edit',
@@ -60,6 +61,10 @@ import { AuthGuard } from './auth.guard';
       {
         path: 'book/:isbn13/edit',
         component: BookEditComponent
+      },
+      {
+        path: 'book/:isbn13/details',
+        component: BookDetailsComponent
       }
     ]),
     BrowserAnimationsModule,
