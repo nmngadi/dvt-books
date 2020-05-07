@@ -49,7 +49,7 @@ describe('AuthorsService', () => {
       httpTestingController.verify();
     });
 
-  
+
 
     it('should get one author', () => {
       authorService

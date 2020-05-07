@@ -71,7 +71,7 @@ export class BookCreateComponent implements OnInit {
   ngOnInit() {
     forkJoin([
       this.tagservice.getTags(),
-      this.authorservice.getAuthors(),
+      this.authorservice.getAllAuthor(),
     ]).subscribe({
       next: (results) => {
         (this.tags = results[0]), (this.authors = results[1]);
@@ -136,7 +136,7 @@ export class BookCreateComponent implements OnInit {
     this.book.author = this.authors.find((x) => x.id === this.author.value);
     console.log(this.isbn13.value);
     this.booksservice.createBook(this.book).subscribe(() => {
-      this.booksservice.postPicture(this.isbn13.value, this.selectedFile).subscribe();
+      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 3000).subscribe();
     });
 
   }
