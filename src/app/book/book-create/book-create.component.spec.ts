@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 describe('BookCreateComponent', () => {
   let comp: BookCreateComponent;
   let fixture: ComponentFixture<BookCreateComponent>;
-
+  let spy: any;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookCreateComponent],
@@ -39,5 +39,11 @@ describe('BookCreateComponent', () => {
     comp.createBookForm.controls.datePublished.setValue('2020/05/06');
     expect(comp.datePublished.valid).toBeTrue();
   }));
+  it('should call ngOnInit', () => {
+    spy = spyOn(comp, 'ngOnInit').and.callThrough();
+    comp.ngOnInit();
+
+    expect(spy).toHaveBeenCalled();
+  });
 
 });

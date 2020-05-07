@@ -98,7 +98,7 @@ export class BookEditComponent implements OnInit, AfterViewInit {
     }
     forkJoin([
       this.tagservice.getTags(),
-      this.authorservice.getAuthors()
+      this.authorservice.getAllAuthor()
     ]).subscribe({
       next: Results => {
         (this.tags = Results[0]),
@@ -128,9 +128,7 @@ export class BookEditComponent implements OnInit, AfterViewInit {
 
   }
 
-
   ngAfterViewInit(): void {
-
   }
 
 
