@@ -1,10 +1,10 @@
 import { AuthorCreateComponent } from './author-create.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorService } from 'src/app/services/authors.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { CommonModule } from '@angular/common';
 
 describe('AuthorCreateComponent', () => {
   let comp: AuthorCreateComponent;
@@ -14,7 +14,7 @@ describe('AuthorCreateComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AuthorCreateComponent],
       imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
