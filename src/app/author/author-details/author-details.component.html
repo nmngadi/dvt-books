@@ -1,52 +1,58 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 i18n="Author Profile Header|Words Author Profile Header@@Words Author Profile Header">Author Profile</h3>
+      <h3
+        i18n="
+          Author Profile Header|Words Author Profile Header@@Words Author
+          Profile Header"
+      >
+        Author Profile
+      </h3>
 
       <div class="tabbable-panel">
         <div class="tabbable-line">
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#tab_default_1" data-toggle="tab" i18n="BIO Header|Words BIO Header@@Words BIO Header"> BIO</a>
+              <a
+                href="#tab_default_1"
+                data-toggle="tab"
+                i18n="BIO Header|Words BIO Header@@Words BIO Header"
+              >
+                BIO</a
+              >
             </li>
             <li>
-              <a href="#tab_default_2" data-toggle="tab" i18n="Books Header|Words Books Header@@Words Books Header">
-                Books </a>
+              <a
+                href="#tab_default_2"
+                data-toggle="tab"
+                i18n="Books Header|Words Books Header@@Words Books Header"
+              >
+                Books
+              </a>
             </li>
           </ul>
-          <br>
-          <br>
+          <br />
+          <br />
           <div class="tab-content" *ngIf="author">
             <div class="tab-pane active" id="tab_default_1">
-
-              <section id="author">
-                <div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="row author">
-                        <div class="col-sm-4">
-                          <img
-                            src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
-                            alt="" class="pic" />
-                        </div>
-                        <div class="col-sm-8 author-name">
-                          <h2 class="heading wow animated fadeInUp">
-                            {{ author.name }}
-                          </h2>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12">
-                          <h3 class="subheading gray wow animated fadeInUp">
-                            {{ author.about }}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- col-md-6 author -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div>
+                    <img
+                      class="img-fluid"
+                      src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
+                    />
                   </div>
                 </div>
-              </section>
+                <div
+                  class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0"
+                >
+                  <div>
+                    <h2>{{ author.name }}</h2>
+                    <p class="margin-top-s">{{ author.about }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="tab-pane" id="tab_default_2">
               <div class="card-body">
@@ -55,13 +61,19 @@
                     <div class="card">
                       <img
                         src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
-                        alt="" class="pic" />
+                        alt=""
+                        class="pic"
+                      />
                       <p>{{ authorbook.title }}</p>
                       <p>{{ authorbook.isbn13 | isbn: true }}</p>
 
                       <p>
-                        <button [routerLink]="['/book', authorbook.isbn13, 'details']"
-                          i18n="BooksDetails Header|Words  View book Details Header@@Words BooksDetails Header">
+                        <button
+                          [routerLink]="['/book', authorbook.isbn13, 'details']"
+                          i18n="
+                            BooksDetails Header|Words View book Details
+                            Header@@Words BooksDetails Header"
+                        >
                           View book Details
                         </button>
                       </p>

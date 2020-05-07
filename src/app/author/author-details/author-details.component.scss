@@ -1,96 +1,81 @@
-.tab{
+.tab {
   margin-top: 30px;
 }
-.tab .nav-tabs{
-  border:none;
+.tab .nav-tabs {
+  border: none;
   border-bottom: 1px solid #e4e4e4;
 }
-.nav-tabs li a{
+.nav-tabs li a {
   padding: 15px 40px;
-  border:1px solid #ededed;
+  border: 1px solid #ededed;
   border-top: 2px solid #ededed;
   border-right: 0px none;
   background: #007fba;
-  color:#fff;
+  color: #fff;
   border-radius: 0px;
   margin-right: 0px;
   font-weight: bold;
   transition: all 0.3s ease-in 0s;
 }
-.nav-tabs li a:hover{
+.nav-tabs li a:hover {
   border-bottom-color: #ededed;
   border-right: 0px none;
   background: #6f6f6f;
   color: #fff;
 }
-.nav-tabs li a i{
+.nav-tabs li a i {
   display: inline-block;
   text-align: center;
-  margin-right:10px;
+  margin-right: 10px;
 }
-.nav-tabs li:last-child{
-  border-right:1px solid #ededed;
+.nav-tabs li:last-child {
+  border-right: 1px solid #ededed;
 }
 .nav-tabs li.active a,
 .nav-tabs li.active a:focus,
-.nav-tabs li.active a:hover{
+.nav-tabs li.active a:hover {
   border-top: 3px solid #ffc72c;
   border-right: 1px solid #d3d3d3;
   margin-top: -15px;
   color: #444;
   padding: 22px 40px;
 }
-.tab .tab-content{
+.tab .tab-content {
   padding: 20px;
   line-height: 22px;
-  box-shadow:0px 1px 0px #808080;
+  box-shadow: 0px 1px 0px #808080;
 }
-.tab .tab-content h3{
+.tab .tab-content h3 {
   margin-top: 0;
 }
-@media only screen and (max-width: 767px){
-  .nav-tabs li{
-      width:100%;
-      margin-bottom: 10px;
+@media only screen and (max-width: 767px) {
+  .nav-tabs li {
+    width: 100%;
+    margin-bottom: 10px;
   }
-  .nav-tabs li a{
-      padding: 15px;
+  .nav-tabs li a {
+    padding: 15px;
   }
   .nav-tabs li.active a,
   .nav-tabs li.active a:focus,
-  .nav-tabs li.active a:hover{
-      padding: 15px;
-      margin-top: 0;
+  .nav-tabs li.active a:hover {
+    padding: 15px;
+    margin-top: 0;
   }
 }
 
-
-.author {
-	margin-bottom:40px;
-}
-
-.author .author-name {
-	padding-top:25px;
-}
-
-.author .pic {
-	width:100%;
-}
-
-@media(max-width:768px) {
-
-	.author .pic {
-		width:150px;
-	}
-}
-
-.author .author-name .heading {
-	margin-bottom:0;
-}
-
-.author .author-name .subheading {
-	margin-top:0;
-}
-.container{
+.container {
   background-color: white;
+}
+.align-items-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+img {
+  width: 100%;
+  height: 250px;
 }
