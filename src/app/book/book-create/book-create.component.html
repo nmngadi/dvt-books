@@ -2,7 +2,9 @@
   <div class="form">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3>New Book</h3>
+        <h3 i18n="New Book Header|Words New Book Header@@Words New Book Header">
+          New Book
+        </h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -14,7 +16,7 @@
               enctype="multipart/form-data"
             >
               <div class="form-group">
-                <label for="isbn10">isbn10</label>
+                <label for="isbn10">ISBN 10</label>
                 <div>
                   <input
                     class="form-control"
@@ -31,7 +33,9 @@
               </div>
 
               <div class="form-group">
-                <label for="isbn13">isbn13</label>
+                <label for="isbn13"
+                  >ISBN 13 <span class="required">*</span></label
+                >
                 <div>
                   <input
                     class="form-control"
@@ -45,10 +49,20 @@
                     }"
                   />
                   <span class="invalid-feedback">
-                    <span *ngIf="isbn13.errors?.required">
+                    <span
+                      *ngIf="isbn13.errors?.required"
+                      i18n="
+                        ISBN13 Header|Words isbn13 is required. Header@@Words
+                        ISBN13 Header"
+                    >
                       isbn13 is required.
                     </span>
-                    <span *ngIf="isbn13.errors?.isbn13Validation">
+                    <span
+                      *ngIf="isbn13.errors?.isbn13Validation"
+                      i18n="
+                        ISBN13 Header|Words isbn13 is not in correct format.
+                        Header@@Words ISBN13 Header"
+                    >
                       isbn13 is not in correct format.
                     </span>
                   </span>
@@ -56,8 +70,13 @@
               </div>
 
               <div class="form-group">
-                <label for="title">title</label>
+                <label
+                  for="title"
+                  i18n="Title Header|Words Title Header@@Words Title Header"
+                  >Title <span class="required">*</span></label
+                >
                 <div>
+
                   <input
                     class="form-control"
                     id="title"
@@ -70,9 +89,24 @@
                     }"
                   />
                 </div>
+
+                <span class="invalid-feedback">
+                  <span
+                    *ngIf="title.errors?.required"
+
+                  >
+                  Title is required.
+                  </span>
+                </span>
               </div>
               <div class="form-group">
-                <label for="publisher">publisher</label>
+                <label
+                  for="publisher"
+                  i18n="
+                    Publisher Header|Words Publisher Header@@Words Publisher
+                    Header"
+                  >Publisher</label
+                >
                 <div>
                   <input
                     class="form-control"
@@ -89,9 +123,16 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="datePublished">datePublished</label>
+                <label
+                  for="datePublished"
+                  i18n="
+                    Date Published Header|Words Date Published Header@@Words
+                    Date Published Header"
+                  >Date Published</label
+                >
                 <div>
                   <input
+                    type="date"
                     class="form-control"
                     id="datePublished"
                     type="text"
@@ -105,14 +146,23 @@
                   />
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="datePublished.errors?.dateFormat">
+                  <span
+                    *ngIf="datePublished.errors?.dateFormat"
+                    i18n="
+                      Date format is YYYY-MM-DDHeader|Words Date format is
+                      YYYY-MM-DD Header@@Words Date format is YYYY-MM-DD Header"
+                  >
                     Date format is YYYY-MM-DD
                   </span>
                 </span>
               </div>
 
               <div class="form-group">
-                <label for="author">Author</label>
+                <label
+                  for="author"
+                  i18n="Author Header|Words Author Header@@Words Author Header"
+                  >Author</label
+                >
                 <select class="form-control" formControlName="author">
                   <option
                     class="form-control"
@@ -125,7 +175,11 @@
               </div>
 
               <div class="form-group">
-                <label for="about">about</label>
+                <label
+                  for="about"
+                  i18n="About Header|Words About Header@@Words About Header"
+                  >About</label
+                >
                 <div>
                   <textarea
                     class="form-control"
@@ -141,37 +195,72 @@
                   ></textarea>
                 </div>
               </div>
-
               <div class="form-group">
-                <label for="tag">Tag</label>
-                <select class="form-control" formControlName="tag">
-                  <option class="form-control" [value]="tag.id" *ngFor="let tag of tags">
-                    {{ tag.description }}</option>
-                </select>
+                <label
+                  for="about"
+                  i18n="
+                    Abstract Header|Words Abstract Header@@Words Abstract Header"
+                  >Abstract</label
+                >
+                <div>
+                  <textarea
+                    class="form-control"
+                    id="about"
+                    type="text"
+                    placeholder="abstract"
+                    rows="3"
+                    formControlName="about"
+                    [ngClass]="{
+                      'is-invalid':
+                        (about.touched || about.dirty) && !about.valid
+                    }"
+                  ></textarea>
+                </div>
               </div>
 
-              <input
-                type="file"
-                id="picture"
-                name="picture"
-                class="form-control"
-                (change)="onFileChanged($event)"
-                accept="image/bmp,image/gif,image/jpeg,image/png"
-                autocomplete="none"
-                autocorrect="off"
-                autocapitalize="off"
-                spellcheck="false"
-              />
-
+              <mat-form-field>
+                <mat-label
+                  i18n="Tags Header|Words Tags Header@@Words Tags Header"
+                  >Tags</mat-label
+                >
+                <mat-select [formControl]="tag" multiple>
+                  <mat-option *ngFor="let tag of tags" [value]="tag.id">{{
+                    tag.description
+                  }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="form-group">
+                <label
+                  for="picture"
+                  i18n="
+                    Upload Picture Header|Words Upload Picture Header@@Words
+                    Upload Picture Header"
+                  >Upload Picture</label
+                >
+                <input
+                  type="file"
+                  id="picture"
+                  name="picture"
+                  class="form-control"
+                  (change)="onFileChanged($event)"
+                  accept="image/bmp,image/gif,image/jpeg,image/png"
+                  autocomplete="none"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                />
+              </div>
+              <hr />
               <div class="form-group">
                 <div>
                   <button
-                    class="btn btn-primary mr-3"
+                    class="btn btn-primary btn-lg btn-block"
                     type="submit"
                     [title]=""
                     [disabled]="!createBookForm.valid"
+                    i18n="Save Header|Words SaveHeader@@Words Save Header"
                   >
-                    Save
+                    Save <i class="far fa-save"></i>
                   </button>
                 </div>
               </div>

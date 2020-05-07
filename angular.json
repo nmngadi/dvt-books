@@ -35,6 +35,30 @@
             "scripts": []
           },
           "configurations": {
+            "en": {
+              "aot": true,
+              "outputPath": "dist/dvt-books/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
+            "af": {
+              "aot": true,
+              "outputPath": "dist/dvt-books-af/",
+              "i18nFile": "src/locale/messages.af.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "af",
+              "i18nMissingTranslation": "error"
+            },
+            "zu": {
+              "aot": true,
+              "outputPath": "dist/dvt-books-zu/",
+              "i18nFile": "src/locale/messages.zu.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "zu",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -75,6 +99,15 @@
           "configurations": {
             "production": {
               "browserTarget": "dvt-books:build:production"
+            },
+            "en": {
+              "browserTarget": "dvt-books:build:en"
+            },
+            "af": {
+              "browserTarget": "dvt-books:build:af"
+            },
+            "zu": {
+              "browserTarget": "dvt-books:build:zu"
             }
           }
         },
@@ -102,9 +135,7 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -115,9 +146,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

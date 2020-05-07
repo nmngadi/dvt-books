@@ -38,7 +38,7 @@ describe('AuthorsService', () => {
 
   describe('getAuthor', () => {
     it('should return Authors', (done: DoneFn) => {
-      authorService.getAuthors('').subscribe((value) => {
+      authorService.getAllAuthor('').subscribe((value) => {
         expect(value).toBe(authors);
         expect();
         done();
@@ -49,18 +49,7 @@ describe('AuthorsService', () => {
       httpTestingController.verify();
     });
 
-    it('should filter authors', (done: DoneFn) => {
-      authorService.getAuthors('Jane doe').subscribe((value) => {
-        expect(value).toBe(authors);
 
-        done();
-      });
-      const req = httpTestingController.expectOne(
-        `${environment.authorUrl}?query=Jane doe`
-      );
-      req.flush(authors);
-      httpTestingController.verify();
-    });
 
     it('should get one author', () => {
       authorService

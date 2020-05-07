@@ -6,12 +6,14 @@ import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
+import { ThrowStmt } from '@angular/compiler';
+import { userRoles } from '../interfaces/userRoles.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+isAdmin: boolean;
   auth0Client$ = (from(
     createAuth0Client({
       domain: environment.domain,
@@ -51,11 +53,11 @@ export class AuthService {
       tap((user) => {
         this.userProfileSubject$.next(user), (this.userProfileData = user);
         if (this.userProfileData[environment.nameSpace].includes('admin')) {
-
-          this.userRole = 'Admin';
+            this.isAdmin = true;
+            this.userRole = userRoles.admin;
         } else {
-
-          this.userRole = 'User';
+          this.isAdmin = false;
+          this.userRole = userRoles.admin;
         }
       })
     );

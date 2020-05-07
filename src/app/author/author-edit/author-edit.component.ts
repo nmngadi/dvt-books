@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -8,6 +8,7 @@ import {
 import { AuthorService } from 'src/app/services/authors.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAuthor } from 'src/app/interfaces/author';
+
 @Component({
   selector: 'app-author-edit',
   templateUrl: './author-edit.component.html',
@@ -22,7 +23,9 @@ export class AuthorEditComponent implements OnInit, AfterViewInit {
     private authorservice: AuthorService,
     private route: ActivatedRoute,
     private router: Router
+
   ) {
+
     this.editAuthorForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: [''],
@@ -42,6 +45,7 @@ export class AuthorEditComponent implements OnInit, AfterViewInit {
 
 
   }
+
 
   ngAfterViewInit(): void {
     this.firstName.valueChanges

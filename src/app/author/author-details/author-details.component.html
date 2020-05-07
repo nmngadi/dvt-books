@@ -1,49 +1,92 @@
 <div class="container">
   <div class="row">
-  <div class="col-md-12">
-    <h3>Author Profile</h3>
+    <div class="col-md-12">
+      <h3
+        i18n="
+          Author Profile Header|Words Author Profile Header@@Words Author
+          Profile Header"
+      >
+        Author Profile
+      </h3>
 
-    <div class="tabbable-panel">
-      <div class="tabbable-line">
-        <ul class="nav nav-tabs ">
-          <li class="active">
-            <a href="#tab_default_1" data-toggle="tab">
-           Profile</a>
-          </li>
-          <li>
-            <a href="#tab_default_2" data-toggle="tab">
-           Books </a>
-          </li>
-
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab_default_1">
-            <ul>
-              <li>First Name : {{author.first_name}}</li>
-              <li>Last Name : {{author.last_name}}</li>
-              <li>Full Name : {{author.name}}</li>
-              <li>About Name : {{author.about}}</li>
+      <div class="tabbable-panel">
+        <div class="tabbable-line">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a
+                href="#tab_default_1"
+                data-toggle="tab"
+                i18n="BIO Header|Words BIO Header@@Words BIO Header"
+              >
+                BIO</a
+              >
+            </li>
+            <li>
+              <a
+                href="#tab_default_2"
+                data-toggle="tab"
+                i18n="Books Header|Words Books Header@@Words Books Header"
+              >
+                Books
+              </a>
+            </li>
           </ul>
-          </div>
-          <div class="tab-pane" id="tab_default_2">
-            <div class="card" style="width: 18rem;" *ngFor="let authorbook of author.books">
-
+          <br />
+          <br />
+          <div class="tab-content" *ngIf="author">
+            <div class="tab-pane active" id="tab_default_1">
+              <div class="row">
+                <div class="col-md-6">
+                  <div>
+                    <img
+                      class="img-fluid"
+                      src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0"
+                >
+                  <div>
+                    <h2>{{ author.name }}</h2>
+                    <p class="margin-top-s">{{ author.about }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab_default_2">
               <div class="card-body">
-                <h5 class="card-title">ISBN10: {{authorbook.isbn10 |isbn:true}}</h5>
-                <h5 class="card-title">ISBN13:{{authorbook.isbn13|isbn:true}}</h5>
+                <div class="row">
+                  <div class="column" *ngFor="let authorbook of author.books">
+                    <div class="card">
+                      <img
+                        src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
+                        alt=""
+                        class="pic"
+                      />
+                      <p>{{ authorbook.title }}</p>
+                      <p>{{ authorbook.isbn13 | isbn: true }}</p>
 
-                <p class="card-text">Title: {{authorbook.title}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <p>
+                        <button
+                          [routerLink]="['/book', authorbook.isbn13, 'details']"
+                          i18n="
+                            BooksDetails Header|Words View book Details
+                            Header@@Words BooksDetails Header"
+                        >
+                          View book Details
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
 </div>
-</div>
-<br>
 
+<br />

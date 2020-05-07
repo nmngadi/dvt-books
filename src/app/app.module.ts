@@ -21,6 +21,7 @@ import { BookEditComponent } from './book/book-edit/book-edit.component';
 import { AuthorDetailsComponent } from './author/author-details/author-details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BookDetailsComponent } from './book/book-details/book-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { environment } from '../environments/environment';
     BooksListComponent,
     IsbnPipe,
     BookEditComponent,
-    AuthorDetailsComponent
+    AuthorDetailsComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,10 @@ import { environment } from '../environments/environment';
       {
         path: 'book/:isbn13/edit',
         component: BookEditComponent
+      },
+      {
+        path: 'book/:isbn13/details',
+        component: BookDetailsComponent
       }
     ]),
     BrowserAnimationsModule,

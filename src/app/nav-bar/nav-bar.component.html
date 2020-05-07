@@ -25,41 +25,40 @@
     id="navbarCollapse"
     class="collapse navbar-collapse justify-content-start"
   >
-
     <ul class="nav navbar-nav navbar-right ml-auto">
       <li class="nav-item active">
-        <a href="#" class="nav-link"
-          ><i class="fa fa-home"></i><span>Home</span></a
+        <a href="#" routerLink="/home" class="nav-link"
+          ><i class="fa fa-home"></i><span i18n="Home Header|Words Home Header@@Words Home Header">Home</span></a
         >
       </li>
       <li class="nav-item">
         <a href="#" routerLink="/books" class="nav-link"
-          ><i class="fa fa-book"></i><span>Books</span></a
+          ><i class="fa fa-book"></i><span i18n="Books Header|Words Books Header@@Words Books Header">Books</span></a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAdmin">
         <a href="#" routerLink="/books/new" class="nav-link"
-          ><i class="fa fa-plus"></i><span>Add Books</span></a
+          ><i class="fa fa-plus"></i><span i18n="Add Books Header|Words Add Books Header@@Words Add Books Header">Add Books</span></a
         >
       </li>
       <li class="nav-item">
         <a href="#" routerLink="/authors" class="nav-link"
-          ><i class="fa fa-users"></i><span>Authors</span></a
+          ><i class="fa fa-users"></i><span i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</span></a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAdmin">
         <a href="#" routerLink="/authors/new" class="nav-link"
-          ><i class="fa fa-plus"></i><span>Add Authors</span></a
+          ><i class="fa fa-plus"></i><span i18n="Add Authors Header|Words Add Authors Header@@Words Add Authors Header">Add Authors</span></a
         >
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link"
-          ><i class="fa fa-tag"></i><span>Tags</span></a
+          ><i class="fa fa-tag"></i><span i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags</span></a
         >
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link"
-          ><i class="fa fa-tag"></i><span>Book Tags</span></a
+          ><i class="fa fa-tag"></i><span i18n="Book Tags Header|Words Book Tags Header@@Words Book Tags Header">Book Tags</span></a
         >
       </li>
       <li class="nav-item">
@@ -68,7 +67,7 @@
           (click)="auth.login()"
           *ngIf="!auth.loggedIn"
           class="nav-link"
-          ><i class="fa fa-sign-in"></i><span>Login</span></a
+          ><i class="fas fa-sign-in-alt"></i><span i18n="Login Header|Words Login Header@@Words Login Header">Login</span></a
         >
       </li>
       <li class="nav-item">
@@ -77,7 +76,7 @@
           (click)="auth.logout()"
           *ngIf="auth.loggedIn"
           class="nav-link"
-          ><i class="fa fa-sign-out"></i><span>Logout </span></a
+          ><i class="fas fa-sign-out-alt"></i><span i18n="Logout Header|Words Logout Header@@Words Logout Header">Logout </span></a
         >
       </li>
     </ul>
