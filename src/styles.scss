@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-$common-color:#007fba;
-$white:#fff;
+$common-color: #007fba;
+$white: #fff;
 
 html,
 body {
@@ -10,7 +10,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 h1 {
@@ -23,11 +23,11 @@ h1 {
 .container {
   padding: 30px;
   font-size: larger;
+  background-color: white;
 }
 
 .mat-drawer-container {
   height: 100vh !important;
-
 }
 
 .mat-drawer-inner-container {
@@ -99,7 +99,7 @@ h3 {
   box-shadow: none;
 }
 .search-box input:focus {
-border-color: #3FBAE4;
+  border-color: #3fbae4;
 }
 .search-box i {
   color: #a0a5b1;
@@ -175,4 +175,26 @@ img {
 }
 p {
   font-weight: bolder;
+}
+h2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h2:before,
+h2:after {
+  content: "";
+  border-top: 2px solid yellow;
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+}
+
+h2:after {
+  margin: 0 0 0 20px;
+}
+.invalid-feedback{
+color: red;
 }
