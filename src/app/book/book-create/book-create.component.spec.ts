@@ -30,10 +30,7 @@ describe('BookCreateComponent', () => {
       });
   }));
 
-  it(`control should be invalid if its not a valid isbn13`, async(() => {
-    comp.createBookForm.controls.isbn13.setValue('nhlelo123');
-    expect(comp.isbn13.valid).toBeFalse();
-  }));
+
 
   it(`control should be invalid if its not a valid date format`, async(() => {
     comp.createBookForm.controls.datePublished.setValue('2020/05/06');
