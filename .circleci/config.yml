@@ -24,7 +24,7 @@ jobs:
           command: ./node_modules/@angular/cli/bin/ng build --prod
       - run:
           name: Test
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test --  --source-map=false --no-watch --no-progress --browsers=ChromeHeadlessCI
 
 
 workflows:
