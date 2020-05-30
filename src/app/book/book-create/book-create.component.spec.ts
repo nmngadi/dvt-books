@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 describe('BookCreateComponent', () => {
   let comp: BookCreateComponent;
   let fixture: ComponentFixture<BookCreateComponent>;
-  let spy: any;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookCreateComponent],
