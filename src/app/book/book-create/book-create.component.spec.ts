@@ -30,17 +30,14 @@ describe('BookCreateComponent', () => {
       });
   }));
 
-
-
   it(`control should be invalid if its not a valid date format`, async(() => {
     comp.createBookForm.controls.datePublished.setValue('2020/05/06');
     expect(comp.datePublished.valid).toBeTrue();
   }));
-  it('should call ngOnInit', () => {
-    spy = spyOn(comp, 'ngOnInit').and.callThrough();
-    comp.ngOnInit();
-
-    expect(spy).toHaveBeenCalled();
-  });
+  // it('should call ngOnInit', () => {
+  //   spy = spyOn(comp, 'ngOnInit').and.callThrough();
+  //   comp.ngOnInit();
+  //   expect(spy).toHaveBeenCalled();
+  // });
 
 });
