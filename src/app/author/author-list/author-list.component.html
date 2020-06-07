@@ -1,50 +1,54 @@
 <div class="container">
-  <input
-  class="search-box"
-  type="search"
-  [(ngModel)]="searchinput"
-  (keyup)="searchAuthor()"
-  placeholder="Search for Author"
-  aria-label="Search"
-/>
+  <div class="search-box">
+    <div class="input-group">
+      <input class="form-control" type="search" [(ngModel)]="searchinput" (keyup)="searchAuthor()"
+        placeholder="Search for Author" aria-label="Search" />
+    </div>
+  </div>
+
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
         <div class="col-sm-4">
-          <h2 class="text-center"> <b i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</b></h2>
-        </div>
-        <div class="col-sm-4">
-          <div class="search-box">
-            <i class="material-icons">&#xE8B6;</i>
-            <div class="input-group">
-
-            </div>
-          </div>
+          <h2 class="text-center">
+            <b i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</b>
+          </h2>
         </div>
       </div>
     </div>
-
   </div>
 
-<div class="card-body">
-  <div class="row">
-    <div class="column" *ngFor="let author of authors">
-      <div class="card">
-        <img src="https://www.gormankelly.com.au/wp-content/uploads/2019/03/Placeholder-Team-Image.jpg"/>
-        <p>{{ author.name }}</p>
-        <p>
-          <button [routerLink]="['/author', author.id, 'details']"
-            i18n=" View Author Details Header|Words  View Author Details Header@@Words  View Author Details Header">
-            View Author Details
-          </button>
-          <button *ngIf="auth.isAdmin" [routerLink]="['/author', author.id, 'edit']">
-            Edit Author Details
-          </button>
-        </p>
+  <div class="card-body">
+    <div class="row">
+      <div class="column" *ngFor="let author of authors">
+        <div class="card">
+          <img src="https://www.gormankelly.com.au/wp-content/uploads/2019/03/Placeholder-Team-Image.jpg" />
+          <p>{{ author.name }}</p>
+          <p>
+
+          </p>
+
+          <ul class="list-inline m-0">
+            <li class="list-inline-item">
+              <button class="btn btn-success" title="Edit" [routerLink]="['/author', author.id, 'edit']"
+                *ngIf="auth.isAdmin">
+                <i class="fa fa-edit"></i>
+              </button>
+            </li>
+            <li class="list-inline-item">
+              <button class="btn btn-primary" title="View" [routerLink]="['/author', author.id, 'details']">
+                <i class="fa fa-eye"></i>
+              </button>
+            </li>
+          </ul>
+          <br />
+          <br />
+        </div>
       </div>
     </div>
   </div>
-</div>
-<button type="submit" (click)="GetMoreAuthors()" >Get more<i class="fas fa-spinner"></i></button>
 
+  <button type="submit" class="btn btn-lg btn-outline-primary" (click)="GetMoreAuthors()">
+    Load More <i class="fas fa-spinner"></i>
+  </button>
 </div>
