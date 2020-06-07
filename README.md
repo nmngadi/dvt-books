@@ -1,6 +1,5 @@
 # DvtBooks
-
-
+[![CircleCI](https://circleci.com/gh/nmngadi/dvt-books/tree/develop.svg?style=svg)](https://circleci.com/gh/nmngadi/dvt-books)
 
 ## Project description
 DVT is in the process of building a central repository for its developers to find software development books. The application has been named DVTBooks. A group of backend developers have created the APIs and databases to create, read, update and delete books. This is a frontend application which consumes the APIs and provides the frontend functionality.  
@@ -21,4 +20,38 @@ DVT is in the process of building a central repository for its developers to fin
 
 
 ## Screenshots of working application
+
+## Author Component
+Author Form
+![](/screenshots/AuthorForm.png)
+Author list
+![](/screenshots/Authorlist.png)
+Author Search
+![](/screenshots/Auhtorsearch.png)
+
+Author load more -Server side pagination
+![](/screenshots/Auhtorloadmore.png)
+
+Author BIO
+![](/screenshots/auhtorbio.png)
+
+Author Books
+![](/screenshots/Auhtorbooks.png)
+
+## Book Component
+ Book Form
+![](/screenshots/Booksformv2.png)
+
+ Book List
+![](/screenshots/Bookslist.png)
+
+ Book Search -Server side filtering
+![](/screenshots/Booksearch.png)
+
+
+
+
+
+
+
 
