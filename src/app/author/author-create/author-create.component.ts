@@ -62,7 +62,6 @@ export class AuthorCreateComponent implements OnInit {
 }
 
   save() {
-
     this.authorservice.createAuthor(this.author).subscribe();
     this.createAuthorForm.reset();
     this.router.navigate(['/authors']);
