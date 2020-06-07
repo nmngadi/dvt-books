@@ -1,92 +1,58 @@
-<div class="container">
+<div class="container padding-bottom-3x mb-2">
   <div class="row">
-    <div class="col-md-12">
-      <h3
-        i18n="
-          Author Profile Header|Words Author Profile Header@@Words Author
-          Profile Header"
-      >
-        Author Profile
-      </h3>
-
-      <div class="tabbable-panel">
-        <div class="tabbable-line">
-          <ul class="nav nav-tabs">
-            <li class="active">
-              <a
-                href="#tab_default_1"
-                data-toggle="tab"
-                i18n="BIO Header|Words BIO Header@@Words BIO Header"
-              >
-                BIO</a
-              >
-            </li>
-            <li>
-              <a
-                href="#tab_default_2"
-                data-toggle="tab"
-                i18n="Books Header|Words Books Header@@Words Books Header"
-              >
-                Books
-              </a>
-            </li>
-          </ul>
-          <br />
-          <br />
-          <div class="tab-content" *ngIf="author">
-            <div class="tab-pane active" id="tab_default_1">
-              <div class="row">
-                <div class="col-md-6">
-                  <div>
-                    <img
-                      class="img-fluid"
-                      src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0"
-                >
-                  <div>
-                    <h2>{{ author.name }}</h2>
-                    <p class="margin-top-s">{{ author.about }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane" id="tab_default_2">
-              <div class="card-body">
-                <div class="row">
-                  <div class="column" *ngFor="let authorbook of author.books">
-                    <div class="card">
-                      <img
-                        src="https://cdn4.vectorstock.com/i/1000x1000/46/73/person-gray-photo-placeholder-man-material-design-vector-23804673.jpg"
-                        alt=""
-                        class="pic"
-                      />
-                      <p>{{ authorbook.title }}</p>
-                      <p>{{ authorbook.isbn13 | isbn: true }}</p>
-
-                      <p>
-                        <button
-                          [routerLink]="['/book', authorbook.isbn13, 'details']"
-                          i18n="
-                            BooksDetails Header|Words View book Details
-                            Header@@Words BooksDetails Header"
-                        >
-                          View book Details
-                        </button>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div class="col-lg-4">
+      <aside class="user-info-wrapper">
+        <div class="user-cover">
+        </div>
+        <div class="user-info" *ngIf="author">
+          <div class="user-avatar">
+            <a class="edit-avatar" href="#"></a><img
+              src="https://www.gormankelly.com.au/wp-content/uploads/2019/03/Placeholder-Team-Image.jpg" alt="User">
+          </div>
+          <div class="user-data">
+            <h4>{{author.name}}</h4><span> {{author.about}}</span>
           </div>
         </div>
+      </aside>
+    </div>
+    <div class="col-lg-8" *ngIf="author.books.length>0">
+      <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+      <div class="table-responsive books-table margin-bottom-none">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Books by {{author.name}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let authorbook of author.books">
+              <td>
+                <div class="book-item">
+                  <a class="book-thumb" href="#"><img
+                      src="https://images.routledge.com/common/jackets/amazon/978113832/9781138320482.jpg"
+                      alt="Book"></a>
+                  <div class="book-info">
+                    <h4 class="book-title"><a href="#">{{authorbook.isbn13|isbn:true}}</a></h4>
+                    <div class="text-lg text-medium text-muted">{{authorbook.title}}</div>
+                  </div>
+                  <button [routerLink]="['/book', authorbook.isbn13, 'details']" i18n="
+                                      View book Details Header|Words View book Details Header@@Words
+                                      View book Details Header">
+                    View book Details
+                  </button>
+                </div>
+              </td>
+
+            </tr>
+
+          </tbody>
+        </table>
       </div>
+      <hr class="mb-4">
+    </div>
+    <div *ngIf="author.books.length==0">
+      <p style="padding: 10%;">NO BOOKS AVALIABLE</p>
+      <img src="https://www.matrubharti.com/images/nobooks-ic.png">
     </div>
   </div>
 </div>
-
-<br />
