@@ -2,15 +2,20 @@
   <div class="form">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 i18n="Edit Author Header|Words Edit Author Header@@Words Edit Author Header">Edit Author</h3>
+        <h3 i18n="
+            Edit Author Header|Words Edit Author Header@@Words Edit Author
+            Header">
+          Edit Author
+        </h3>
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-8 offset-md-4">
+          <div class="col-md-8 offset-md-2">
             <form novalidate (ngSubmit)="save()" [formGroup]="editAuthorForm">
               <div class="form-group">
-                <label for="firstName" i18n="First Name Header|Words First Name Header@@Words First Name Header">First
-                  Name <span class="required">*</span></label>
+                <label for="firstName" i18n="
+                    First Name Header|Words First Name Header@@Words First Name
+                    Header">First Name <span class="required">*</span></label>
                 <div>
                   <input class="form-control" id="firstName" type="text" placeholder="First Name (required)"
                     formControlName="firstName" [ngClass]="{
@@ -19,14 +24,17 @@
                         !firstName.valid
                     }" />
                   <span class="invalid-feedback">
-                    <span *ngIf="firstName.errors?.required"
-                      i18n="First_NameVal Header|Words   First name is required. Header@@Words FFirst_NameVal Header">
+                    <span *ngIf="firstName.errors?.required" i18n="
+                        First_NameVal Header|Words First name is required.
+                        Header@@Words FFirst_NameVal Header">
                       First name is required.
                     </span>
                   </span>
                   <span class="invalid-feedback">
-                    <span *ngIf="firstName.errors?.textonlyValidation"
-                      i18n="First_NameVal Header|Words    First name can consist of alphabetical characters only. Header@@Words FFirst_NameVal Header">
+                    <span *ngIf="firstName.errors?.textonlyValidation" i18n="
+                        First_NameVal Header|Words First name can consist of
+                        alphabetical characters only. Header@@Words
+                        FFirst_NameVal Header">
                       First name can consist of alphabetical characters only
                     </span>
                   </span>
@@ -34,8 +42,9 @@
               </div>
 
               <div class="form-group">
-                <label for="lastName" i18n="Last Name Header|Words Last Name Header@@Words Last Name Header">Last Name
-                  <span class="required">*</span></label>
+                <label for="lastName" i18n="
+                    Last Name Header|Words Last Name Header@@Words Last Name
+                    Header">Last Name <span class="required">*</span></label>
                 <div>
                   <input class="form-control" id="lastName" type="text" placeholder="Last Name (required)"
                     formControlName="lastName" [ngClass]="{
@@ -43,14 +52,17 @@
                         (lastName.touched || lastName.dirty) && !lastName.valid
                     }" />
                   <span class="invalid-feedback">
-                    <span *ngIf="lastName.errors?.required"
-                      i18n="LastNameVal Header|Words  Last name is required. Header@@Words LastNameVal Header">
+                    <span *ngIf="lastName.errors?.required" i18n="
+                        LastNameVal Header|Words Last name is required.
+                        Header@@Words LastNameVal Header">
                       Last name is required.
                     </span>
                   </span>
                   <span class="invalid-feedback">
-                    <span *ngIf="lastName.errors?.textonlyValidation"
-                      i18n="LastNameVal Header|Words  Last name can consist of alphabetical characters only Header@@Words LastNameVal Header">
+                    <span *ngIf="lastName.errors?.textonlyValidation" i18n="
+                        LastNameVal Header|Words Last name can consist of
+                        alphabetical characters only Header@@Words LastNameVal
+                        Header">
                       Last name can consist of alphabetical characters only
                     </span>
                   </span>
@@ -58,8 +70,9 @@
               </div>
 
               <div class="form-group">
-                <label for="middleNames"
-                  i18n="Middle Names Header|Words Middle Names Header@@Words Middle Names Header">Middle Names</label>
+                <label for="middleNames" i18n="
+                    Middle Names Header|Words Middle Names Header@@Words Middle
+                    Names Header">Middle Names</label>
                 <div>
                   <input class="form-control" id="middleNames" type="text" placeholder="middle Names"
                     formControlName="middleNames" [ngClass]="{
@@ -69,8 +82,10 @@
                     }" />
                 </div>
                 <span class="invalid-feedback">
-                  <span *ngIf="middleNames.errors?.textonlyValidation"
-                    i18n="Middle_NamesVal Header|Words  Middle names can consist of alphabetical characters only Header@@Words Middle_NamesVal Header">
+                  <span *ngIf="middleNames.errors?.textonlyValidation" i18n="
+                      Middle_NamesVal Header|Words Middle names can consist of
+                      alphabetical characters only Header@@Words Middle_NamesVal
+                      Header">
                     Middle names can consist of alphabetical characters only
                   </span>
                 </span>
