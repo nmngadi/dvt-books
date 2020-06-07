@@ -6,13 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CommonModule } from '@angular/common';
 import { By } from '@angular/platform-browser';
+import { Observable, of } from 'rxjs';
+import { IAuthor } from 'src/app/interfaces/author';
 
 describe('AuthorCreateComponent', () => {
   let comp: AuthorCreateComponent;
   let fixture: ComponentFixture<AuthorCreateComponent>;
   let spy: any;
   const AuthorServiceMock: any = {
-    createAuthor() { }
+    createAuthor(): Observable<IAuthor> { return of(); }
   };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -67,21 +69,15 @@ describe('AuthorCreateComponent', () => {
   });
   describe('Save Method', () => {
     it('should call create author method', async () => {
-      const spyauthor = spyOn(AuthorServiceMock, 'createAuthor');
+      const spyauthor = spyOn(AuthorServiceMock, 'createAuthor').and.callThrough();
       const spysave = spyOn(comp, 'save').and.callThrough();
       fixture.debugElement.query(By.css('form')).triggerEventHandler('ngSubmit', null);
       fixture.detectChanges();
       AuthorServiceMock.createAuthor();
+      comp.save();
       expect(spysave).toHaveBeenCalled();
       expect(spyauthor).toHaveBeenCalled();
     });
-    it('should call save method when form submitted', async () => {
-      fixture.detectChanges();
-      comp.ngOnInit();
-      spyOn(comp, 'save').and.callThrough();
-      fixture.debugElement.query(By.css('form')).triggerEventHandler('ngSubmit', null);
-      fixture.detectChanges();
-      expect(comp.save).toHaveBeenCalled();
-    });
+
   });
 });
