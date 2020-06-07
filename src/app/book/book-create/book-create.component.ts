@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { forkJoin } from 'rxjs';
 import { IBook } from 'src/app/interfaces/books';
@@ -122,10 +117,6 @@ export class BookCreateComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-
-
-
-
   save() {
     for (let index = 0; index <= (this.tag.value).length - 1; index++) {
       const selected = this.tags.find((x) => x.id === this.tag.value[index]);
@@ -136,7 +127,7 @@ export class BookCreateComponent implements OnInit {
     this.book.author = this.authors.find((x) => x.id === this.author.value);
     console.log(this.isbn13.value);
     this.booksservice.createBook(this.book).subscribe(() => {
-      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 3000).subscribe();
+      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 5000).subscribe();
     });
 
   }
