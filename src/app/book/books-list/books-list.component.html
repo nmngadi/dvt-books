@@ -29,8 +29,9 @@
             <img src="https://www.pngkey.com/png/detail/350-3500680_placeholder-open-book-silhouette-vector.png" />
           </div>
           <img [src]="book.image" [title]="book.title" />
+          <br>
+          <br>
           <p>{{ book.title }}</p>
-          <p>{{ book.isbn13 | isbn: true }}</p>
           <p i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags :</p>
 
           <p *ngFor="let tag of book.tags">

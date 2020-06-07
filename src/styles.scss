@@ -5,11 +5,7 @@ html,
 body {
   height: 100%;
   background-color: #e6e7e8;
-}
-
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: 'Arvo', serif;
 }
 
 h1 {
@@ -81,6 +77,7 @@ h3 {
 }
 .panel-default > .panel-heading {
   background-color: #ffc72c;
+  border-radius: 25px;
 }
 .required {
   content: "*";
@@ -111,6 +108,7 @@ h3 {
   float: left;
   width: 33%;
   padding: 0 10px;
+  margin-bottom: 50px;
 }
 
 .row {
