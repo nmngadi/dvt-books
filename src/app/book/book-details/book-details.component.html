@@ -1,0 +1,23 @@
+<div class="text-picture">
+  <div class="container">
+    <div class="row row--flex">
+      <div class="col-sm-6 row--flex__col--center text-picture__text">
+
+        <p>Title:{{book.title|titlecase}}</p>
+        <p>{{book.isbn13|isbn:true}}</p>
+        <p>{{book.isbn10|isbn:true}}</p>
+        <p>Author:{{book.author.name}}</p>
+        <p>Published by:{{book.publisher|titlecase}}</p>
+        <p>Date Published:{{book.date_published|date}}</p>
+        <p>About:{{book.about}}</p>
+        <p *ngFor="let tag of book.tags">Tags:<span class="label label-primary"> {{tag.description }}</span></p>
+        <p>
+          {{book.abstract}}
+        </p>
+      </div>
+      <div class="col-sm-6 text-picture__picture">
+        <img [src]="book.image" alt="Image" class="img-responsive" />
+      </div>
+    </div>
+  </div>
+</div>

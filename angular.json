@@ -1,13 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "dvt-books": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
       "root": "",
@@ -25,14 +25,40 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.sass"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
           "configurations": {
+            "en": {
+              "aot": true,
+              "outputPath": "dist/dvt-books/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
+            "af": {
+              "aot": true,
+              "outputPath": "dist/dvt-books-af/",
+              "i18nFile": "src/locale/messages.af.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "af",
+              "i18nMissingTranslation": "error"
+            },
+            "zu": {
+              "aot": true,
+              "outputPath": "dist/dvt-books-zu/",
+              "i18nFile": "src/locale/messages.zu.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "zu",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -59,7 +85,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -71,6 +99,15 @@
           "configurations": {
             "production": {
               "browserTarget": "dvt-books:build:production"
+            },
+            "en": {
+              "browserTarget": "dvt-books:build:en"
+            },
+            "af": {
+              "browserTarget": "dvt-books:build:af"
+            },
+            "zu": {
+              "browserTarget": "dvt-books:build:zu"
             }
           }
         },
@@ -84,15 +121,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "codeCoverage": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.sass"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
@@ -105,9 +146,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -123,6 +162,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "dvt-books"
 }

@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="form">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 i18n="Edit Book Header|Words Edit Book Header@@Words Edit BookHeader">Edit Book</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form novalidate (ngSubmit)="save()" [formGroup]="editBookForm" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="isbn10">ISBN 10</label>
+                <div>
+                  <input class="form-control" id="isbn10" type="text" placeholder="isbn10" formControlName="isbn10"
+                    [ngClass]="{
+                      'is-invalid':
+                        (isbn10.touched || isbn10.dirty) && !isbn10.valid
+                    }" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="isbn13">ISBN 13 <span class="required">*</span></label>
+                <div>
+                  <input class="form-control" id="isbn13" type="text" placeholder="isbn13" formControlName="isbn13"
+                    [ngClass]="{
+                      'is-invalid':
+                        (isbn13.touched || isbn13.dirty) && !isbn13.valid
+                    }" />
+                  <span class="invalid-feedback">
+                    <span *ngIf="isbn13.errors?.required"
+                      i18n="ISBN13 Header|Words isbn13 is required. Header@@Words ISBN13 Header">
+                      isbn13 is required.
+                    </span>
+                    <span *ngIf="isbn13.errors?.isbn13Validation"
+                      i18n="ISBN13 Header|Words  isbn13 is not in correct format. Header@@Words ISBN13 Header">
+                      isbn13 is not in correct format.
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="title" i18n="Title Header|Words Title Header@@Words Title Header">Title <span
+                    class="required">*</span></label>
+                <div>
+                  <input class="form-control" id="title" type="text" placeholder="title" formControlName="title"
+                    [ngClass]="{
+                      'is-invalid':
+                        (title.touched || title.dirty) && !title.valid
+                    }" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="publisher"
+                  i18n="Publisher Header|Words Publisher Header@@Words Publisher Header">Publisher</label>
+                <div>
+                  <input class="form-control" id="publisher" type="text" placeholder="publisher"
+                    formControlName="publisher" [ngClass]="{
+                      'is-invalid':
+                        (publisher.touched || publisher.dirty) &&
+                        !publisher.valid
+                    }" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="datePublished"
+                  i18n="Date Published Header|Words Date Published Header@@Words Date Published Header">Date
+                  Published</label>
+                <div>
+                  <input class="form-control" id="datePublished" type="text" placeholder="datePublished"
+                    formControlName="datePublished" [ngClass]="{
+                      'is-invalid':
+                        (datePublished.touched || datePublished.dirty) &&
+                        !datePublished.valid
+                    }" />
+                </div>
+                <span class="invalid-feedback">
+                  <span *ngIf="datePublished.errors?.dateFormat"
+                    i18n=" Date format is YYYY-MM-DDHeader|Words  Date format is YYYY-MM-DD Header@@Words  Date format is YYYY-MM-DD Header">
+                    Date format is YYYY-MM-DD
+                  </span>
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="author" i18n="Author Header|Words Author Header@@Words Author Header">Author</label>
+                <select class="form-control" formControlName="author">
+                  <option class="form-control" [value]="author.id" *ngFor="let author of authors">
+                    {{ author.name }}</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="about" i18n="About Header|Words About Header@@Words About Header">About</label>
+                <div>
+                  <textarea class="form-control" id="about" type="text" placeholder="about" rows="3"
+                    formControlName="about" [ngClass]="{
+                      'is-invalid':
+                        (about.touched || about.dirty) && !about.valid
+                    }"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="about" i18n="Abstract Header|Words Abstract Header@@Words Abstract Header">Abstract</label>
+                <div>
+                  <textarea class="form-control" id="about" type="text" placeholder="abstract" rows="3"
+                    formControlName="about" [ngClass]="{
+                      'is-invalid':
+                        (about.touched || about.dirty) && !about.valid
+                    }"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tag">Tag</label>
+                <select class="form-control" formControlName="tag">
+                  <option [value]="tag.id" *ngFor="let tag of tags">
+                    {{ tag.description }}</option>
+                </select>
+              </div>
+
+              <hr>
+              <div class="form-group">
+                <div>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" [title]=""
+                    [disabled]="!editBookForm.valid" i18n="Save Header|Words SaveHeader@@Words Save Header">
+                    Save <i class="far fa-save"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

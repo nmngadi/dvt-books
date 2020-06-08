@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="form">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 i18n="New Author Header|Words New Author Header@@Words New Author Header">New Author</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-8 offset-md-4">
+            <form novalidate (ngSubmit)="save()" [formGroup]="createAuthorForm">
+              <div class="form-group">
+                <label for="firstName" i18n="First Name Header|Words First Name Header@@Words First Name Header">First
+                  Name <span class="required">*</span></label>
+                <div>
+                  <input class="form-control" id="firstName" type="text" placeholder="First Name (required)"
+                    formControlName="firstName" [ngClass]="{
+                      'is-invalid':
+                        (firstName.touched || firstName.dirty) &&
+                        !firstName.valid
+                    }" />
+                  <span class="invalid-feedback">
+                    <span *ngIf="firstName.errors?.required"
+                      i18n="First_NameVal Header|Words   First name is required. Header@@Words FFirst_NameVal Header">
+                      First name is required.
+                    </span>
+                  </span>
+                  <span class="invalid-feedback">
+                    <span *ngIf="firstName.errors?.textonlyValidation"
+                      i18n="First_NameVal Header|Words    First name can consist of alphabetical characters only. Header@@Words FFirst_NameVal Header">
+                      First name can consist of alphabetical characters only
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName" i18n="Last Name Header|Words Last Name Header@@Words Last Name Header">Last Name
+                  <span class="required">*</span></label>
+                <div>
+                  <input class="form-control" id="lastName" type="text" placeholder="Last Name (required)"
+                    formControlName="lastName" [ngClass]="{
+                      'is-invalid':
+                        (lastName.touched || lastName.dirty) && !lastName.valid
+                    }" />
+                  <span class="invalid-feedback">
+                    <span *ngIf="lastName.errors?.required"
+                      i18n="LastNameVal Header|Words  Last name is required. Header@@Words LastNameVal Header">
+                      Last name is required.
+                    </span>
+                  </span>
+                  <span class="invalid-feedback">
+                    <span *ngIf="lastName.errors?.textonlyValidation"
+                      i18n="LastNameVal Header|Words  Last name can consist of alphabetical characters only Header@@Words LastNameVal Header">
+                      Last name can consist of alphabetical characters only
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="middleNames"
+                  i18n="Middle Names Header|Words Middle Names Header@@Words Middle Names Header">Middle Names</label>
+                <div>
+                  <input class="form-control" id="middleNames" type="text" placeholder="middle Names"
+                    formControlName="middleNames" [ngClass]="{
+                      'is-invalid':
+                        (middleNames.touched || middleNames.dirty) &&
+                        !middleNames.valid
+                    }" />
+                </div>
+                <span class="invalid-feedback">
+                  <span *ngIf="middleNames.errors?.textonlyValidation"
+                    i18n="Middle_NamesVal Header|Words  Middle names can consist of alphabetical characters only Header@@Words Middle_NamesVal Header">
+                    Middle names can consist of alphabetical characters only
+                  </span>
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="about" i18n="About Header|Words About Header@@Words About Header">About</label>
+                <div>
+                  <textarea class="form-control" id="about" type="textarea" placeholder="about" rows="3"
+                    formControlName="about" [ngClass]="{
+                      'is-invalid':
+                        (about.touched || about.dirty) && !about.valid
+                    }"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" [title]=""
+                    [disabled]="!createAuthorForm.valid">
+                    Save <i class="far fa-save"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
