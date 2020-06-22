@@ -17,37 +17,38 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="grid-row">
+      <div class="grid-item" *ngFor="let author of authors">
+        <div class="grid-item-wrapper">
+          <div class="grid-item-container">
+            <div class="grid-image-top rex-ray">
+              <img src="https://www.gormankelly.com.au/wp-content/uploads/2019/03/Placeholder-Team-Image.jpg"
+                class="centered project-image-bg rex-ray-image">
+            </div>
+            <div class="grid-item-content">
+              <span class="item-title">{{author.name}}</span>
+              <span class="item-category">{{author.about}}</span>
 
-  <div class="card-body">
-    <div class="row">
-      <div class="column" *ngFor="let author of authors">
-        <div class="card">
-          <img src="https://www.gormankelly.com.au/wp-content/uploads/2019/03/Placeholder-Team-Image.jpg" />
-          <p>{{ author.name }}</p>
-          <p>
-
-          </p>
-
-          <ul class="list-inline m-0">
-            <li class="list-inline-item">
-              <button class="btn btn-success" title="Edit" [routerLink]="['/author', author.id, 'edit']"
-                *ngIf="auth.isAdmin">
-                <i class="fa fa-edit"></i>
-              </button>
-            </li>
-            <li class="list-inline-item">
-              <button class="btn btn-primary" title="View" [routerLink]="['/author', author.id, 'details']">
-                <i class="fa fa-eye"></i>
-              </button>
-            </li>
-          </ul>
-          <br />
-          <br />
+              <ul >
+                <li class="list-inline-item">
+                  <button class="btn btn-success" title="Edit" [routerLink]="['/author', author.id, 'edit']"
+                    *ngIf="auth.isAdmin">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </li>
+                <li class="list-inline-item">
+                  <button class="btn btn-primary" title="View" [routerLink]="['/author', author.id, 'details']">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
   <button type="submit" class="btn btn-lg btn-outline-primary" (click)="GetMoreAuthors()">
     Load More <i class="fas fa-spinner"></i>
   </button>

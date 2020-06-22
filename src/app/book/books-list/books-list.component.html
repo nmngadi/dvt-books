@@ -1,4 +1,13 @@
 <div class="container">
+
+    <div class="search-box">
+      <i class="material-icons">&#xE8B6;</i>
+      <div class="input-group">
+        <form [formGroup]="searchForm">
+          <input type="text" class="form-control" placeholder="Search&hellip;" formControlName="searchStr" />
+        </form>
+      </div>
+  </div>
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
@@ -7,13 +16,40 @@
             <b i18n="Books Header|Words Books Header@@Words Books Header">Books</b>
           </h2>
         </div>
-        <div class="col-sm-4">
-          <div class="search-box">
-            <i class="material-icons">&#xE8B6;</i>
-            <div class="input-group">
-              <form [formGroup]="searchForm">
-                <input type="text" class="form-control" placeholder="Search&hellip;" formControlName="searchStr" />
-              </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid-row">
+      <div class="grid-item"  *ngFor="let book of books">
+        <div class="grid-item-wrapper">
+          <div class="grid-item-container">
+            <div class="grid-image-top rex-ray">
+              <img [src]="book.image" [title]="book.title"
+                class="centered project-image-bg rex-ray-image"/>
+            </div>
+            <div class="grid-item-content">
+              <span class="item-title">{{book.title}}</span>
+              <div class="tags">
+                <p i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags :</p>
+                <p class="Tags">
+                <a  *ngFor="let tag of book.tags"  title="" href="" class="color5">{{ tag.description }}</a>
+                </p>
+              </div>
+              <ul class="list-inline m-0">
+                <li class="list-inline-item">
+                  <button class="btn btn-success" [routerLink]="['/book', book.isbn13, 'edit']" title="Edit"
+                    *ngIf="auth.isAdmin">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </li>
+                <li class="list-inline-item">
+                  <button class="btn btn-primary" title="View">
+                    <i class="fa fa-eye" [routerLink]="['/book', book.isbn13, 'details']"></i>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -21,42 +57,7 @@
     </div>
   </div>
 
-  <div class="card-body">
-    <div class="row">
-      <div class="column" *ngFor="let book of books">
-        <div class="card">
-          <div *ngIf="book.image == null">
-            <img src="https://www.pngkey.com/png/detail/350-3500680_placeholder-open-book-silhouette-vector.png" />
-          </div>
-          <img [src]="book.image" [title]="book.title" />
-          <br>
-          <br>
-          <p>{{ book.title }}</p>
-          <p i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags :</p>
-
-          <p *ngFor="let tag of book.tags">
-            <span class="badge badge-primary">{{ tag.description }}</span>
-          </p>
-          <ul class="list-inline m-0">
-            <li class="list-inline-item">
-              <button class="btn btn-success" [routerLink]="['/book', book.isbn13, 'edit']" title="Edit"
-                *ngIf="auth.isAdmin">
-                <i class="fa fa-edit"></i>
-              </button>
-            </li>
-            <li class="list-inline-item">
-              <button class="btn btn-primary" title="View">
-                <i class="fa fa-eye" [routerLink]="['/book', book.isbn13, 'details']"></i>
-              </button>
-            </li>
-          </ul>
-          <br />
-          <br />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div *ngIf="loading$ | async">
   <app-loader></app-loader>
+</div>
 </div>
