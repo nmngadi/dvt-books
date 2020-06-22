@@ -11,7 +11,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
-
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,9 @@ import { BookModule } from './book/book.module';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
+      { path: 'error', component: ErrorPageComponent }
     ]),
+    SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AuthorModule,
