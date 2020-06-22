@@ -10,6 +10,7 @@ import { AuthorService } from 'src/app/services/authors.service';
 import { IAuthor } from 'src/app/interfaces/author';
 import { Router } from '@angular/router';
 import { textonlyValidation } from 'src/app/validations/text-only.validation';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-author-create',
@@ -59,10 +60,15 @@ export class AuthorCreateComponent implements OnInit {
       .subscribe(x => this.author.middle_names = x);
     this.about.valueChanges
       .subscribe(x => this.author.about = x);
-}
+  }
 
   save() {
     this.authorservice.createAuthor(this.author).subscribe();
+    Swal.fire({
+      icon: 'success',
+      title: 'Successful',
+      text: `Author has been successfully added`
+    });
     this.createAuthorForm.reset();
     this.router.navigate(['/authors']);
   }
