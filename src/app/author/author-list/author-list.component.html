@@ -30,7 +30,7 @@
               <span class="item-title">{{author.name}}</span>
               <span class="item-category">{{author.about}}</span>
 
-              <ul >
+              <ul>
                 <li class="list-inline-item">
                   <button class="btn btn-success" title="Edit" [routerLink]="['/author', author.id, 'edit']"
                     *ngIf="auth.isAdmin">
