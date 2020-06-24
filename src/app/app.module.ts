@@ -36,7 +36,7 @@ import { AuthGuard } from './guards/auth.guard';
     AuthorModule,
     BookModule
   ],
-  providers: [CanDeactivateGuard,AuthGuard],
+  providers: [CanDeactivateGuard, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

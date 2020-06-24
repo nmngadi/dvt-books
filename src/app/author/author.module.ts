@@ -21,7 +21,7 @@ import { AuthGuard } from '../guards/auth.guard';
   imports: [
     RouterModule.forChild([
       { path: 'authors', component: AuthorListComponent },
-      { path: 'authors/new', component: AuthorCreateComponent, canDeactivate: [CanDeactivateGuard],canActivate: [AuthGuard] },
+      { path: 'authors/new', component: AuthorCreateComponent, canDeactivate: [CanDeactivateGuard], canActivate: [AuthGuard] },
       { path: 'author/:id/edit', component: AuthorEditComponent },
       { path: 'author/:id/details', component: AuthorDetailsComponent }
     ]),

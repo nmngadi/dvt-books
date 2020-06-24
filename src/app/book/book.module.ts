@@ -24,7 +24,7 @@ import { AuthGuard } from '../guards/auth.guard';
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'books/new', component: BookCreateComponent ,canDeactivate: [CanDeactivateGuard],canActivate: [AuthGuard]},
+      { path: 'books/new', component: BookCreateComponent , canDeactivate: [CanDeactivateGuard], canActivate: [AuthGuard]},
       { path: 'books', component: BooksListComponent },
       { path: 'book/:isbn13/edit', component: BookEditComponent },
       { path: 'book/:isbn13/details', component: BookDetailsComponent }

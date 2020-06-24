@@ -21,7 +21,7 @@ export class AuthorCreateComponent implements OnInit {
   createAuthorForm: FormGroup;
   author: IAuthor;
 
-  hasUnsavedChanges=false;
+  hasUnsavedChanges = false;
   constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router) {
     this.createAuthorForm = this.fb.group({
       firstName: ['', [Validators.required, textonlyValidation()]],
@@ -61,9 +61,9 @@ export class AuthorCreateComponent implements OnInit {
       .subscribe(x => this.author.middle_names = x);
     this.about.valueChanges
       .subscribe(x => this.author.about = x);
-      if(this.createAuthorForm.invalid){
-        this.hasUnsavedChanges=true;
-      }
+    if (this.createAuthorForm.invalid) {
+      this.hasUnsavedChanges = true;
+    }
   }
   canDeactivate() {
 
@@ -74,10 +74,8 @@ export class AuthorCreateComponent implements OnInit {
         text: `Please complete form`
       });
       return false;
-    }
-    else(!this.createAuthorForm.invalid)
-    {
-     return true;
+    } else if (!this.createAuthorForm.invalid) {
+      return true;
     }
   }
 
