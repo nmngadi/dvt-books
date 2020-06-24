@@ -5,7 +5,9 @@ import { AuthorEditComponent } from './author-edit/author-edit.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { AuthGuard } from '../auth.guard';
+import { CanDeactivateGuard } from '../guards/can-deactivate.guard';
+import { AuthGuard } from '../guards/auth.guard';
+
 
 
 
@@ -19,7 +21,7 @@ import { AuthGuard } from '../auth.guard';
   imports: [
     RouterModule.forChild([
       { path: 'authors', component: AuthorListComponent },
-      { path: 'authors/new', component: AuthorCreateComponent, canActivate: [AuthGuard] },
+      { path: 'authors/new', component: AuthorCreateComponent, canDeactivate: [CanDeactivateGuard],canActivate: [AuthGuard] },
       { path: 'author/:id/edit', component: AuthorEditComponent },
       { path: 'author/:id/details', component: AuthorDetailsComponent }
     ]),

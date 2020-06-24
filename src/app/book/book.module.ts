@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { CanDeactivateGuard } from '../guards/can-deactivate.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'books/new', component: BookCreateComponent },
+      { path: 'books/new', component: BookCreateComponent ,canDeactivate: [CanDeactivateGuard],canActivate: [AuthGuard]},
       { path: 'books', component: BooksListComponent },
       { path: 'book/:isbn13/edit', component: BookEditComponent },
       { path: 'book/:isbn13/details', component: BookDetailsComponent }

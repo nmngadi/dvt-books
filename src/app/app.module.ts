@@ -13,6 +13,9 @@ import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
 import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CanDeactivateGuard } from './guards/can-deactivate.guard';
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AuthorModule,
     BookModule
   ],
-  providers: [],
+  providers: [CanDeactivateGuard,AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
