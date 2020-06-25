@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --port 4200 --poll 1000 --configuration=en",
+    "start": "ng serve --host 0.0.0.0 --port 4200 --poll 1000 ",
     "start:zu": "ng serve --host 0.0.0.0 --port 4211 --poll 1000 --configuration=zu",
     "start:af": "ng serve --host 0.0.0.0 --port 4210 --poll 1000 --configuration=af",
     "build:zu": "ng build --configuration=zu",
@@ -29,10 +29,12 @@
     "@angular/service-worker": "~9.0.6",
     "@auth0/auth0-spa-js": "^1.7.0",
     "@ng-select/ng-select": "^4.0.0",
+    "@sweetalert2/ngx-sweetalert2": "^8.1.1",
     "bootstrap": "^4.4.1",
     "mat-select-autocomplete": "^1.3.0",
     "moment": "^2.25.0",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.15.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
