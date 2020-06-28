@@ -10,20 +10,19 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./author-details.component.scss']
 })
 export class AuthorDetailsComponent implements OnInit {
-author: IAuthor;
+  author: IAuthor;
+  param;
 
-
-  constructor(private authorservice: AuthorService, private route: ActivatedRoute,  private router: Router) { }
+  constructor(private authorservice: AuthorService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const param = this.route.snapshot.paramMap.get('id');
-    if (param) {
-      const id = param;
-      this.authorservice.getAuthor(param).subscribe({
-      next: (author) => {
-        this.author = author;
-     }
-    });
+    this.route.snapshot.paramMap.get('id');
+    if (this.param) {
+      this.authorservice.getAuthor(this.param).subscribe({
+        next: (author) => {
+          this.author = author;
+        }
+      });
 
     }
   }

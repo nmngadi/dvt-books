@@ -17,6 +17,7 @@ import { IAuthor } from 'src/app/interfaces/author';
 export class AuthorEditComponent implements OnInit, AfterViewInit {
   editAuthorForm: FormGroup;
   author: IAuthor;
+  param;
 
   constructor(
     private fb: FormBuilder,
@@ -36,14 +37,11 @@ export class AuthorEditComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    const param = this.route.snapshot.paramMap.get('id');
-    if (param) {
-      const id = param;
-      this.getAuthor(id);
-      this.author.id = id;
+    this.route.snapshot.paramMap.get('id');
+    if (this.param) {
+      this.getAuthor(this.param);
+      this.author.id = this.param;
     }
-
-
   }
 
 
