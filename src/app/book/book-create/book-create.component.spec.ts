@@ -83,6 +83,7 @@ describe('BookCreateComponent', () => {
     comp.createBookForm.controls.datePublished.setValue('2020/05/06');
     expect(comp.datePublished.valid).toBeTrue();
   });
+
   it('should call ngOnInit', () => {
     const spy = spyOn(comp, 'ngOnInit').and.callThrough();
     spyOn(MockService, 'getTags').and.callThrough();
