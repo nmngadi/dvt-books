@@ -6,7 +6,6 @@ import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
-import { ThrowStmt } from '@angular/compiler';
 import { userRoles } from '../interfaces/userRoles.enum';
 
 @Injectable({
@@ -97,11 +96,9 @@ isAdmin: boolean;
       const authComplete$ = this.handleRedirectCallback$.pipe(
 
         tap(cbRes => {
-
           targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
         }),
         concatMap(() => {
-
           return combineLatest([
             this.getUser$(),
             this.isAuthenticated$

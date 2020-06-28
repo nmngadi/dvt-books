@@ -20,12 +20,11 @@ jobs:
           name: Linting
           command: npm run lint
       - run:
+          name: Test
+          command: npm run test --  --source-map=false --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run:
           name: Build
           command: ./node_modules/@angular/cli/bin/ng build --prod
-      - run:
-          name: Test
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-
 
 workflows:
   version: 2

@@ -1,19 +1,12 @@
 <nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
   <div class="navbar-header d-flex col">
     <a href="#" class="navbar-brand">
-      <a href="http://localhost:4200/profile" target="_blank" class="logo">
-        <img
-          src="https://avatars3.githubusercontent.com/u/3303186?s=280&v=4"
-          alt="logo"
-        />
+      <a href="http://localhost:4200/profile" target="_blank" class="">
+        <img src="https://avatars3.githubusercontent.com/u/3303186?s=280&v=4" alt="logo" class="img"/>
       </a>
     </a>
-    <button
-      type="button"
-      data-target="#navbarCollapse"
-      data-toggle="collapse"
-      class="navbar-toggle navbar-toggler ml-auto"
-    >
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
+      class="navbar-toggle navbar-toggler ml-auto">
       <span class="navbar-toggler-icon"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -21,63 +14,39 @@
     </button>
   </div>
 
-  <div
-    id="navbarCollapse"
-    class="collapse navbar-collapse justify-content-start"
-  >
-    <ul class="nav navbar-nav navbar-right ml-auto">
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <ul class="nav navbar-nav navbar-centre ml-auto">
       <li class="nav-item active">
-        <a href="#" routerLink="/home" class="nav-link"
-          ><i class="fa fa-home"></i><span i18n="Home Header|Words Home Header@@Words Home Header">Home</span></a
-        >
+        <a href="#" routerLink="/home" class="nav-link"><i class="fa fa-home"></i><span
+            i18n="Home Header|Words Home Header@@Words Home Header">Home</span></a>
       </li>
       <li class="nav-item">
-        <a href="#" routerLink="/books" class="nav-link"
-          ><i class="fa fa-book"></i><span i18n="Books Header|Words Books Header@@Words Books Header">Books</span></a
-        >
+        <a href="#" routerLink="/books" class="nav-link"><i class="fa fa-book"></i><span
+            i18n="Books Header|Words Books Header@@Words Books Header">Books</span></a>
       </li>
       <li class="nav-item" *ngIf="auth.isAdmin">
-        <a href="#" routerLink="/books/new" class="nav-link"
-          ><i class="fa fa-plus"></i><span i18n="Add Books Header|Words Add Books Header@@Words Add Books Header">Add Books</span></a
-        >
+        <a href="#" routerLink="/books/new" class="nav-link"><i class="fa fa-plus"></i><span i18n="
+              Add Books Header|Words Add Books Header@@Words Add Books Header">Add Books</span></a>
       </li>
       <li class="nav-item">
-        <a href="#" routerLink="/authors" class="nav-link"
-          ><i class="fa fa-users"></i><span i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</span></a
-        >
+        <a href="#" routerLink="/authors" class="nav-link"><i class="fa fa-users"></i><span
+            i18n="Authors Header|Words Authors Header@@Words Authors Header">Authors</span></a>
       </li>
       <li class="nav-item" *ngIf="auth.isAdmin">
-        <a href="#" routerLink="/authors/new" class="nav-link"
-          ><i class="fa fa-plus"></i><span i18n="Add Authors Header|Words Add Authors Header@@Words Add Authors Header">Add Authors</span></a
-        >
+        <a href="#" routerLink="/authors/new" class="nav-link"><i class="fa fa-plus"></i><span i18n="
+              Add Authors Header|Words Add Authors Header@@Words Add Authors
+              Header">Add Authors</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" (click)="auth.login()" *ngIf="!auth.loggedIn" class="nav-link"><i
+            class="fas fa-sign-in-alt"></i><span
+            i18n="Login Header|Words Login Header@@Words Login Header">Login</span></a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"
-          ><i class="fa fa-tag"></i><span i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link"
-          ><i class="fa fa-tag"></i><span i18n="Book Tags Header|Words Book Tags Header@@Words Book Tags Header">Book Tags</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          href="#"
-          (click)="auth.login()"
-          *ngIf="!auth.loggedIn"
-          class="nav-link"
-          ><i class="fas fa-sign-in-alt"></i><span i18n="Login Header|Words Login Header@@Words Login Header">Login</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          href="#"
-          (click)="auth.logout()"
-          *ngIf="auth.loggedIn"
-          class="nav-link"
-          ><i class="fas fa-sign-out-alt"></i><span i18n="Logout Header|Words Logout Header@@Words Logout Header">Logout </span></a
-        >
+        <a href="#" (click)="auth.logout()" *ngIf="auth.loggedIn" class="nav-link"><i
+            class="fas fa-sign-out-alt"></i><span i18n="Logout Header|Words Logout Header@@Words Logout Header">Logout
+          </span></a>
       </li>
     </ul>
   </div>

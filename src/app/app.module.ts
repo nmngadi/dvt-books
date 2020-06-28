@@ -6,74 +6,37 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthorListComponent } from './author/author-list/author-list.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthorCreateComponent } from './author/author-create/author-create.component';
-import { AuthorEditComponent } from './author/author-edit/author-edit.component';
-import { LoaderComponent } from './loader/loader.component';
-import { BookCreateComponent } from './book/book-create/book-create.component';
-import { BooksListComponent } from './book/books-list/books-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
-import {IsbnPipe} from './pipes/isbn.pipe';
-import { BookEditComponent } from './book/book-edit/book-edit.component';
-import { AuthorDetailsComponent } from './author/author-details/author-details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { BookDetailsComponent } from './book/book-details/book-details.component';
+import { AuthorModule } from './author/author.module';
+import { BookModule } from './book/book.module';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CanDeactivateGuard } from './guards/can-deactivate.guard';
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
-    AuthorListComponent,
-    AuthorCreateComponent,
-    AuthorEditComponent,
-    LoaderComponent,
-    BookCreateComponent,
-    BooksListComponent,
-    IsbnPipe,
-    BookEditComponent,
-    AuthorDetailsComponent,
-    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: 'authors', component: AuthorListComponent },
-      { path: 'authors/new', component: AuthorCreateComponent },
-      {
-        path: 'author/:id/edit',
-        component: AuthorEditComponent,
-      },
-      {
-        path: 'author/:id/details',
-        component: AuthorDetailsComponent,
-      },
-      { path: 'books/new', component: BookCreateComponent },
-      { path: 'books', component: BooksListComponent },
-      {
-        path: 'book/:isbn13/edit',
-        component: BookEditComponent
-      },
-      {
-        path: 'book/:isbn13/details',
-        component: BookDetailsComponent
-      }
+      { path: 'error', component: ErrorPageComponent }
     ]),
+    SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
-    MatIconModule,
-    MatSelectModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AuthorModule,
+    BookModule
   ],
-  providers: [],
+  providers: [CanDeactivateGuard, AuthGuard],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

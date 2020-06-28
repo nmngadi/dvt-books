@@ -10,6 +10,7 @@ import { AuthorService } from 'src/app/services/authors.service';
 import { IAuthor } from 'src/app/interfaces/author';
 import { Router } from '@angular/router';
 import { textonlyValidation } from 'src/app/validations/text-only.validation';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-author-create',
@@ -20,6 +21,7 @@ export class AuthorCreateComponent implements OnInit {
   createAuthorForm: FormGroup;
   author: IAuthor;
 
+  hasUnsavedChanges = false;
   constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router) {
     this.createAuthorForm = this.fb.group({
       firstName: ['', [Validators.required, textonlyValidation()]],
@@ -59,11 +61,31 @@ export class AuthorCreateComponent implements OnInit {
       .subscribe(x => this.author.middle_names = x);
     this.about.valueChanges
       .subscribe(x => this.author.about = x);
-}
+    if (this.createAuthorForm.invalid) {
+      this.hasUnsavedChanges = true;
+    }
+  }
+  canDeactivate() {
+
+    if (this.createAuthorForm.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'unsaved changes',
+        text: `Please complete form`
+      });
+      return false;
+    } else if (!this.createAuthorForm.invalid) {
+      return true;
+    }
+  }
 
   save() {
-
     this.authorservice.createAuthor(this.author).subscribe();
+    Swal.fire({
+      icon: 'success',
+      title: 'Successful',
+      text: `Author has been successfully added`
+    });
     this.createAuthorForm.reset();
     this.router.navigate(['/authors']);
   }

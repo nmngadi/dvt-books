@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { forkJoin } from 'rxjs';
 import { IBook } from 'src/app/interfaces/books';
@@ -16,6 +11,7 @@ import { Router } from '@angular/router';
 import { dateFormat } from 'src/app/validations/date.validation';
 import { isbn13Validation } from 'src/app/validations/isbn13.validation';
 import { authorRef } from 'src/app/interfaces/authorRef';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-book-create',
@@ -122,21 +118,20 @@ export class BookCreateComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-
-
-
-
   save() {
     for (let index = 0; index <= (this.tag.value).length - 1; index++) {
       const selected = this.tags.find((x) => x.id === this.tag.value[index]);
       this.tagslist.push(selected);
       this.book.tags = this.tagslist;
-      console.log(selected);
     }
     this.book.author = this.authors.find((x) => x.id === this.author.value);
-    console.log(this.isbn13.value);
     this.booksservice.createBook(this.book).subscribe(() => {
-      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 3000).subscribe();
+      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 5000).subscribe();
+    });
+    Swal.fire({
+      icon: 'success',
+      title: 'Successful',
+      text: `Book has been successfully added`
     });
 
   }

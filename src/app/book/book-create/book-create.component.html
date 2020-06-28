@@ -9,60 +9,35 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-md-8 offset-md-2">
-            <form
-              novalidate
-              (ngSubmit)="save()"
-              [formGroup]="createBookForm"
-              enctype="multipart/form-data"
-            >
+            <form novalidate (ngSubmit)="save()" [formGroup]="createBookForm" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="isbn10">ISBN 10</label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="isbn10"
-                    type="text"
-                    placeholder="isbn10"
-                    formControlName="isbn10"
+                  <input class="form-control" id="isbn10" type="text" placeholder="isbn10" formControlName="isbn10"
                     [ngClass]="{
                       'is-invalid':
                         (isbn10.touched || isbn10.dirty) && !isbn10.valid
-                    }"
-                  />
+                    }" />
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="isbn13"
-                  >ISBN 13 <span class="required">*</span></label
-                >
+                <label for="isbn13">ISBN 13 <span class="required">*</span></label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="isbn13"
-                    type="text"
-                    placeholder="isbn13"
-                    formControlName="isbn13"
+                  <input class="form-control" id="isbn13" type="text" placeholder="isbn13" formControlName="isbn13"
                     [ngClass]="{
                       'is-invalid':
                         (isbn13.touched || isbn13.dirty) && !isbn13.valid
-                    }"
-                  />
+                    }" />
                   <span class="invalid-feedback">
-                    <span
-                      *ngIf="isbn13.errors?.required"
-                      i18n="
+                    <span *ngIf="isbn13.errors?.required" i18n="
                         ISBN13 Header|Words isbn13 is required. Header@@Words
-                        ISBN13 Header"
-                    >
+                        ISBN13 Header">
                       isbn13 is required.
                     </span>
-                    <span
-                      *ngIf="isbn13.errors?.isbn13Validation"
-                      i18n="
+                    <span *ngIf="isbn13.errors?.isbn13Validation" i18n="
                         ISBN13 Header|Words isbn13 is not in correct format.
-                        Header@@Words ISBN13 Header"
-                    >
+                        Header@@Words ISBN13 Header">
                       isbn13 is not in correct format.
                     </span>
                   </span>
@@ -70,196 +45,110 @@
               </div>
 
               <div class="form-group">
-                <label
-                  for="title"
-                  i18n="Title Header|Words Title Header@@Words Title Header"
-                  >Title <span class="required">*</span></label
-                >
+                <label for="title" i18n="Title Header|Words Title Header@@Words Title Header">Title <span
+                    class="required">*</span></label>
                 <div>
 
-                  <input
-                    class="form-control"
-                    id="title"
-                    type="text"
-                    placeholder="title"
-                    formControlName="title"
+                  <input class="form-control" id="title" type="text" placeholder="title" formControlName="title"
                     [ngClass]="{
                       'is-invalid':
                         (title.touched || title.dirty) && !title.valid
-                    }"
-                  />
+                    }" />
                 </div>
 
                 <span class="invalid-feedback">
-                  <span
-                    *ngIf="title.errors?.required"
-
-                  >
-                  Title is required.
+                  <span *ngIf="title.errors?.required">
+                    Title is required.
                   </span>
                 </span>
               </div>
               <div class="form-group">
-                <label
-                  for="publisher"
-                  i18n="
+                <label for="publisher" i18n="
                     Publisher Header|Words Publisher Header@@Words Publisher
-                    Header"
-                  >Publisher</label
-                >
+                    Header">Publisher</label>
                 <div>
-                  <input
-                    class="form-control"
-                    id="publisher"
-                    type="text"
-                    placeholder="publisher"
-                    formControlName="publisher"
-                    [ngClass]="{
+                  <input class="form-control" id="publisher" type="text" placeholder="publisher"
+                    formControlName="publisher" [ngClass]="{
                       'is-invalid':
                         (publisher.touched || publisher.dirty) &&
                         !publisher.valid
-                    }"
-                  />
+                    }" />
                 </div>
               </div>
               <div class="form-group">
-                <label
-                  for="datePublished"
-                  i18n="
+                <label for="datePublished" i18n="
                     Date Published Header|Words Date Published Header@@Words
-                    Date Published Header"
-                  >Date Published</label
-                >
+                    Date Published Header">Date Published</label>
                 <div>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="datePublished"
-                    type="text"
-                    placeholder="datePublished"
-                    formControlName="datePublished"
-                    [ngClass]="{
+                  <input type="date" class="form-control" id="datePublished" type="text" placeholder="datePublished"
+                    formControlName="datePublished" [ngClass]="{
                       'is-invalid':
                         (datePublished.touched || datePublished.dirty) &&
                         !datePublished.valid
-                    }"
-                  />
+                    }" />
                 </div>
                 <span class="invalid-feedback">
-                  <span
-                    *ngIf="datePublished.errors?.dateFormat"
-                    i18n="
+                  <span *ngIf="datePublished.errors?.dateFormat" i18n="
                       Date format is YYYY-MM-DDHeader|Words Date format is
-                      YYYY-MM-DD Header@@Words Date format is YYYY-MM-DD Header"
-                  >
+                      YYYY-MM-DD Header@@Words Date format is YYYY-MM-DD Header">
                     Date format is YYYY-MM-DD
                   </span>
                 </span>
               </div>
 
               <div class="form-group">
-                <label
-                  for="author"
-                  i18n="Author Header|Words Author Header@@Words Author Header"
-                  >Author</label
-                >
+                <label for="author" i18n="Author Header|Words Author Header@@Words Author Header">Author</label>
                 <select class="form-control" formControlName="author">
-                  <option
-                    class="form-control"
-                    [value]="author.id"
-                    *ngFor="let author of authors"
-                  >
-                    {{ author.name }}</option
-                  >
+                  <option class="form-control" [value]="author.id" *ngFor="let author of authors">
+                    {{ author.name }}</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label
-                  for="about"
-                  i18n="About Header|Words About Header@@Words About Header"
-                  >About</label
-                >
+                <label for="about" i18n="About Header|Words About Header@@Words About Header">About</label>
                 <div>
-                  <textarea
-                    class="form-control"
-                    id="about"
-                    type="text"
-                    placeholder="about"
-                    rows="3"
-                    formControlName="about"
-                    [ngClass]="{
+                  <textarea class="form-control" id="about" type="text" placeholder="about" rows="3"
+                    formControlName="about" [ngClass]="{
                       'is-invalid':
                         (about.touched || about.dirty) && !about.valid
-                    }"
-                  ></textarea>
+                    }"></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label
-                  for="about"
-                  i18n="
-                    Abstract Header|Words Abstract Header@@Words Abstract Header"
-                  >Abstract</label
-                >
+                <label for="about" i18n="
+                    Abstract Header|Words Abstract Header@@Words Abstract Header">Abstract</label>
                 <div>
-                  <textarea
-                    class="form-control"
-                    id="about"
-                    type="text"
-                    placeholder="abstract"
-                    rows="3"
-                    formControlName="about"
-                    [ngClass]="{
+                  <textarea class="form-control" id="about" type="text" placeholder="abstract" rows="3"
+                    formControlName="about" [ngClass]="{
                       'is-invalid':
                         (about.touched || about.dirty) && !about.valid
-                    }"
-                  ></textarea>
+                    }"></textarea>
                 </div>
               </div>
 
               <mat-form-field>
-                <mat-label
-                  i18n="Tags Header|Words Tags Header@@Words Tags Header"
-                  >Tags</mat-label
-                >
+                <mat-label i18n="Tags Header|Words Tags Header@@Words Tags Header">Tags</mat-label>
                 <mat-select [formControl]="tag" multiple>
                   <mat-option *ngFor="let tag of tags" [value]="tag.id">{{
                     tag.description
                   }}</mat-option>
                 </mat-select>
               </mat-form-field>
+
               <div class="form-group">
-                <label
-                  for="picture"
-                  i18n="
+                <label for="picture" i18n="
                     Upload Picture Header|Words Upload Picture Header@@Words
-                    Upload Picture Header"
-                  >Upload Picture</label
-                >
-                <input
-                  type="file"
-                  id="picture"
-                  name="picture"
-                  class="form-control"
-                  (change)="onFileChanged($event)"
-                  accept="image/bmp,image/gif,image/jpeg,image/png"
-                  autocomplete="none"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  spellcheck="false"
-                />
+                    Upload Picture Header">Upload Picture</label>
+                <input type="file" id="picture" name="picture" class="form-control" (change)="onFileChanged($event)"
+                  accept="image/bmp,image/gif,image/jpeg,image/png" autocomplete="none" autocorrect="off"
+                  autocapitalize="off" spellcheck="false" />
               </div>
               <hr />
+
               <div class="form-group">
                 <div>
-                  <button
-                    class="btn btn-primary btn-lg btn-block"
-                    type="submit"
-                    [title]=""
-                    [disabled]="!createBookForm.valid"
-                    i18n="Save Header|Words SaveHeader@@Words Save Header"
-                  >
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" [title]=""
+                    [disabled]="!createBookForm.valid" i18n="Save Header|Words SaveHeader@@Words Save Header">
                     Save <i class="far fa-save"></i>
                   </button>
                 </div>

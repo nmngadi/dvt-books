@@ -1,4 +1,9 @@
-# DvtBooks
+
+# Dvt Books
+[![CircleCI](https://circleci.com/gh/nmngadi/dvt-books/tree/develop.svg?style=svg)](https://circleci.com/gh/nmngadi/dvt-books)
+[![codecov](https://codecov.io/gh/nmngadi/dvt-books/branch/develop/graph/badge.svg)](https://codecov.io/gh/nmngadi/dvt-books)
+[![GitHub issues](https://img.shields.io/github/issues/nmngadi/dvt-books)](https://github.com/nmngadi/dvt-books/issues)
+
 
 
 ## Project description
@@ -26,17 +31,13 @@ Author Form
 ![](/screenshots/AuthorForm.png)
 Author list
 ![](/screenshots/Authorlist.png)
-Author Search
-![](/screenshots/Auhtorsearch.png)
 
-Author load more -Server side pagination
-![](/screenshots/Auhtorloadmore.png)
 
-Author BIO
-![](/screenshots/auhtorbio.png)
 
 Author Books
-![](/screenshots/Auhtorbooks.png)
+![](/screenshots/Authorbooks.png)
+
+
 
 ## Book Component
  Book Form

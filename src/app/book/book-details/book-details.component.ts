@@ -10,14 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BookDetailsComponent implements OnInit {
   book: IBook;
-
+  param;
   constructor(private bookservice: BooksService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const param = this.route.snapshot.paramMap.get('isbn13');
-    if (param) {
-      const id = param;
-      this.bookservice.getBook(param).subscribe({
+    this.param = this.route.snapshot.paramMap.get('isbn13');
+    if (this.param) {
+      this.bookservice.getBook(this.param).subscribe({
         next: (book) => {
           this.book = book;
         }

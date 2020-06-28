@@ -165,9 +165,7 @@ export class BookEditComponent implements OnInit, AfterViewInit {
   save() {
     this.book.author = this.authors.find((x) => x.id === this.author.value);
     this.book.tags = [this.tags.find((x) => x.id === this.tag.value)];
-    this.bookservice.updateBook(this.param, this.book).subscribe(() => {
-      this.bookservice.updatePicture(this.isbn13.value, this.selectedFile).subscribe();
-    });
+    this.bookservice.updateBook(this.param, this.book).subscribe();
     this.router.navigate(['/books']);
 
   }

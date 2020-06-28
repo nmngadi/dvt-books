@@ -10,7 +10,7 @@
         <p>Published by:{{book.publisher|titlecase}}</p>
         <p>Date Published:{{book.date_published|date}}</p>
         <p>About:{{book.about}}</p>
-        <p *ngFor="let tag of book.tags">Tags:<span class="label label-primary"> {{tag.description }}</span></p>
+        <p *ngFor="let tag of book.tags"><span class="badge badge-primary">{{tag.description }}</span></p>
         <p>
           {{book.abstract}}
         </p>
