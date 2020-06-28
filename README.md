@@ -1,7 +1,11 @@
+
 # Dvt Books
 [![CircleCI](https://circleci.com/gh/nmngadi/dvt-books/tree/develop.svg?style=svg)](https://circleci.com/gh/nmngadi/dvt-books)
 [![codecov](https://codecov.io/gh/nmngadi/dvt-books/branch/develop/graph/badge.svg)](https://codecov.io/gh/nmngadi/dvt-books)
 [![GitHub issues](https://img.shields.io/github/issues/nmngadi/dvt-books)](https://github.com/nmngadi/dvt-books/issues)
+
+
+
 ## Project description
 DVT is in the process of building a central repository for its developers to find software development books. The application has been named DVTBooks. A group of backend developers have created the APIs and databases to create, read, update and delete books. This is a frontend application which consumes the APIs and provides the frontend functionality.  
 ## Outcome of project
@@ -29,8 +33,11 @@ Author list
 ![](/screenshots/Authorlist.png)
 
 
+
 Author Books
 ![](/screenshots/Authorbooks.png)
+
+
 
 ## Book Component
  Book Form
