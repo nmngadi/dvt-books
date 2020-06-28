@@ -27,17 +27,10 @@ Author Form
 ![](/screenshots/AuthorForm.png)
 Author list
 ![](/screenshots/Authorlist.png)
-Author Search
-![](/screenshots/Auhtorsearch.png)
 
-Author load more -Server side pagination
-![](/screenshots/Auhtorloadmore.png)
-
-Author BIO
-![](/screenshots/auhtorbio.png)
 
 Author Books
-![](/screenshots/Auhtorbooks.png)
+![](/screenshots/Authorbooks.png)
 
 ## Book Component
  Book Form
