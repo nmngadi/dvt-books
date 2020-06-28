@@ -78,6 +78,23 @@ describe('AuthorCreateComponent', () => {
       expect(spysave).toHaveBeenCalled();
       expect(spyauthor).toHaveBeenCalled();
     });
-
   });
+  it('should return false on invalid form when canDeactivate is called', () => {
+    comp.ngOnInit();
+    comp.createAuthorForm.controls.firstName.setValue('');
+    comp.createAuthorForm.controls.lastName.setValue('Doe');
+    comp.createAuthorForm.controls.middleNames.setValue('Jill');
+    comp.createAuthorForm.controls.about.setValue('writes about C#');
+    const actual = comp.canDeactivate();
+    expect(actual).toBe(false);
+    });
+  it('should return true on valid form when canDeactivate is called', () => {
+      comp.ngOnInit();
+      comp.createAuthorForm.controls.firstName.setValue('Jane');
+      comp.createAuthorForm.controls.lastName.setValue('Doe');
+      comp.createAuthorForm.controls.middleNames.setValue('Jill');
+      comp.createAuthorForm.controls.about.setValue('writes about C#');
+      const actual = comp.canDeactivate();
+      expect(actual).toBe(true);
+      });
 });
