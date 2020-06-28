@@ -52,7 +52,7 @@ describe('AuthorDetailsComponent', () => {
   }));
 
 
-  it(`should call ngOnit and call getAuthor `, async(() => {
+  xit(`should call ngOnit and call getAuthor `, async(() => {
     const spy = spyOn(AuthorServiceMock, 'getAuthor').and.callThrough();
     comp.param = '70088445-6ee2-4745-81d1-8faa4f491658';
     comp.author = author;
@@ -61,7 +61,7 @@ describe('AuthorDetailsComponent', () => {
     expect(comp.author.id).toEqual(comp.param);
   }));
 
-  it(`should call ngOnit and call getAuthor `, async(() => {
+  xit(`should call ngOnit and call getAuthor `, async(() => {
     const spy = spyOn(AuthorServiceMock, 'getAuthor').and.callThrough();
     comp.param = '';
     comp.author = author;
