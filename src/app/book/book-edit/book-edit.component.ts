@@ -83,29 +83,25 @@ export class BookEditComponent implements OnInit, AfterViewInit {
   book: IBook;
   tags: ITag[];
   authors: IAuthor[];
-  param = this.route.snapshot.paramMap.get('isbn13');
+  param;
 
-  fileData: File = null;
 
-  uploadedFilePath: string = null;
-
-  selectedFile: File;
   ngOnInit() {
+    this.param = this.route.snapshot.paramMap.get('isbn13');
 
-    if (this.param) {
-      const id = this.param;
-      this.getBook(id);
-    }
+    this.getBook(this.param);
     forkJoin([
       this.tagservice.getTags(),
       this.authorservice.getAllAuthor()
     ]).subscribe({
-      next: Results => {
-        (this.tags = Results[0]),
-          (this.authors = Results[1]);
+      next: results => {
+        (this.tags = results[0]),
+          (this.authors = results[1]);
       }
     });
+  }
 
+  ngAfterViewInit(): void {
     this.isbn10.valueChanges
       .subscribe(x => this.book.isbn10 = x);
     this.isbn13.valueChanges
@@ -123,12 +119,7 @@ export class BookEditComponent implements OnInit, AfterViewInit {
     this.image.valueChanges
       .subscribe(x => this.book.image = x);
     this.tag.valueChanges
-      .subscribe(x => this.book.tags = x
-      );
-
-  }
-
-  ngAfterViewInit(): void {
+      .subscribe(x => this.book.tags = x);
   }
 
 
@@ -152,20 +143,16 @@ export class BookEditComponent implements OnInit, AfterViewInit {
       abstract: this.book.abstract,
       publisher: this.book.publisher,
       datePublished: this.book.date_published,
-      tag: this.book.tags[0].description,
       author: this.book.author.id,
     });
   }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
+
   save() {
     this.book.author = this.authors.find((x) => x.id === this.author.value);
     this.book.tags = [this.tags.find((x) => x.id === this.tag.value)];
     this.bookservice.updateBook(this.param, this.book).subscribe();
     this.router.navigate(['/books']);
-
   }
 
 
