@@ -131,21 +131,21 @@ describe('BookCreateComponent', () => {
   });
 
   it('should call onFileChanged', () => {
-    let event :any={
-      target:{
-        files:[]
+    const event: any = {
+      target: {
+        files: []
       }
-    }
+    };
     comp.onFileChanged(event);
     expect(comp.selectedFile).toEqual(event.target.files[0]);
   });
-  
+
   it('should call save', () => {
     comp.createBookForm.controls.tag.setValue('2020/05/06');
     const spy = spyOn(comp, 'save').and.callThrough();
     spyOn(MockService, 'createAuthor').and.callThrough();
     spyOn(MockService, 'postPicture').and.callThrough();
-    comp.tags=tags;
+    comp.tags = tags;
     comp.ngOnInit();
     comp.save();
     expect(spy).toHaveBeenCalled();

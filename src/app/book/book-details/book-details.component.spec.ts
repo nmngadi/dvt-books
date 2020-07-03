@@ -33,7 +33,6 @@ describe('BookDetailsComponent', () => {
 
   const BooksServiceMock: any = {
     getBook(): Observable<IBook> {
-      console.log('Im in book');
       return of(book);
       }
   };
@@ -55,6 +54,14 @@ describe('BookDetailsComponent', () => {
         comp = fixture.componentInstance;
       });
   }));
-
+  it(`should call ngOnit and call getBook `, async(() => {
+    fixture.detectChanges();
+    const spy = spyOn(BooksServiceMock, 'getBook').and.callThrough();
+    comp.ngOnInit();
+    comp.param = '9781940772486';
+    comp.book = book;
+    expect(spy).toHaveBeenCalled();
+    expect(comp.book.isbn13).toEqual(comp.param);
+  }));
 
 });
