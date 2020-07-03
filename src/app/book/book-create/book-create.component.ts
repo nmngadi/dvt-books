@@ -74,17 +74,15 @@ export class BookCreateComponent implements OnInit {
       },
     });
 
-    this.isbn10.valueChanges.subscribe((x) => (this.book.isbn10 = x));
-    this.isbn13.valueChanges.subscribe((x) => (this.book.isbn13 = x));
-    this.title.valueChanges.subscribe((x) => (this.book.title = x));
-    this.about.valueChanges.subscribe((x) => (this.book.about = x));
-    this.author.valueChanges.subscribe((x) => (this.book.author = x));
-    this.publisher.valueChanges.subscribe((x) => (this.book.publisher = x));
-    this.datePublished.valueChanges.subscribe(
-      (x) => (this.book.date_published = x)
-    );
-    this.image.valueChanges.subscribe((x) => (this.book.image = x));
-    this.tag.valueChanges.subscribe((x) => (this.book.tags = x));
+    this.isbn10.valueChanges.subscribe(x => this.book.isbn10 = x);
+    this.isbn13.valueChanges.subscribe(x => this.book.isbn13 = x);
+    this.title.valueChanges.subscribe(x => this.book.title = x);
+    this.about.valueChanges.subscribe(x => this.book.about = x);
+    this.author.valueChanges.subscribe(x => this.book.author = x);
+    this.publisher.valueChanges.subscribe(x => this.book.publisher = x);
+    this.datePublished.valueChanges.subscribe(x => this.book.date_published = x);
+    this.image.valueChanges.subscribe(x => this.book.image = x);
+    this.tag.valueChanges.subscribe(x => this.book.tags = x);
   }
 
   get isbn10(): AbstractControl {
@@ -126,7 +124,7 @@ export class BookCreateComponent implements OnInit {
     }
     this.book.author = this.authors.find((x) => x.id === this.author.value);
     this.booksservice.createBook(this.book).subscribe(() => {
-      this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 5000).subscribe();
+    this.booksservice.postPicture(this.isbn13.value, this.selectedFile, 5000).subscribe();
     });
     Swal.fire({
       icon: 'success',
