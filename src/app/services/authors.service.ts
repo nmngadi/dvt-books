@@ -21,10 +21,7 @@ export class AuthorService {
     this.searchUrl = environment.authorUrl + '?top=' + top + '&skip=' + skip;
     return this.http.get<IAuthor[]>(this.searchUrl);
   }
-  getAuthorsSearch(query?: string, skip?: number, top?: number): Observable<IAuthor[]> {
-    this.searchUrl = environment.authorUrl + '?query=' + query + '&top=' + top + '&skip=' + skip;
-    return this.http.get<IAuthor[]>(this.searchUrl);
-  }
+
 
   getAuthor(id: string): Observable<IAuthor> {
     return this.http
