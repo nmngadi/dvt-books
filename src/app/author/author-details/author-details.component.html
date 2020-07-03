@@ -35,7 +35,7 @@
                     <h4 class="book-title"><a href="#">{{authorbook.isbn13|isbn:true}}</a></h4>
                     <div class="text-lg text-medium text-muted">{{authorbook.title}}</div>
                   </div>
-                  <button [routerLink]="['/book', authorbook.isbn13, 'details']" i18n="
+                  <button [routerLink]="['/books', authorbook.isbn13, 'details']" i18n="
                                       View book Details Header|Words View book Details Header@@Words
                                       View book Details Header">
                     View book Details
