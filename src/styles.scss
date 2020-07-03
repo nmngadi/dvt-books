@@ -4,7 +4,7 @@ $white: #fff;
 html,
 body {
   height: 100%;
-  background-color: #e6e7e8;
+  width: 100%;
   font-family: 'Arvo', serif;
 }
 
@@ -18,7 +18,6 @@ h1 {
 .container {
   padding: 30px;
   font-size: larger;
-  background-color: white;
 }
 
 .mat-drawer-container {
