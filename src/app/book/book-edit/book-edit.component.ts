@@ -88,7 +88,6 @@ export class BookEditComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('isbn13');
-
     this.getBook(this.param);
     forkJoin([
       this.tagservice.getTags(),

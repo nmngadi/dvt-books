@@ -100,15 +100,16 @@ describe('BookEditComponent', () => {
         RouterTestingModule,
       ],
       providers: [{ provide: BooksService, useValue: BookMockService },
-        { provide: AuthorService, useValue: MockService },
-        { provide: TagService, useValue: MockService }
+      { provide: AuthorService, useValue: MockService },
+      { provide: TagService, useValue: MockService }
       ]
     })
       .compileComponents()
       .then(() => {
         fixture = TestBed.createComponent(BookEditComponent);
         comp = fixture.componentInstance;
-        comp.book = mockBook;
+
+
       });
   }));
 
@@ -149,7 +150,7 @@ describe('BookEditComponent', () => {
     comp.editBookForm.controls.datePublished.setValue('2020/05/06');
     comp.editBookForm.controls.image.setValue('2020/05/06');
     comp.editBookForm.controls.tag.setValue('2020/05/06');
-    comp.book = mockBook ;
+    comp.book = mockBook;
     comp.ngAfterViewInit();
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
