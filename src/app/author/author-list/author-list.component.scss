@@ -22,7 +22,6 @@ body {
 .grid-item {
   height: 550px;
   flex-basis: 20%;
-  -ms-flex: auto;
   width: 259px;
   position: relative;
   padding: 10px;
@@ -153,6 +152,10 @@ body {
 ul{
   align-content: center;
 }
+#button{
+  width: 150px!important;
+  align-content: center;
+}
 @media(max-width: 1333px) {
   .grid-item {
     flex-basis: 33.33%;
@@ -176,3 +179,4 @@ ul{
     flex-basis: 100%;
   }
 }
+
