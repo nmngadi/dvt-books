@@ -17,7 +17,7 @@ export class AuthorListComponent implements OnInit {
   searchinput: string;
   top = 4;
   skip = 0;
-
+  AuthorAdd: IAuthor[] = new Array();
   displayViewMore: boolean;
 
   constructor(private authorservice: AuthorService, private fb: FormBuilder, public auth: AuthService) {
@@ -26,37 +26,38 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
-  get searchstr(): AbstractControl {
+  get searchStr(): AbstractControl {
     return this.searchForm.get('searchStr');
   }
 
   ngOnInit() {
-
+    this.displayViewMore = true;
     this.getAuthorsPageinated();
   }
   searchAuthor() {
-    this.authorservice.getAuthorsSearch(this.searchinput).subscribe({
+    this.authorservice.getAllAuthor(this.searchinput).subscribe({
       next: authors => {
         this.authors = authors;
+        this.displayViewMore = false;
       }
     });
   }
 
   getAuthorsPageinated(): void {
-    let AuthorAdd: IAuthor[] = new Array();
-    AuthorAdd = this.authors;
+
+    this.AuthorAdd = this.authors;
     this.authorservice.getAuthorFilter(this.skip, this.top).subscribe((authorFilter) => {
       if (authorFilter.length < this.top) {
         this.displayViewMore = false;
       }
       authorFilter.forEach((x) => {
-        AuthorAdd.push(x);
+        this.AuthorAdd.push(x);
       });
     });
-    this.authors = AuthorAdd;
+    this.authors = this.AuthorAdd;
   }
 
-  GetMoreAuthors() {
+  getMoreAuthors() {
     this.skip = this.skip + 4;
     this.getAuthorsPageinated();
 

@@ -143,8 +143,7 @@ export class BookEditComponent implements OnInit, AfterViewInit {
 
   displayBook(book: IBook) {
     this.book = book;
-
-
+    console.log(book.date_published);
     this.editBookForm.patchValue({
       isbn10: this.book.isbn10,
       isbn13: this.book.isbn13,
@@ -152,10 +151,9 @@ export class BookEditComponent implements OnInit, AfterViewInit {
       about: this.book.about,
       abstract: this.book.abstract,
       publisher: this.book.publisher,
-      date_published: this.datePublished,
+      datePublished: this.book.date_published,
+      tag: this.book.tags[0].description,
       author: this.book.author.id,
-
-
     });
   }
 
