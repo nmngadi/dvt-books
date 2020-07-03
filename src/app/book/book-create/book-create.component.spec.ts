@@ -142,6 +142,7 @@ describe('BookCreateComponent', () => {
 
   it('should call save', () => {
     comp.createBookForm.controls.tag.setValue('2020/05/06');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
     const spy = spyOn(comp, 'save').and.callThrough();
     spyOn(MockService, 'createAuthor').and.callThrough();
     spyOn(MockService, 'postPicture').and.callThrough();
