@@ -32,8 +32,5 @@ export class BooksService {
     return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image).pipe( delay(delayDuration));
   }
 
-  updatePicture(isbn13: string, image: File) {
-    return this.http.put(`${environment.booksUrl}/${isbn13}/picture`, image);
-  }
 }
 
