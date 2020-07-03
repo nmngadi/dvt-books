@@ -17,7 +17,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.param = this.route.snapshot.paramMap.get('id');
-      this.authorservice.getAuthor(this.param).subscribe({
+    this.authorservice.getAuthor(this.param).subscribe({
         next: (author) => {
           this.author = author;
         }

@@ -64,17 +64,19 @@ describe('AuthorEditComponent', () => {
     comp.editAuthorForm.controls.about.setValue('writes about C#');
     expect(comp.editAuthorForm.valid).toBeTruthy();
   }));
+
   it(`form should call ngAfterViewInit()`, async(() => {
+    const spy = spyOn(comp, 'ngAfterViewInit').and.callThrough();
     comp.editAuthorForm.controls.firstName.setValue('Jane');
     comp.editAuthorForm.controls.lastName.setValue('Doe');
     comp.editAuthorForm.controls.middleNames.setValue('Jill');
     comp.editAuthorForm.controls.about.setValue('writes about C#');
-    comp.ngOnInit();
     comp.author = author;
-    const spy = spyOn(comp, 'ngAfterViewInit').and.callThrough();
     comp.ngAfterViewInit();
+    fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
   }));
+
   it(`ngOnInit is called`, async(() => {
     comp.editAuthorForm.controls.firstName.setValue('Jane');
     comp.editAuthorForm.controls.lastName.setValue('Doe');
@@ -83,10 +85,12 @@ describe('AuthorEditComponent', () => {
     const spy = spyOn(comp, 'getAuthor').and.callThrough();
     comp.param = '1';
     comp.ngOnInit();
+    fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
     expect(comp.author.id).toEqual(comp.param);
   }));
-  it('should call create author method', async () => {
+
+  it('should call edit author method', async () => {
     const spyauthor = spyOn(AuthorServiceMock, 'updateAuthor').and.callThrough();
     const spysave = spyOn(comp, 'save').and.callThrough();
     fixture.debugElement.query(By.css('form')).triggerEventHandler('ngSubmit', null);
@@ -94,7 +98,5 @@ describe('AuthorEditComponent', () => {
     comp.save();
     expect(spyauthor).toHaveBeenCalled();
   });
-
-
 
 });
