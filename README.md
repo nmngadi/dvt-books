@@ -1,7 +1,7 @@
 
 # Dvt Books
 [![CircleCI](https://circleci.com/gh/nmngadi/dvt-books/tree/develop.svg?style=svg)](https://circleci.com/gh/nmngadi/dvt-books)
-
+[![codecov](https://codecov.io/gh/nmngadi/dvt-books/branch/develop/graph/badge.svg)](https://codecov.io/gh/nmngadi/dvt-books)
 [![GitHub issues](https://img.shields.io/github/issues/nmngadi/dvt-books)](https://github.com/nmngadi/dvt-books/issues)
 
 
