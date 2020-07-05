@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { By } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
 import { IAuthor } from 'src/app/interfaces/author';
+import { DialogService } from 'src/app/guards/dialog.service';
 
 describe('AuthorCreateComponent', () => {
   let comp: AuthorCreateComponent;
@@ -26,7 +27,8 @@ describe('AuthorCreateComponent', () => {
         HttpClientModule,
         RouterTestingModule,
       ],
-      providers: [{ provide: AuthorService, useValue: AuthorServiceMock }],
+      providers: [{ provide: AuthorService, useValue: AuthorServiceMock },
+        { provide: DialogService}],
     })
       .compileComponents()
       .then(() => {
@@ -87,7 +89,7 @@ describe('AuthorCreateComponent', () => {
     comp.createAuthorForm.controls.middleNames.setValue('Jill');
     comp.createAuthorForm.controls.about.setValue('writes about C#');
     const actual = comp.canDeactivate();
-    expect(actual).toBe(false);
+    expect(actual).toBe(true);
     });
   it('should return true on valid form when canDeactivate is called', () => {
       comp.ngOnInit();

@@ -10,6 +10,8 @@ import { of, Observable } from 'rxjs';
 import { IAuthor } from 'src/app/interfaces/author';
 import { ITag } from 'src/app/interfaces/tag';
 import { IBook } from 'src/app/interfaces/books';
+import { BooksService } from 'src/app/services/books.service';
+import { DialogService } from 'src/app/guards/dialog.service';
 
 
 describe('BookCreateComponent', () => {
@@ -75,8 +77,8 @@ describe('BookCreateComponent', () => {
     }
   ];
   const MockService: any = {
-    createAuthor() { },
-    postPicture() { },
+    createBook(): Observable<IAuthor[]> { return of(); },
+    postPicture(): Observable<IAuthor[]> { return of(); },
     getAllAuthor(): Observable<IAuthor[]> { return of(authors); },
     getTags(): Observable<ITag[]> { return of(tags); }
   };
@@ -91,7 +93,9 @@ describe('BookCreateComponent', () => {
         RouterTestingModule,
       ],
       providers: [{ provide: AuthorService, useValue: MockService },
-      { provide: TagService, useValue: MockService }],
+      { provide: TagService, useValue: MockService },
+      { provide: BooksService, useValue: MockService },
+      { provide: DialogService}],
     })
       .compileComponents()
       .then(() => {
@@ -144,7 +148,7 @@ describe('BookCreateComponent', () => {
     comp.createBookForm.controls.tag.setValue('2020/05/06');
     comp.createBookForm.controls.author.setValue('Java for begineers');
     const spy = spyOn(comp, 'save').and.callThrough();
-    spyOn(MockService, 'createAuthor').and.callThrough();
+    spyOn(MockService, 'createBook').and.callThrough();
     spyOn(MockService, 'postPicture').and.callThrough();
     comp.tags = tags;
     comp.ngOnInit();
