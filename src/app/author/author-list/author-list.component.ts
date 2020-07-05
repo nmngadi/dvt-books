@@ -5,6 +5,7 @@ import { IAuthor } from 'src/app/interfaces/author';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-author-list',
@@ -19,7 +20,7 @@ export class AuthorListComponent implements OnInit {
   skip = 0;
   AuthorAdd: IAuthor[] = new Array();
   displayViewMore: boolean;
-
+  loading$ = new BehaviorSubject<boolean>(true);
   constructor(private authorservice: AuthorService, private fb: FormBuilder, public auth: AuthService) {
     this.searchForm = this.fb.group({
       searchStr: [''],
@@ -52,7 +53,9 @@ export class AuthorListComponent implements OnInit {
       }
       authorFilter.forEach((x) => {
         this.AuthorAdd.push(x);
+        this.loading$.next(false);
       });
+
     });
     this.authors = this.AuthorAdd;
   }

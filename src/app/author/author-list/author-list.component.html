@@ -54,5 +54,7 @@
     </button>
   </div>
   </div>
-
+  <div *ngIf="loading$ | async">
+    <app-loader></app-loader>
+  </div>
 </div>
