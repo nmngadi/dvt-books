@@ -8,9 +8,12 @@ import {
 } from '@angular/forms';
 import { AuthorService } from 'src/app/services/authors.service';
 import { IAuthor } from 'src/app/interfaces/author';
-import { Router } from '@angular/router';
+import { Router, RouterStateSnapshot } from '@angular/router';
 import { textonlyValidation } from 'src/app/validations/text-only.validation';
 import Swal from 'sweetalert2';
+import { swalProviderToken } from '@sweetalert2/ngx-sweetalert2/lib/di';
+import { Observable } from 'rxjs';
+import { DialogService } from 'src/app/guards/dialog.service';
 
 @Component({
   selector: 'app-author-create',
@@ -22,7 +25,7 @@ export class AuthorCreateComponent implements OnInit {
   author: IAuthor;
 
   hasUnsavedChanges = false;
-  constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router) {
+  constructor(private fb: FormBuilder, private authorservice: AuthorService, private router: Router, private dialogService: DialogService) {
     this.createAuthorForm = this.fb.group({
       firstName: ['', [Validators.required, textonlyValidation()]],
       lastName: ['', [textonlyValidation()]],
@@ -65,18 +68,11 @@ export class AuthorCreateComponent implements OnInit {
       this.hasUnsavedChanges = true;
     }
   }
-  canDeactivate() {
-
-    if (this.createAuthorForm.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'unsaved changes',
-        text: `Please complete form`
-      });
-      return false;
-    } else if (!this.createAuthorForm.invalid) {
-      return true;
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.createAuthorForm.valid && this.createAuthorForm.dirty) {
+      return this.dialogService.confirm('Discard unsaved on author add?');
     }
+    return true;
   }
 
   save() {
