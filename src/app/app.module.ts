@@ -15,6 +15,7 @@ import { ErrorPageComponent } from './shared/components/error-page/error-page.co
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CanDeactivateGuard } from './guards/can-deactivate.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { DialogService } from './guards/dialog.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AuthGuard } from './guards/auth.guard';
     AuthorModule,
     BookModule
   ],
-  providers: [CanDeactivateGuard, AuthGuard],
+  providers: [CanDeactivateGuard, AuthGuard,DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
