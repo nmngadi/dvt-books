@@ -37,7 +37,7 @@ import { DialogService } from './guards/dialog.service';
     AuthorModule,
     BookModule
   ],
-  providers: [CanDeactivateGuard, AuthGuard,DialogService],
+  providers: [CanDeactivateGuard, AuthGuard, DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

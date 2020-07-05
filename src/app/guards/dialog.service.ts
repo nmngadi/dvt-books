@@ -7,5 +7,5 @@ export class DialogService {
   confirm(message?: string): Observable<boolean> {
     const confirmation = window.confirm(message || 'Are you sure you want to leave?');
     return of(confirmation);
-  };
+  }
 }
