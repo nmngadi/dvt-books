@@ -22,8 +22,8 @@ describe('CanDeactivateGuard', () => {
         RouterTestingModule
       ]
     });
-    service = TestBed.get(CanDeactivateGuard);
-    mockComponent = TestBed.get(MockComponent);
+    service = TestBed.inject(CanDeactivateGuard);
+    mockComponent = TestBed.inject(MockComponent);
   });
 
   it('expect service to instantiate', () => {
