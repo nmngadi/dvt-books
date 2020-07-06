@@ -64,9 +64,7 @@ export class AuthorCreateComponent implements OnInit {
       .subscribe(x => this.author.middle_names = x);
     this.about.valueChanges
       .subscribe(x => this.author.about = x);
-    if (this.createAuthorForm.invalid) {
-      this.hasUnsavedChanges = true;
-    }
+
   }
   canDeactivate(): Observable<boolean> | boolean {
     if (!this.createAuthorForm.valid && this.createAuthorForm.dirty) {

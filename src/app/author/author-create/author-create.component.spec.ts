@@ -97,6 +97,7 @@ describe('AuthorCreateComponent', () => {
       comp.createAuthorForm.controls.lastName.setValue('Doe');
       comp.createAuthorForm.controls.middleNames.setValue('Jill');
       comp.createAuthorForm.controls.about.setValue('writes about C#');
+
       const actual = comp.canDeactivate();
       expect(actual).toBe(true);
       });
