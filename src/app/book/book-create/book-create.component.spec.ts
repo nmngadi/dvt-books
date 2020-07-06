@@ -95,7 +95,7 @@ describe('BookCreateComponent', () => {
       providers: [{ provide: AuthorService, useValue: MockService },
       { provide: TagService, useValue: MockService },
       { provide: BooksService, useValue: MockService },
-      { provide: DialogService}],
+      { provide: DialogService }],
     })
       .compileComponents()
       .then(() => {
@@ -143,7 +143,35 @@ describe('BookCreateComponent', () => {
     comp.onFileChanged(event);
     expect(comp.selectedFile).toEqual(event.target.files[0]);
   });
+  it('should return false on invalid form when canDeactivate is called', () => {
+    comp.ngOnInit();
+    comp.createBookForm.controls.isbn10.setValue('0198534531');
+    comp.createBookForm.controls.isbn13.setValue('9780446545921');
+    comp.createBookForm.controls.title.setValue('Java for begineers');
+    comp.createBookForm.controls.about.setValue('Java for begineers');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    comp.createBookForm.controls.publisher.setValue('Java for begineers');
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    comp.createBookForm.controls.image.setValue('2020/05/06');
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
+    const actual = comp.canDeactivate();
+    expect(actual).toBe(true);
+  });
+  it('should return true on valid form when canDeactivate is called', () => {
+    comp.ngOnInit();
+    comp.createBookForm.controls.isbn10.setValue('0198534531');
+    comp.createBookForm.controls.isbn13.setValue('9780446545921');
+    comp.createBookForm.controls.title.setValue('Java for begineers');
+    comp.createBookForm.controls.about.setValue('Java for begineers');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    comp.createBookForm.controls.publisher.setValue('Java for begineers');
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    comp.createBookForm.controls.image.setValue('2020/05/06');
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
 
+    const actual = comp.canDeactivate();
+    expect(actual).toBe(true);
+  });
   it('should call save', () => {
     comp.createBookForm.controls.tag.setValue('2020/05/06');
     comp.createBookForm.controls.author.setValue('Java for begineers');
