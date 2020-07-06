@@ -1,4 +1,4 @@
-import { CanDeactivateGuard } from "./can-deactivate.guard";
+import { CanDeactivateGuard } from './can-deactivate.guard';
 import { TestBed } from '@angular/core/testing';
 import { Observable, Subject } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -39,21 +39,21 @@ describe('CanDeactivateGuard', () => {
 
     const subject$ = new Subject<boolean>();
     mockComponent.returnValue = subject$.asObservable();
-    const canDeactivate$ = <Observable<boolean>>service.canDeactivate(mockComponent);
+    const canDeactivate$ = service.canDeactivate(mockComponent) as Observable<boolean>;
 
     canDeactivate$.subscribe((deactivate) => {
       expect(deactivate).toBeTruthy();
     });
 
     subject$.next(true);
-    expect()
+    expect();
   });
 
   it('will not route if guarded and user rejected the dialog', () => {
 
     const subject$ = new Subject<boolean>();
     mockComponent.returnValue = subject$.asObservable();
-    const canDeactivate$ = <Observable<boolean>>service.canDeactivate(mockComponent);
+    const canDeactivate$ = service.canDeactivate(mockComponent) as Observable<boolean>;
 
     canDeactivate$.subscribe((deactivate) => {
       expect(deactivate).toBeFalsy();
