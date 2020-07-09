@@ -30,12 +30,12 @@ describe('CanDeactivateGuard', () => {
     expect(service).toBeTruthy();
   });
 
-  it('can route if unguarded', () => {
+  it('should route if unguarded', () => {
     mockComponent.returnValue = true;
     expect(service.canDeactivate(mockComponent)).toBeTruthy();
   });
 
-  it('will route if guarded and user accepted the dialog', () => {
+  it('should route if guarded and user accepted the dialog', () => {
 
     const subject$ = new Subject<boolean>();
     mockComponent.returnValue = subject$.asObservable();
@@ -49,7 +49,7 @@ describe('CanDeactivateGuard', () => {
     expect();
   });
 
-  it('will not route if guarded and user rejected the dialog', () => {
+  it('should not route if guarded and user rejected the dialog', () => {
 
     const subject$ = new Subject<boolean>();
     mockComponent.returnValue = subject$.asObservable();
