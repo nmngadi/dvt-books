@@ -24,18 +24,14 @@ export class AuthorService {
 
 
   getAuthor(id: string): Observable<IAuthor> {
-    return this.http
-      .get<IAuthor>(`${environment.authorUrl}/${id}`);
+    return this.http.get<IAuthor>(`${environment.authorUrl}/${id}`);
   }
 
   createAuthor(author: IAuthor): Observable<IAuthor> {
-    return this.http
-      .post<IAuthor>(environment.authorUrl, author);
-
+    return this.http.post<IAuthor>(environment.authorUrl, author);
   }
 
   updateAuthor(author: IAuthor): Observable<IAuthor> {
-    return this.http
-      .put<IAuthor>(`${environment.authorUrl}/${author.id}`, author);
+    return this.http.put<IAuthor>(`${environment.authorUrl}/${author.id}`, author);
   }
 }
