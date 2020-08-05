@@ -21,24 +21,17 @@ export class AuthorService {
     this.searchUrl = environment.authorUrl + '?top=' + top + '&skip=' + skip;
     return this.http.get<IAuthor[]>(this.searchUrl);
   }
-  getAuthorsSearch(query?: string, skip?: number, top?: number): Observable<IAuthor[]> {
-    this.searchUrl = environment.authorUrl + '?query=' + query + '&top=' + top + '&skip=' + skip;
-    return this.http.get<IAuthor[]>(this.searchUrl);
-  }
+
 
   getAuthor(id: string): Observable<IAuthor> {
-    return this.http
-      .get<IAuthor>(`${environment.authorUrl}/${id}`);
+    return this.http.get<IAuthor>(`${environment.authorUrl}/${id}`);
   }
 
   createAuthor(author: IAuthor): Observable<IAuthor> {
-    return this.http
-      .post<IAuthor>(environment.authorUrl, author);
-
+    return this.http.post<IAuthor>(environment.authorUrl, author);
   }
 
   updateAuthor(author: IAuthor): Observable<IAuthor> {
-    return this.http
-      .put<IAuthor>(`${environment.authorUrl}/${author.id}`, author);
+    return this.http.put<IAuthor>(`${environment.authorUrl}/${author.id}`, author);
   }
 }

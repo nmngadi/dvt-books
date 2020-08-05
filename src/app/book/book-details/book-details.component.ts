@@ -15,14 +15,11 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.param = this.route.snapshot.paramMap.get('isbn13');
-    if (this.param) {
-      this.bookservice.getBook(this.param).subscribe({
-        next: (book) => {
-          this.book = book;
-        }
-      });
-
-    }
+    this.bookservice.getBook(this.param).subscribe({
+      next: (book) => {
+        this.book = book;
+      }
+    });
   }
 
 }

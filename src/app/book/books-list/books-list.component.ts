@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { startWith, map, switchAll, tap } from 'rxjs/operators';
 import { IBook } from 'src/app/interfaces/books';
-import { DomSanitizer } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -40,7 +39,5 @@ export class BooksListComponent implements OnInit {
         this.books = books;
         this.loading$.next(false);
       });
-
-
   }
 }

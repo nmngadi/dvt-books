@@ -38,14 +38,14 @@
               </div>
               <ul class="list-inline m-0">
                 <li class="list-inline-item">
-                  <button class="btn btn-success" [routerLink]="['/book', book.isbn13, 'edit']" title="Edit"
+                  <button class="btn btn-success" [routerLink]="['/books', book.isbn13, 'edit']" title="Edit"
                     *ngIf="auth.isAdmin">
                     <i class="fa fa-edit"></i>
                   </button>
                 </li>
                 <li class="list-inline-item">
                   <button class="btn btn-primary" title="View">
-                    <i class="fa fa-eye" [routerLink]="['/book', book.isbn13, 'details']"></i>
+                    <i class="fa fa-eye" [routerLink]="['/books', book.isbn13, 'details']"></i>
                   </button>
                 </li>
               </ul>

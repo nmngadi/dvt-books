@@ -27,10 +27,23 @@
 img.blur {
     -webkit-filter: blur(2px);
     filter: blur(2px);
-  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
-
 }
+
 body{
   background-color: #dee9ff;
 }
+
+.hero{
+  background-color:white;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.item{
+  margin: 100px;
+}
+
 

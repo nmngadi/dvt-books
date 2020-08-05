@@ -32,13 +32,13 @@
 
               <ul>
                 <li class="list-inline-item">
-                  <button class="btn btn-success" title="Edit" [routerLink]="['/author', author.id, 'edit']"
+                  <button class="btn btn-success" title="Edit" [routerLink]="['/authors', author.id, 'edit']"
                     *ngIf="auth.isAdmin">
                     <i class="fa fa-edit"></i>
                   </button>
                 </li>
                 <li class="list-inline-item">
-                  <button class="btn btn-primary" title="View" [routerLink]="['/author', author.id, 'details']">
+                  <button class="btn btn-primary" title="View" [routerLink]="['/authors', author.id, 'details']">
                     <i class="fa fa-eye"></i>
                   </button>
                 </li>
@@ -48,8 +48,13 @@
         </div>
       </div>
     </div>
+    <div>
+    <button type="submit" id="button" class="btn btn-outline-primary" *ngIf="displayViewMore" (click)="getMoreAuthors()">
+      Load More <i class="fas fa-spinner"></i>
+    </button>
   </div>
-  <button type="submit" class="btn btn-lg btn-outline-primary" (click)="GetMoreAuthors()">
-    Load More <i class="fas fa-spinner"></i>
-  </button>
+  </div>
+  <div *ngIf="loading$ | async">
+    <app-loader></app-loader>
+  </div>
 </div>

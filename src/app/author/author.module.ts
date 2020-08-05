@@ -8,9 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 import { CanDeactivateGuard } from '../guards/can-deactivate.guard';
 import { AuthGuard } from '../guards/auth.guard';
 
-
-
-
 @NgModule({
   declarations: [
     AuthorListComponent,
@@ -20,10 +17,14 @@ import { AuthGuard } from '../guards/auth.guard';
   ],
   imports: [
     RouterModule.forChild([
-      { path: 'authors', component: AuthorListComponent },
-      { path: 'authors/new', component: AuthorCreateComponent, canDeactivate: [CanDeactivateGuard], canActivate: [AuthGuard] },
-      { path: 'author/:id/edit', component: AuthorEditComponent },
-      { path: 'author/:id/details', component: AuthorDetailsComponent }
+      {
+        path: '',
+        children: [
+          { path: '', component: AuthorListComponent },
+          { path: 'new', component: AuthorCreateComponent, canDeactivate: [CanDeactivateGuard], canActivate: [AuthGuard] },
+          { path: ':id/edit', component: AuthorEditComponent },
+          { path: ':id/details', component: AuthorDetailsComponent }]
+      }
     ]),
     SharedModule
   ]

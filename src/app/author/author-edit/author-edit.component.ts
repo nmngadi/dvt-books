@@ -37,11 +37,9 @@ export class AuthorEditComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.route.snapshot.paramMap.get('id');
-    if (this.param) {
-      this.getAuthor(this.param);
-      this.author.id = this.param;
-    }
+    this.param = this.route.snapshot.paramMap.get('id');
+    this.getAuthor(this.param);
+    this.author.id = this.param;
   }
 
 

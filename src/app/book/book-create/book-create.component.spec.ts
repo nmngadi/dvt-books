@@ -9,6 +9,10 @@ import { TagService } from 'src/app/services/tags.service';
 import { of, Observable } from 'rxjs';
 import { IAuthor } from 'src/app/interfaces/author';
 import { ITag } from 'src/app/interfaces/tag';
+import { IBook } from 'src/app/interfaces/books';
+import { BooksService } from 'src/app/services/books.service';
+import { DialogService } from 'src/app/guards/dialog.service';
+
 
 describe('BookCreateComponent', () => {
   let comp: BookCreateComponent;
@@ -25,6 +29,25 @@ describe('BookCreateComponent', () => {
       description: 'Apple'
     }
   ];
+  const mockBook: IBook = {
+    isbn13: '9452123456803',
+    title: 'BI Development',
+    about: 'Microsoft technologies',
+    author: {
+      href: 'http://localhost:4201/Authors/70088445-6ee2-4745-81d1-8faa4f491658',
+      id: '70088445-6ee2-4745-81d1-8faa4f491658',
+      name: 'Luyanda Weezy Mashabane'
+    },
+    publisher: '',
+    tags: [
+      {
+        id: 'React',
+        href: 'http://localhost:4201/Tags/React',
+        description: 'React'
+      }
+    ]
+  } as IBook;
+
   const authors = [
     {
       href: 'http://localhost:4201/Authors/11490d67-f56f-422a-8e84-ba95d306e976',
@@ -54,7 +77,8 @@ describe('BookCreateComponent', () => {
     }
   ];
   const MockService: any = {
-    createAuthor() { },
+    createBook(): Observable<IAuthor[]> { return of(); },
+    postPicture(): Observable<IAuthor[]> { return of(); },
     getAllAuthor(): Observable<IAuthor[]> { return of(authors); },
     getTags(): Observable<ITag[]> { return of(tags); }
   };
@@ -69,20 +93,36 @@ describe('BookCreateComponent', () => {
         RouterTestingModule,
       ],
       providers: [{ provide: AuthorService, useValue: MockService },
-      { provide: TagService, useValue: MockService }],
+      { provide: TagService, useValue: MockService },
+      { provide: BooksService, useValue: MockService },
+      { provide: DialogService }],
     })
       .compileComponents()
       .then(() => {
         fixture = TestBed.createComponent(BookCreateComponent);
-
         comp = fixture.componentInstance;
       });
   }));
 
   it(`control should be invalid if its not a valid date format`, () => {
     comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+
     expect(comp.datePublished.valid).toBeTrue();
   });
+
+  it(`form should be valid`, async(() => {
+    comp.ngOnInit();
+    comp.createBookForm.controls.isbn10.setValue('0198534531');
+    comp.createBookForm.controls.isbn13.setValue('9780446545921');
+    comp.createBookForm.controls.title.setValue('Java for begineers');
+    comp.createBookForm.controls.about.setValue('Java for begineers');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    comp.createBookForm.controls.publisher.setValue('Java for begineers');
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    comp.createBookForm.controls.image.setValue('2020/05/06');
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
+    expect(comp.createBookForm.valid).toBeTrue();
+  }));
 
   it('should call ngOnInit', () => {
     const spy = spyOn(comp, 'ngOnInit').and.callThrough();
@@ -91,6 +131,56 @@ describe('BookCreateComponent', () => {
     comp.ngOnInit();
     MockService.getTags();
     MockService.getAllAuthor();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should call onFileChanged', () => {
+    const event: any = {
+      target: {
+        files: []
+      }
+    };
+    comp.onFileChanged(event);
+    expect(comp.selectedFile).toEqual(event.target.files[0]);
+  });
+  it('should return false on invalid form when canDeactivate is called', () => {
+    comp.ngOnInit();
+    comp.createBookForm.controls.isbn10.setValue('0198534531');
+    comp.createBookForm.controls.isbn13.setValue('9780446545921');
+    comp.createBookForm.controls.title.setValue('Java for begineers');
+    comp.createBookForm.controls.about.setValue('Java for begineers');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    comp.createBookForm.controls.publisher.setValue('Java for begineers');
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    comp.createBookForm.controls.image.setValue('2020/05/06');
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
+    const actual = comp.canDeactivate();
+    expect(actual).toBe(true);
+  });
+  it('should return true on valid form when canDeactivate is called', () => {
+    comp.ngOnInit();
+    comp.createBookForm.controls.isbn10.setValue('0198534531');
+    comp.createBookForm.controls.isbn13.setValue('9780446545921');
+    comp.createBookForm.controls.title.setValue('Java for begineers');
+    comp.createBookForm.controls.about.setValue('Java for begineers');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    comp.createBookForm.controls.publisher.setValue('Java for begineers');
+    comp.createBookForm.controls.datePublished.setValue('2020/05/06');
+    comp.createBookForm.controls.image.setValue('2020/05/06');
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
+
+    const actual = comp.canDeactivate();
+    expect(actual).toBe(true);
+  });
+  it('should call save', () => {
+    comp.createBookForm.controls.tag.setValue('2020/05/06');
+    comp.createBookForm.controls.author.setValue('Java for begineers');
+    const spy = spyOn(comp, 'save').and.callThrough();
+    spyOn(MockService, 'createBook').and.callThrough();
+    spyOn(MockService, 'postPicture').and.callThrough();
+    comp.tags = tags;
+    comp.ngOnInit();
+    comp.save();
     expect(spy).toHaveBeenCalled();
   });
 

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { IAuthor } from 'src/app/interfaces/author';
 import { AuthorDetailsComponent } from './author-details.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('AuthorDetailsComponent', () => {
   let comp: AuthorDetailsComponent;
@@ -41,6 +42,7 @@ describe('AuthorDetailsComponent', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule,
+        SharedModule
       ],
       providers: [{ provide: AuthorService, useValue: AuthorServiceMock }],
     })
@@ -52,17 +54,18 @@ describe('AuthorDetailsComponent', () => {
   }));
 
 
-  xit(`should call ngOnit and call getAuthor `, async(() => {
+  it(`should call ngOnit and call getAuthor `, async(() => {
+    fixture.detectChanges();
     const spy = spyOn(AuthorServiceMock, 'getAuthor').and.callThrough();
+    comp.ngOnInit();
     comp.param = '70088445-6ee2-4745-81d1-8faa4f491658';
     comp.author = author;
-    comp.ngOnInit();
-    expect(spy).toHaveBeenCalledWith(comp.param);
+    expect(spy).toHaveBeenCalled();
     expect(comp.author.id).toEqual(comp.param);
   }));
 
   xit(`should call ngOnit and call getAuthor `, async(() => {
-    const spy = spyOn(AuthorServiceMock, 'getAuthor').and.callThrough();
+    const spy = spyOn(AuthorServiceMock.getAuthor, 'subscribe').and.callThrough();
     comp.param = '';
     comp.author = author;
     comp.ngOnInit();

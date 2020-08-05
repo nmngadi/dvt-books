@@ -118,5 +118,40 @@ describe('BooksService', () => {
       });
       req.event(expectedResponse);
     });
+    it('should update an book and return it', () => {
+      const newBook: IBook = {
+        isbn13: '9452123456803',
+        title: 'BI Development',
+        about: 'Microsoft technologies',
+        author: {
+          href: 'http://localhost:4201/Authors/70088445-6ee2-4745-81d1-8faa4f491658',
+          id: '70088445-6ee2-4745-81d1-8faa4f491658',
+          name: 'Luyanda Weezy Mashabane'
+        },
+        publisher: '',
+        tags: [
+          {
+            id: 'React',
+            href: 'http://localhost:4201/Tags/React',
+            description: 'React'
+          }
+        ]
+      } as IBook;
+
+      bookService
+        .updateBook(newBook.isbn13, newBook)
+        .subscribe((data) =>
+          expect(data).toEqual(newBook, 'should return the book')
+        );
+      const req = httpTestingController.expectOne(`${environment.booksUrl}/${9452123456803}`);
+      expect(req.request.method).toEqual('PUT');
+      expect(req.request.body).toEqual(newBook);
+      const expectedResponse = new HttpResponse({
+        status: 201,
+        statusText: 'Updated',
+        body: newBook,
+      });
+      req.event(expectedResponse);
+    });
   });
 });

@@ -122,6 +122,10 @@
           "options": {
             "main": "src/test.ts",
             "codeCoverage": true,
+            "codeCoverageExclude": [
+              "src/app/services/auth.service.ts",
+              "src/app/guards/dialog.service.ts"
+            ],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
@@ -146,7 +150,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { IBook } from 'src/app/interfaces/books';
 import { ITag } from 'src/app/interfaces/tag';
 import { IAuthor } from 'src/app/interfaces/author';
@@ -12,6 +12,7 @@ import { dateFormat } from 'src/app/validations/date.validation';
 import { isbn13Validation } from 'src/app/validations/isbn13.validation';
 import { authorRef } from 'src/app/interfaces/authorRef';
 import Swal from 'sweetalert2';
+import { DialogService } from 'src/app/guards/dialog.service';
 
 @Component({
   selector: 'app-book-create',
@@ -36,7 +37,8 @@ export class BookCreateComponent implements OnInit {
     private booksservice: BooksService,
     private tagservice: TagService,
     private authorservice: AuthorService,
-    private router: Router
+    private router: Router,
+    private dialogService: DialogService
   ) {
     this.createBookForm = this.fb.group({
       isbn10: [''],
@@ -74,17 +76,15 @@ export class BookCreateComponent implements OnInit {
       },
     });
 
-    this.isbn10.valueChanges.subscribe((x) => (this.book.isbn10 = x));
-    this.isbn13.valueChanges.subscribe((x) => (this.book.isbn13 = x));
-    this.title.valueChanges.subscribe((x) => (this.book.title = x));
-    this.about.valueChanges.subscribe((x) => (this.book.about = x));
-    this.author.valueChanges.subscribe((x) => (this.book.author = x));
-    this.publisher.valueChanges.subscribe((x) => (this.book.publisher = x));
-    this.datePublished.valueChanges.subscribe(
-      (x) => (this.book.date_published = x)
-    );
-    this.image.valueChanges.subscribe((x) => (this.book.image = x));
-    this.tag.valueChanges.subscribe((x) => (this.book.tags = x));
+    this.isbn10.valueChanges.subscribe(x => this.book.isbn10 = x);
+    this.isbn13.valueChanges.subscribe(x => this.book.isbn13 = x);
+    this.title.valueChanges.subscribe(x => this.book.title = x);
+    this.about.valueChanges.subscribe(x => this.book.about = x);
+    this.author.valueChanges.subscribe(x => this.book.author = x);
+    this.publisher.valueChanges.subscribe(x => this.book.publisher = x);
+    this.datePublished.valueChanges.subscribe(x => this.book.date_published = x);
+    this.image.valueChanges.subscribe(x => this.book.image = x);
+    this.tag.valueChanges.subscribe(x => this.book.tags = x);
   }
 
   get isbn10(): AbstractControl {
@@ -117,7 +117,12 @@ export class BookCreateComponent implements OnInit {
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
-
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.createBookForm.valid && this.createBookForm.dirty) {
+      return this.dialogService.confirm('Discard unsaved on book add?');
+    }
+    return true;
+  }
   save() {
     for (let index = 0; index <= (this.tag.value).length - 1; index++) {
       const selected = this.tags.find((x) => x.id === this.tag.value[index]);

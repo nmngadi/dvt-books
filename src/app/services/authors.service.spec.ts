@@ -49,6 +49,18 @@ describe('AuthorsService', () => {
       httpTestingController.verify();
     });
 
+    it('should return Authors', (done: DoneFn) => {
+      authorService.getAuthorFilter(0, 4).subscribe((value) => {
+        expect(value).toBe(authors);
+        expect();
+        done();
+      });
+
+      const req = httpTestingController.expectOne(`${environment.authorUrl}?top=${4}&skip=${0}`);
+      req.flush(authors);
+      httpTestingController.verify();
+    });
+
 
 
     it('should get one author', () => {
@@ -78,6 +90,29 @@ describe('AuthorsService', () => {
         );
       const req = httpTestingController.expectOne(environment.authorUrl);
       expect(req.request.method).toEqual('POST');
+      expect(req.request.body).toEqual(newAuthor);
+      const expectedResponse = new HttpResponse({
+        status: 201,
+        statusText: 'Created',
+        body: newAuthor,
+      });
+      req.event(expectedResponse);
+    });
+    it('should update an author and return it', () => {
+      const newAuthor: IAuthor = {
+        middle_names: 'Jill',
+        last_name: 'Doe',
+        name: 'Jane Jill Doe',
+        about: 'writes about romance',
+      } as IAuthor;
+
+      authorService
+        .updateAuthor(newAuthor)
+        .subscribe((data) =>
+          expect(data).toEqual(newAuthor, 'should return the employee')
+        );
+      const req = httpTestingController.expectOne(`${environment.authorUrl}/undefined`);
+      expect(req.request.method).toEqual('PUT');
       expect(req.request.body).toEqual(newAuthor);
       const expectedResponse = new HttpResponse({
         status: 201,
